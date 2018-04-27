@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LIFT | Hexo</title>
+  <title>LIFT | AIBluefisher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="LIFT[1]是一种使用CNN来提取特征点(feature points / interests)的方法, 发表在ECCV 2016. 众所周知, 尽管在2004年就已经发表出来, 但是SIFT(Scale Invariant Feature Transform)在三维重建中一直至今都无可替代. 随着学习的火热, 研究人员开始将目光更多转向于寻求一种基于学习的方法来提取特征点, 从而代替人工设计的">
 <meta name="keywords" content="Paper Reading">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LIFT">
 <meta property="og:url" content="http://yoursite.com/2018/04/26/LIFT/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="AIBluefisher">
 <meta property="og:description" content="LIFT[1]是一种使用CNN来提取特征点(feature points / interests)的方法, 发表在ECCV 2016. 众所周知, 尽管在2004年就已经发表出来, 但是SIFT(Scale Invariant Feature Transform)在三维重建中一直至今都无可替代. 随着学习的火热, 研究人员开始将目光更多转向于寻求一种基于学习的方法来提取特征点, 从而代替人工设计的">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/img/lift/7.png">
@@ -22,16 +22,16 @@
 <meta property="og:image" content="http://yoursite.com/img/lift/3.png">
 <meta property="og:image" content="http://yoursite.com/img/lift/4.png">
 <meta property="og:image" content="http://yoursite.com/img/lift/5.png">
-<meta property="og:updated_time" content="2018-04-26T09:56:16.764Z">
+<meta property="og:updated_time" content="2018-04-27T04:55:18.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LIFT">
 <meta name="twitter:description" content="LIFT[1]是一种使用CNN来提取特征点(feature points / interests)的方法, 发表在ECCV 2016. 众所周知, 尽管在2004年就已经发表出来, 但是SIFT(Scale Invariant Feature Transform)在三维重建中一直至今都无可替代. 随着学习的火热, 研究人员开始将目光更多转向于寻求一种基于学习的方法来提取特征点, 从而代替人工设计的">
 <meta name="twitter:image" content="http://yoursite.com/img/lift/7.png">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="AIBluefisher" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.jpg">
+    <link rel="icon" href="favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -55,7 +55,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="img/favicon.jpg" class="js-avatar">
+			<img src="https://raw.githubusercontent.com/AIBluefisher/AIBluefisher.github.io/master/img/favicon.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">AIBluefisher</a></h1>
@@ -68,6 +68,8 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
 	        
 			</ul>
 		</nav>
@@ -113,13 +115,15 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="img/favicon.jpg" class="js-avatar">
+				<img src="https://raw.githubusercontent.com/AIBluefisher/AIBluefisher.github.io/master/img/favicon.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">AIBluefisher</h1>
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -142,12 +146,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/photos">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -184,6 +190,7 @@
       
         <p>LIFT[1]是一种使用CNN来提取特征点(feature points / interests)的方法, 发表在ECCV 2016.</p>
 <p>众所周知, 尽管在2004年就已经发表出来, 但是SIFT(Scale Invariant Feature Transform)在三维重建中一直至今都无可替代. 随着学习的火热, 研究人员开始将目光更多转向于寻求一种基于学习的方法来提取特征点, 从而代替人工设计的特征点.</p>
+<a id="more"></a>
 <h2 id="1-Motivation"><a href="#1-Motivation" class="headerlink" title="1.Motivation"></a>1.Motivation</h2><p>SIFT提取特征点包括三个步骤: 关键点检测器检测候选特征点、方向赋值、计算128维描述子向量. 在LIFT之前的工作中, 有很多使用CNN来学习这三个步骤的算法, 然而LIFT是第一个提出将这三个网络整合到一起并提出成功的训练方法.</p>
 <p>LIFT的作者发现, 从零开始训练整个网络是不可能的, 因为这三个神经网络的目的不同. 因此, 他们提出分别训练这三个网络来解决这个问题: 首先训练描述子(Descriptor), 然后是方向估计子(Orientation Estimator), 最后是特征点检测器(detector).</p>
 <h2 id="2-训练数据"><a href="#2-训练数据" class="headerlink" title="2.训练数据"></a>2.训练数据</h2><p>LIFT的训练数据来源于使用Structure from Motion(SfM)算法得到的特征点, 而SfM算法的输入为在不同视点(viewpoints)和光照条件下获取到的图像. </p>
@@ -343,6 +350,22 @@
 
   
 
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2018/04/26/LIFT/",
+  owner: 'AIBluefisher',
+  repo: 'AIBluefisher.github.io',
+  oauth: {
+    client_id: 'e4da4f81b18c8f09b39d',
+    client_secret: '79be81bc1944a20b28ae7aad76617f079bb9f5d9',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -540,7 +563,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">I&#39;m chenyu (陈煜 in Chinese). &lt;br&gt;  I got my bachelor degree in Beihang University, marjor in software engineering. &lt;br&gt; I&#39;m pursuting my master degree in Department of Computer Science and Technology, Pekinig University, &lt;br&gt; My research area is computer vision, especially 3d reconstruction, also 3d deep learning. &lt;br&gt; I&#39;m developing a Structure from Motion library named SuperSfM for large-scale reconstruction, while is still a private repo. An open datasets used for 3d reconstruction and 3d deep learning can be found in my github repo, folks and pull requests are welcomed.</div>
   	  	
     	</section>
     
