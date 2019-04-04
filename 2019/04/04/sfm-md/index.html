@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/img/sfm/result1.png">
 <meta property="og:image" content="http://yoursite.com/img/sfm/result2.png">
 <meta property="og:image" content="http://yoursite.com/img/sfm/result3.png">
-<meta property="og:updated_time" content="2019-04-04T02:04:27.094Z">
+<meta property="og:updated_time" content="2019-04-04T02:06:52.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Structure from Motion">
 <meta name="twitter:description" content="1. Incremental Structure from Motion [x] [3DV 2013] Towards Linear-time Incremental Structure from Motion  第一次提出 Retriangulate 的概念来尝试解决incremental SfM中的drift.由于初始的相机姿态和经过BA之后的姿态可能都不够准，一些正确的匹配在triangul">
@@ -219,14 +219,14 @@
 <p>流程如下：</p>
 <p><img src="/img/sfm/pipeline.png" alt="pipeline"></p>
 <h4 id="1-Batched-Seed-Selection"><a href="#1-Batched-Seed-Selection" class="headerlink" title="1. Batched Seed Selection"></a>1. Batched Seed Selection</h4><p>初始对的选取原则：<br>(1) 能看到尽可能多的相机<br>(2) 宽基线</p>
-<h5 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h5><p>在构造<code>Epipolar Graph</code>的时候，先用初始的<code>EG</code>中的相对相机姿态通过<code>rotation averaging(RA)</code>计算出global的相机姿态。然后通过计算<script type="math/tex">acos(||R_{ij} - R_jR_i^T||_F)</script> 来将误差大的边删除，然后相对旋转通过 <script type="math/tex">R_{ij}=R_jR_i^T</script>重新计算得到。然后，对于EG中的每条边，通过$\rho<em>{ij} = min(n_i, n_j)$ 来表示与至相邻的相机密度, 其中$n_i$是相机$i$在EG中相邻相机的个数。最后，得到以$\rho</em>{ij}$ 的大小为优先级的候选<code>seeds</code>.</p>
+<h5 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h5><p>在构造<code>Epipolar Graph</code>的时候，先用初始的<code>EG</code>中的相对相机姿态通过<code>rotation averaging(RA)</code>计算出global的相机姿态。然后通过计算<script type="math/tex">acos(||R_{ij} - R_jR_i^T||_F)</script> 来将误差大的边删除，然后相对旋转通过 <script type="math/tex">R_{ij}=R_jR_i^T</script>重新计算得到。然后，对于EG中的每条边，通过<script type="math/tex">\rho_{ij} = min(n_i, n_j)</script> 来表示与至相邻的相机密度, 其中<script type="math/tex">n_i</script>是相机<script type="math/tex">i</script>在EG中相邻相机的个数。最后，得到以<script type="math/tex">\rho_{ij}</script> 的大小为优先级的候选<code>seeds</code>.</p>
 <h4 id="2-Batched-Camera-Registration"><a href="#2-Batched-Camera-Registration" class="headerlink" title="2. Batched Camera Registration"></a>2. Batched Camera Registration</h4><p>所有能够看到大于12个三维点的相机都考虑为候选标定相机，然后<code>RANSAC + P3P</code>计算初始相机姿态，最后加<code>bundle adjustment</code>优化。这时固定三维点和内参，只对外参进行优化。</p>
 <h4 id="3-Tracks-Triangulation-and-Selection"><a href="#3-Tracks-Triangulation-and-Selection" class="headerlink" title="3. Tracks Triangulation and Selection"></a>3. Tracks Triangulation and Selection</h4><p>使用track作为输入，每次选两个相机，使用<code>RANSAC + Triangulation</code>来计算三维点。一个较为稳定的三维点应满足:</p>
 <ul>
 <li>投影回图像平面的两条射线的家教应该大于 $2^{\circ}$</li>
 <li>满足cheirality约束(在相机前方，具有正的深度值)</li>
 </ul>
-<p>为了提高效率，不使用所有的track，而是找track的子集，这些track需要对每个相机至少包含 $K$ 次</p>
+<p>为了提高效率，不使用所有的track，而是找track的子集，这些track需要对每个相机至少包含 <script type="math/tex">K</script> 次</p>
 <h4 id="4-Batched-Bundle-Adjustment"><a href="#4-Batched-Bundle-Adjustment" class="headerlink" title="4. Batched Bundle Adjustment"></a>4. Batched Bundle Adjustment</h4><h4 id="5-Iterative-Re-triangulation-and-Re-selection"><a href="#5-Iterative-Re-triangulation-and-Re-selection" class="headerlink" title="5. Iterative Re-triangulation and Re-selection"></a>5. Iterative Re-triangulation and Re-selection</h4><h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/img/sfm/result1.png" alt=""><br><img src="/img/sfm/result2.png" alt=""><br><img src="/img/sfm/result3.png" alt=""></p>
 <hr>
 <h2 id="2-Global-Structure-from-Motion"><a href="#2-Global-Structure-from-Motion" class="headerlink" title="2. Global Structure from Motion"></a>2. Global Structure from Motion</h2><h2 id="3-Hierarchical-Structure-from-Motion"><a href="#3-Hierarchical-Structure-from-Motion" class="headerlink" title="3. Hierarchical Structure from Motion"></a>3. Hierarchical Structure from Motion</h2><h2 id="4-Hybrid-Structure-from-Motion"><a href="#4-Hybrid-Structure-from-Motion" class="headerlink" title="4. Hybrid Structure from Motion"></a>4. Hybrid Structure from Motion</h2><ul>
