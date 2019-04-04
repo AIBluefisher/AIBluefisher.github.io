@@ -178,10 +178,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<h2 id="1-Incremental-Structure-from-Motion"><a href="#1-Incremental-Structure-from-Motion" class="headerlink" title="1. Incremental Structure from Motion"></a>1. Incremental Structure from Motion</h2><ul>
-<li style="list-style: none"><input type="checkbox" checked> <a href="http://ccwu.me/vsfm/vsfm.pdf" target="_blank" rel="noopener">[3DV 2013] Towards Linear-time Incremental Structure from Motion</a></li>
+        <h2 id="1-Incremental-Structure-from-Motion"><a href="#1-Incremental-Structure-from-Motion" class="headerlink" title="1. Incremental Structure from Motion"></a>1. Incremental Structure from Motion</h2><ul>
+<li>[x] <a href="http://ccwu.me/vsfm/vsfm.pdf" target="_blank" rel="noopener">[3DV 2013] Towards Linear-time Incremental Structure from Motion</a></li>
 </ul>
 <p>第一次提出 <code>Retriangulate</code> 的概念来尝试解决incremental SfM中的drift.<br>由于初始的相机姿态和经过BA之后的姿态可能都不够准，一些正确的匹配在triangulate的时候失败了。而这些正确匹配的累计丢失是造成<br>drift的一个主因。</p>
 <p>为了解决这个问题，<code>VSFM</code>提出对失败的匹配进行 <code>re-triangulate(RT)</code>。<code>RT</code>的时候，需要选择相机对。</p>
@@ -431,11 +429,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">structure from motion</a>
+                <a href="javascript:void(0)" class="js-tag color4">Paper Reading</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Paper Reading</a>
+                <a href="javascript:void(0)" class="js-tag color2">structure from motion</a>
               </li>
             
             <div class="clearfix"></div>
