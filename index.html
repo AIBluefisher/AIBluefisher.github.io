@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="AIBluefisher" type="application/atom+xml">
   
   
-    <link rel="icon" href="favicon.jpg">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -69,8 +69,6 @@
             
     			
             
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -155,6 +153,85 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-view-graph" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/04/view-graph/">Viewing Graph</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/04/view-graph/" class="archive-article-date">
+  	<time datetime="2019-04-04T03:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先我们来看看什么是Viewing Graph以及为什么Viewing Graph在重建中有什么作用？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A Viewing Graph is a graph which nodes represent images and edges represent the number of matches between two nodes.</span><br></pre></td></tr></table></figure>
+<p><strong>Viewing Graph</strong> 实际上就是一个图，节点对应图片，边对应两幅图片之间的一些连接关系(可能包括匹配的数量，也包括两幅图片之间的一个相对运动关系)。Viewing Graph也叫做 <strong>Match Graph</strong>, 首先在[2]中提出一个比较明确的定义。</p>
+<p>我们直到，特征点匹配一直是三维重建中一个瓶颈-不仅仅在于匹配比较费时间，而且很多错误的匹配也能通过geometric verification, 从而影响重建精度。而对于单对图片的匹配来说，提出新的加速算法也不能有效的提升匹配效率。从下表可以看到，最好的算法每对图片匹配也得花0.1s(这里我们考虑的是SIFT的128维描述子，而不是ORB之类的二进制描述子，并且ORB效果上不如SIFT)。</p>
+        
+          <a class="article-more-a" href="/2019/04/04/view-graph/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">structure from motion</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/04/view-graph/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-sfm-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -387,8 +464,6 @@ MathJax.Hub.Queue(function() {
       
     
       
-      
-      
     
     
 
@@ -396,13 +471,11 @@ MathJax.Hub.Queue(function() {
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
         
-      
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -475,12 +548,6 @@ MathJax.Hub.Queue(function() {
 
     
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">/</div>
-  	  	
-    	</section>
     
   </div>
   
