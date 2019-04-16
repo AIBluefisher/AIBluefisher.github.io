@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | AIBluefisher</title>
+  <title>三维重建中的旋转(Rotation) | AIBluefisher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="AIBluefisher">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="旋转在三维重建中是比较重要的，这里主要对旋转的性质及应用做一些总结。 1. 旋转矩阵设某个单位正交基 $(e_1, e_2, e_3)$ 经过一次旋转变成了 $(e_1^{‘}, e_2^{‘}, e_3^{‘})$ 。那么，对于同一个向量 $\bold{a}$ (注意该向量并没有随着坐标系的旋转而发生运动)，它在两个坐标系下的坐标为 $(a_1, a_2, a_3)^T$ 和 $(a_1^{‘}">
+<meta name="keywords" content="structure from motion, 3D reconstruction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三维重建中的旋转(Rotation)">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/rotation/index.html">
 <meta property="og:site_name" content="AIBluefisher">
+<meta property="og:description" content="旋转在三维重建中是比较重要的，这里主要对旋转的性质及应用做一些总结。 1. 旋转矩阵设某个单位正交基 $(e_1, e_2, e_3)$ 经过一次旋转变成了 $(e_1^{‘}, e_2^{‘}, e_3^{‘})$ 。那么，对于同一个向量 $\bold{a}$ (注意该向量并没有随着坐标系的旋转而发生运动)，它在两个坐标系下的坐标为 $(a_1, a_2, a_3)^T$ 和 $(a_1^{‘}">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-16T14:25:29.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AIBluefisher">
+<meta name="twitter:title" content="三维重建中的旋转(Rotation)">
+<meta name="twitter:description" content="旋转在三维重建中是比较重要的，这里主要对旋转的性质及应用做一些总结。 1. 旋转矩阵设某个单位正交基 $(e_1, e_2, e_3)$ 经过一次旋转变成了 $(e_1^{‘}, e_2^{‘}, e_3^{‘})$ 。那么，对于同一个向量 $\bold{a}$ (注意该向量并没有随着坐标系的旋转而发生运动)，它在两个坐标系下的坐标为 $(a_1, a_2, a_3)^T$ 和 $(a_1^{‘}">
   
     <link rel="alternative" href="/atom.xml" title="AIBluefisher" type="application/atom+xml">
   
@@ -152,36 +157,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-rotation" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/16/rotation/" class="archive-article-date">
-  	<time datetime="2019-04-16T14:23:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/16/rotation/">三维重建中的旋转(Rotation)</a>
+    <h1 class="article-title" itemprop="name">
+      三维重建中的旋转(Rotation)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/16/rotation/" class="archive-article-date">
+  	<time datetime="2019-04-16T14:23:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>旋转在三维重建中是比较重要的，这里主要对旋转的性质及应用做一些总结。</p>
+<h3 id="1-旋转矩阵"><a href="#1-旋转矩阵" class="headerlink" title="1. 旋转矩阵"></a>1. 旋转矩阵</h3><p>设某个<u>单位正交基</u> $(e_1, e_2, e_3)$ 经过一次旋转变成了 $(e_1^{‘}, e_2^{‘}, e_3^{‘})$ 。那么，对于同一个向量 $\bold{a}$ (注意该向量并没有随着坐标系的旋转而发生运动)，它在两个坐标系下的坐标为 $(a_1, a_2, a_3)^T$ 和 $(a_1^{‘}, a_2^{‘}, a_3^{‘})^T$。<br><a id="more"></a><br>由坐标的定义，有：</p>
+<script type="math/tex; mode=display">
+\left[
+    \begin{array}{ccc}
+    e_1 & e_2 & e_3
+    \end{array}
+\right]
+\left[
+    \begin{array}{c}
+    a_1\\a_2\\a_3
+    \end{array}
+\right]=
+\left[
+    \begin{array}{ccc}
+    e_1^{'} & e_2^{'} & e_3^{'}
+    \end{array}
+\right]
+\left[
+    \begin{array}{c}
+    a_1^{'}\\a_2^{'}\\a_3^{'}
+    \end{array}
+\right] \tag{1}</script><p>为描述两个坐标之间的关系，(1)左右两边同时乘以$(e_1^T, e_2^T, e_3^T)^T$，则有</p>
+<script type="math/tex; mode=display">
+\left[
+    \begin{array}{c}
+    a_1\\a_2\\a_3
+    \end{array}
+\right]=
+\left[
+    \begin{array}{ccc}
+    e_1^{T}e_1{'} & e_1^Te_2^{'} & e_1^Te_3^{'}\\
+    e_2^{T}e_1^{'} & e_2^Te_2^{'} & e_1^Te_3^{'}\\
+    e_3^{T}e_1^{'} & e_3^Te_2^{'} & e_3^Te_3^{'}
+    \end{array}
+\right]
+\left[
+    \begin{array}{c}
+    a_1^{'}\\a_2^{'}\\a_3^{'}
+    \end{array}
+\right] = R\bold{a^{'}} \tag{2}</script><p>其中 $R$ 即为旋转矩阵。旋转矩阵的集合定义为:</p>
+<script type="math/tex; mode=display">
+SO(n) = \{R \in \mathbb{R}^{n\times n} | RR^T = I, det(R) = I \} \tag{3}</script><p>由于旋转矩阵是正交阵，它的逆(即转置)描述了一个相反的旋转，则有$\bold{a^{‘}} = R^{-1}\bold{a}=R^T\bold{a}$。显然，$R^T$刻画了一个相反的旋转。</p>
+<h3 id="2-李群和李代数-Lie-Group-and-Lie-Algebra"><a href="#2-李群和李代数-Lie-Group-and-Lie-Algebra" class="headerlink" title="2. 李群和李代数 (Lie Group and Lie Algebra)"></a>2. 李群和李代数 (Lie Group and Lie Algebra)</h3><p>这里我们只描述旋转空间上的<code>李群</code>和<code>李代数</code>。<br>李群是指具有连续光滑性质的群。$SO(n)$在实数空间上是连续的。我们能够直观想象一个刚体能够连续地在空间中运动，所以他们都是李群。每个李群都有与之对应的李代数，李代数描述了李群的局部性质。旋转空间上的李群已经在公式(3)中做了描述。</p>
+<h4 id="2-1-旋转空间上的李代数推导"><a href="#2-1-旋转空间上的李代数推导" class="headerlink" title="2.1 旋转空间上的李代数推导"></a>2.1 旋转空间上的李代数推导</h4><p>设 $R$ 为某个相机的旋转，随时间连续变化，即 $R$ 为关于时间 $t$ 的函数 $R(t)$。由于 $R$ 为正交阵，则有</p>
+<script type="math/tex; mode=display">
+R(t)R(t)^T = I \tag{4}</script><p>等式两边对 $t$ 求导，则有 $\frac{\delta R(t)}{\delta t} R(t)^T + R(t)\frac{\delta R(t)^T}{\delta t} = 0$。整理可得，</p>
+<script type="math/tex; mode=display">
+\frac{\delta R(t)}{\delta t} R(t)^T = -R(t)\frac{\delta R(t)^T}{\delta t} = -(\frac{\delta R(t)}{\delta t} R(t)^T)^T \tag{5}</script><p>由(5)可以看出 $\frac{\delta R(t)}{\delta t} R(t)^T$ 是一个<code>反对称矩阵</code> (反对称矩阵的定义: $A = -A^T$)。<br>而对于<code>反对称矩阵</code>，我们总能找到一个三维向量 $\bold{w}$ 与之对应。一般地，$[\bold{w}]_{\times}$ 表示向量到反对称阵的变换。因此，我们有</p>
+<script type="math/tex; mode=display">
+\frac{\delta R(t)}{\delta t} R^T = [\bold{w}]_{\times} \tag{6}</script><p>对公式(6), 左右两边同时右乘$R(t)$可得</p>
+<script type="math/tex; mode=display">
+\frac{\delta R(t)}{\delta t} = [\bold{w}]_{\times} R(t) \tag{7}</script><p>公式(7)是一个形如 $\frac{\mathrm{d}y}{\mathrm{d}x} = ay$ 的常微分方程，对方程两边同时去倒数，则有 $\frac{\mathrm{d}x}{\mathrm{d}y} = \frac{1}{ay}$。显然，$\mathrm{d}x = \frac{1}{y}\mathrm{d}y$ 的解为 $x = ln\ ay$，进一步可得 $y = e^{ax}$。将公式(7)代入，可得</p>
+<script type="math/tex; mode=display">
+R(t) = e^{[\bold{w}]_{\times}t} \tag{8}</script><h4 id="2-2-李代数-mathfrak-so-3"><a href="#2-2-李代数-mathfrak-so-3" class="headerlink" title="2.2 李代数 $\mathfrak{so}(3)$"></a>2.2 李代数 $\mathfrak{so}(3)$</h4><p>李群 $SO(3)$ 对应的李代数是定义在 $R(3)$ 上的向量，记为 $\bold{w}$。每个 $\bold{w}$ 都可以生成一个反对称矩阵 $\Phi$ : </p>
+<script type="math/tex; mode=display">
+\Phi = [\bold{w}]_{\times} =
+\left[
+    \begin{array}{ccc}
+    0 & -w_3 & w_2\\
+    w_3 & 0 & -w_1\\
+    -w_2 & w_1 & 0
+    \end{array}
+\right]
+\in \mathbb{R}^{3\times 3}</script><p>一般说，$\mathfrak{so}(3)$的元素是三维向量或者三维反对称矩阵，不加区别:</p>
+<script type="math/tex; mode=display">
+\mathfrak{so}(3) = \{\bold{w} \in R^3, \Phi = [\bold{w}]_{\times} \in \mathbb{R}^{3\times 3}\} \tag{9}</script><p>至此，我们知道 $\mathfrak{so}(3)$ 是一个由三维向量组成的集合，每个向量对应到一个反对称矩阵，可以表达旋转矩阵的倒数。它与 $\mathfrak{so}(3)$ 的关系通过<code>指数映射 (exponential mapping)</code>给定:</p>
+<script type="math/tex; mode=display">
+R = exp([\bold{w}]_{\times}) \tag{10}</script><h4 id="2-3-推导-mathfrak-so-3-上的指数映射"><a href="#2-3-推导-mathfrak-so-3-上的指数映射" class="headerlink" title="2.3 推导 $\mathfrak{so}(3)$ 上的指数映射"></a>2.3 推导 $\mathfrak{so}(3)$ 上的指数映射</h4><p>由 公式 (10) 可知，它是一个矩阵的指数。在李群和李代数中，称为<code>指数映射 (exponential mapping)</code>。<br>我们知道指数函数的<code>幂级数</code>为 </p>
+<script type="math/tex; mode=display">
+exp(x) = \sum_{n=0}^{\infty} \frac{x^n}{n!}</script><p>同样地，对于 $\mathfrak{so}(3)$ 中的任意元素 $[\bold{w}]_{\times}$，它的指数映射为</p>
+<script type="math/tex; mode=display">
+exp([\bold{w}]_{\times}) = \sum_{n=0}^{\infty} \frac{([\bold{w}]_{\times})^n}{n!} \tag{11}</script><p>令 $\bold{w} = \theta \bold{a}$，其中$\theta$ 为方向，$\bold{a}$ 为长度为1的方向向量。对于 $[\bold{a}]_{\times}$，有两个性质：</p>
+<ul>
+<li>$[\bold{a}]_{\times}[\bold{a}]_{\times} = \bold{a}\bold{a}^T - I$</li>
+<li>$[\bold{a}]_{\times}[\bold{a}]_{\times}[\bold{a}]_{\times} = -[\bold{a}]_{\times}$</li>
+</ul>
+<p>利用这两个性质，指数映射可以写为:</p>
+<script type="math/tex; mode=display">
+exp([\bold{w}]_{\times}) = exp(\theta [\bold{a}]_{\times})
+= \sum_{n=0}^{\infty} \frac{(\theta [\bold{a}]_{\times})^n}{n!}\\
+= I + \theta [\bold{a}]_{\times} + \frac{1}{2!} \theta^2 [\bold{a}]_{\times}[\bold{a}]_{\times} + \frac{1}{3!}\theta^3[\bold{a}]_{\times}[\bold{a}]_{\times}[\bold{a}]_{\times} + \frac{1}{4}\theta^4([\bold{a}]_{\times})^4 + \cdots\\
+= \bold{a}\bold{a}^T - [\bold{a}]_{\times}[\bold{a}]_{\times} + \frac{1}{2!}\theta^2[\bold{a}]_{\times}[\bold{a}]_{\times} + \frac{1}{3!}\theta^3[\bold{a}]_{\times}[\bold{a}]_{\times}[\bold{a}]_{\times} + \frac{1}{4!}\theta^4([\bold{a}]_{\times})^4 + \cdots\\
+= \bold{a}\bold{a}^T - [\bold{a}]_{\times}[\bold{a}]_{\times} + \theta[\bold{a}]_{\times} + \frac{1}{2!}\theta^2[\bold{a}]_{\times}[\bold{a}]_{\times} - \frac{1}{2!}\theta^3[\bold{a}]_{\times} - \frac{1}{4!}\theta^4([\bold{a}]_{\times})^2 + \cdots\\
+= \bold{a}\bold{a}^T + (\theta - \frac{1}{3!}\theta^3 + \frac{1}{5!}\theta^5 - \cdots)[\bold{a}]_{\times} - (1 - \frac{1}{2!}\theta^2 + \frac{1}{4!}\theta^4 - \cdots)[\bold{a}]_{\times}[\bold{a}]_{\times}\\
+=[\bold{a}]_{\times}[\bold{a}]_{\times} + I + [\bold{a}]_{\times}sin\theta - [\bold{a}]_{\times}[\bold{a}]_{\times} cos\theta\\
+= (1 - cos\theta)[\bold{a}]_{\times}[\bold{a}]_{\times} + I + [\bold{a}]_{\times} sin\theta\\
+= (1-cos\theta)(\bold{a}\bold{a}^T - I) + I + [\bold{a}]_{\times}sin\theta\\
+= cos\theta\ I + (1 - cos\theta)\bold{a}\bold{a}^T + [\bold{a}]_{\times}sin\theta
+\tag{12}</script><p>公式 (12) 就是<code>罗德里格斯公式</code>，<u>指数映射即罗德里格斯公式</u>！</p>
+<p>同样，我们可以定义<code>对数映射</code>，把 $SO(3)$ 中的元素对应到 $\mathfrak{so}(3)$ 中 :</p>
+<script type="math/tex; mode=display">
+\bold{[w]}_{\times} = ln(R)^{V} = (\sum_{n=0}^{\infty} \frac{(-1)^n}{n+1} (R - I)^{n+1} )^{V} \tag{13}</script><p>不过，一般不会按照泰勒展开计算对数映射，而是通过旋转矩阵恢复李代数：<br>令转轴为 $\bold{n}$，转角为 $\theta$，<br>(1) 计算转角 $\theta$。对于转角 $\theta$，由罗德里格斯公式，有</p>
+<script type="math/tex; mode=display">
+tr(R) = cos\theta\ tr(I) + (1-cos\theta)tr(\bold{n}\bold{n}^T) + sin\theta\ tr([\bold{n}]_{\times})\\
+= 3cos\theta + (1-cos\theta) = 1 + 2cos\theta</script><p>，因此，$\theta = arc\ cos\frac{tr(R) - 1}{2}$。<br>(2) 计算转轴 $\bold{n}$，由于旋转轴上的向量在旋转后不发生改变，有 $R\bold{n} = \bold{n}$。因此，转轴 $\bold{n}$ 是矩阵 $R$ 特征值为1对应的特征向量。求解次方程，再归一化，就得到了转轴。最后，李代数可以写为 $\bold{w} = \theta\bold{n}$。</p>
+<h3 id="3-四元数-Quanternion"><a href="#3-四元数-Quanternion" class="headerlink" title="3. 四元数 (Quanternion)"></a>3. 四元数 (Quanternion)</h3><p>四元数是Hamilton找到的一种扩展的复数，拥有一个实部和三个虚部，可表示为 : </p>
+<script type="math/tex; mode=display">
+\bold{q} = (c, \bold{v}) = (q_0, q_1, q_2, q_3) = q_0 + q_1\bold{i} + q_2\bold{j} + q_3\bold{k} \tag{14}</script><p>这三个虚部满足以下关系:</p>
+<script type="math/tex; mode=display">
+i^2 = j^2 = k^2 = -1\\
+ij = k,\ ji = -k,\\
+jk = i,\ kj = -i,\\
+ki = j,\ ik = -j.</script><h4 id="3-1-四元数的运算"><a href="#3-1-四元数的运算" class="headerlink" title="3.1 四元数的运算"></a>3.1 四元数的运算</h4><p>设 $\bold{q} = (c_1, \bold{v}_1), q_2 = (c_2, \bold{v}_2)$，则</p>
+<script type="math/tex; mode=display">
+\bold{q}_1 \pm \bold{q}_2 = (c_1 \pm c_2,\ \bold{v}_1 \pm \bold{v}_2)\\
+\bold{q}_1 \cdot \bold{q}_2 = (c_1c_2 - \bold{v}_1^T\bold{v}_2,\ c_1\bold{v}_2 + c_2\bold{v}_1 + \bold{v}_1 \times \bold{v}_2)\\
+||\bold{q}|| = \sqrt{q_0^2 + q_1^2 + q_2^2 + q_3^2},\ 
+\bold{q}^{-1} = \frac{1}{||q||^2} (c,\ -\bold{v})\\
+||\bold{q}_1 \cdot \bold{q}_2|| = ||\bold{q_1}|| \cdot ||\bold{q_2}||</script><h4 id="3-2-四元数表示旋转"><a href="#3-2-四元数表示旋转" class="headerlink" title="3.2 四元数表示旋转"></a>3.2 四元数表示旋转</h4><p>假设旋转绕单位向量 $\bold{n} = (n_x, x_y, n_z)^T$ 进行了角度为 $\theta$ 的旋转，则该旋转的四元数定义为:</p>
+<script type="math/tex; mode=display">
+\bold{q} = (cos\frac{\theta}{2},\ n_xsin\frac{\theta}{2},\ n_ysin\frac{\theta}{2},\ n_zsin\frac{\theta}{2})^T \tag{15}</script><p>令 $\theta = \theta + 2\pi$，则 $\bold{q} = (-cos\frac{\theta}{2}, -n_x\sin\frac{\theta}{2}, -n_ysin\frac{\theta}{2}, -n_zsin\frac{\theta}{2})^T = -\bold{q}$。即 <strong>$\bold{q}$ 和 $-\bold{q}$ 表示同一个旋转</strong>。</p>
+<p>令 $\bold{v} = (n_x, n_y, n_z)$，$\bold{w} = \theta\bold{v}$，则 $R = exp([\bold{w}]_{\times})$。</p>
+<h3 id="4-旋转矩阵、角轴表示法、四元数之间的转换"><a href="#4-旋转矩阵、角轴表示法、四元数之间的转换" class="headerlink" title="4. 旋转矩阵、角轴表示法、四元数之间的转换"></a>4. 旋转矩阵、角轴表示法、四元数之间的转换</h3><h4 id="4-1-旋转矩阵与四元数"><a href="#4-1-旋转矩阵与四元数" class="headerlink" title="4.1 旋转矩阵与四元数"></a>4.1 旋转矩阵与四元数</h4><h5 id="四元数到旋转矩阵的转换"><a href="#四元数到旋转矩阵的转换" class="headerlink" title="四元数到旋转矩阵的转换"></a>四元数到旋转矩阵的转换</h5><p>通过 3.2 节，即可通过四元数计算得到旋转矩阵。</p>
+<h5 id="旋转矩阵到四元数的转换"><a href="#旋转矩阵到四元数的转换" class="headerlink" title="旋转矩阵到四元数的转换"></a>旋转矩阵到四元数的转换</h5><p>令旋转矩阵为</p>
+<script type="math/tex; mode=display">
+R = 
+\left[
+    \begin{array}{ccc}
+        R_{11} & R_{12} & R_{13}\\
+        R_{21} & R_{22} & R_{23}\\
+        R_{31} & R_{32} & R_{33}
+    \end{array}
+\right]</script><p>则旋转矩阵到四元数的转换如下:<br>$q_0 = \frac{\sqrt{tr(R) + 1}}{2},\ q_1 = \frac{R_{23} - R_{32}}{4q_0},\ q_2 = \frac{R_{31} - R_{13}}{4q_0},\ q_3 = \frac{R_{12} - R{21}}{4q_0}$</p>
+<h4 id="4-2-四元数与角轴表示法"><a href="#4-2-四元数与角轴表示法" class="headerlink" title="4.2 四元数与角轴表示法"></a>4.2 四元数与角轴表示法</h4><h5 id="四元数到角轴表示法的转换"><a href="#四元数到角轴表示法的转换" class="headerlink" title="四元数到角轴表示法的转换"></a>四元数到角轴表示法的转换</h5><p>采用 3.2 节的符号表示，很容易得到 </p>
+<script type="math/tex; mode=display">
+\theta = 2arc cos\ q_0,\\
+(n_x, n_y, n_z)^T = \frac{1}{sin\frac{\theta}{2}} (q_1, q_2, q_3)^T = \frac{1}{||\bold{n}||} (q_1, q_2, q_3)^T</script><h5 id="角轴表示法到四元数的转换"><a href="#角轴表示法到四元数的转换" class="headerlink" title="角轴表示法到四元数的转换"></a>角轴表示法到四元数的转换</h5><p>通过 3.2 节即可得到。</p>
+<h4 id="4-3-旋转矩阵与角轴表示法的转换"><a href="#4-3-旋转矩阵与角轴表示法的转换" class="headerlink" title="4.3 旋转矩阵与角轴表示法的转换"></a>4.3 旋转矩阵与角轴表示法的转换</h4><h5 id="角轴表示法到旋转矩阵"><a href="#角轴表示法到旋转矩阵" class="headerlink" title="角轴表示法到旋转矩阵"></a>角轴表示法到旋转矩阵</h5><p>很显然，通过指数映射，使用罗德里格斯公式就可以将角轴表示法变换到旋转矩阵</p>
+<h5 id="旋转矩阵到角轴表示法"><a href="#旋转矩阵到角轴表示法" class="headerlink" title="旋转矩阵到角轴表示法"></a>旋转矩阵到角轴表示法</h5><p>一般会先将旋转矩阵转换到四元数，再通过四元数转换到角轴表示法。</p>
+<h3 id="5-罗德里格斯旋转公式-Rodrigues’-rotation-formula"><a href="#5-罗德里格斯旋转公式-Rodrigues’-rotation-formula" class="headerlink" title="5. 罗德里格斯旋转公式 (Rodrigues’ rotation formula)"></a>5. 罗德里格斯旋转公式 (Rodrigues’ rotation formula)</h3><p>和罗德里格斯公式不同(李代数到李群的指数映射)，<code>罗德里格斯旋转公式</code>是用于对向量进行旋转的，即<u>给定空间中的一个三维点(具体形式是一个三维向量)，如何通过轴角表示法对三维点进行旋转</u>。这个公式也被扩展用于计算指数映射，也就是罗德里格斯公式。罗德里格斯旋转公式可以通过以下公式计算得到:</p>
+<script type="math/tex; mode=display">
+\bold{v}_{rot} = \bold{v}cos\theta + (\bold{k}\times \bold{v})sin\theta + \bold{k}(\bold{k} \cdot \bold{v})(1-cos\theta) \tag{16}</script><h4 id="5-1-对三维点进行旋转"><a href="#5-1-对三维点进行旋转" class="headerlink" title="5.1 对三维点进行旋转"></a>5.1 对三维点进行旋转</h4><p>实际中，使用轴角表示法对三维点进行旋转会分两种情况：</p>
+<ul>
+<li>$||\bold{w}||$ 相比0较大时。这个时候可以通过<code>罗德里格斯旋转公式</code>计算</li>
+<li>$||\bold{w}||$ 相比0较小时。根据罗德里格斯公式，<script type="math/tex; mode=display">
+R = cos||\bold{w}||I + \frac{[\bold{w}]_{\times}}{||\bold{w}||} sin(||\bold{w}||) + \frac{[\bold{w}]_{\times}^2}{||\bold{w}||^2}(1 - cos(||\bold{w}||))</script>当$\bold{w}$较小时，$cos(||\bold{w}||) \approx 1, sin(||\bold{w}||) \approx ||\bold{w}||$。因此，$R \approx I + [\bold{w}]_{\times}$。于是，$R\bold{p} = \bold{p} + [\bold{w}]_{\times} \bold{p}$</li>
+</ul>
+<p><em>注： 对于李代数 $\bold{w} = \theta \bold{n}$，其中$\bold{n}$为单位转轴，因此 $||\bold{n}||^2 = 1$，于是$||\bold{w}||^2 = \theta^2 ||\bold{n}||^2 = \theta^2$。因此，有 $\theta = ||\bold{w}||$</em>。</p>
+<h4 id="5-2-Ceres中的实现"><a href="#5-2-Ceres中的实现" class="headerlink" title="5.2 Ceres中的实现"></a>5.2 Ceres中的实现</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AngleAxisRotatePoint</span><span class="params">(<span class="keyword">const</span> T angle_axis[<span class="number">3</span>], <span class="keyword">const</span> T pt[<span class="number">3</span>], T result[<span class="number">3</span>])</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> T theta2 = DotProduct(angle_axis, angle_axis);</span><br><span class="line">  <span class="keyword">if</span> (theta2 &gt; T(<span class="built_in">std</span>::numeric_limits&lt;<span class="keyword">double</span>&gt;::epsilon())) &#123;</span><br><span class="line">    <span class="comment">// Away from zero, use the rodriguez formula</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">//   result = pt costheta +</span></span><br><span class="line">    <span class="comment">//            (w x pt) * sintheta +</span></span><br><span class="line">    <span class="comment">//            w (w . pt) (1 - costheta)</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// We want to be careful to only evaluate the square root if the</span></span><br><span class="line">    <span class="comment">// norm of the angle_axis vector is greater than zero. Otherwise</span></span><br><span class="line">    <span class="comment">// we get a division by zero.</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="keyword">const</span> T theta = <span class="built_in">sqrt</span>(theta2);</span><br><span class="line">    <span class="keyword">const</span> T costheta = <span class="built_in">cos</span>(theta);</span><br><span class="line">    <span class="keyword">const</span> T sintheta = <span class="built_in">sin</span>(theta);</span><br><span class="line">    <span class="keyword">const</span> T theta_inverse = T(<span class="number">1.0</span>) / theta;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> T w[<span class="number">3</span>] = &#123; angle_axis[<span class="number">0</span>] * theta_inverse,</span><br><span class="line">                     angle_axis[<span class="number">1</span>] * theta_inverse,</span><br><span class="line">                     angle_axis[<span class="number">2</span>] * theta_inverse &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Explicitly inlined evaluation of the cross product for</span></span><br><span class="line">    <span class="comment">// performance reasons.</span></span><br><span class="line">    <span class="keyword">const</span> T w_cross_pt[<span class="number">3</span>] = &#123; w[<span class="number">1</span>] * pt[<span class="number">2</span>] - w[<span class="number">2</span>] * pt[<span class="number">1</span>],</span><br><span class="line">                              w[<span class="number">2</span>] * pt[<span class="number">0</span>] - w[<span class="number">0</span>] * pt[<span class="number">2</span>],</span><br><span class="line">                              w[<span class="number">0</span>] * pt[<span class="number">1</span>] - w[<span class="number">1</span>] * pt[<span class="number">0</span>] &#125;;</span><br><span class="line">    <span class="keyword">const</span> T tmp =</span><br><span class="line">        (w[<span class="number">0</span>] * pt[<span class="number">0</span>] + w[<span class="number">1</span>] * pt[<span class="number">1</span>] + w[<span class="number">2</span>] * pt[<span class="number">2</span>]) * (T(<span class="number">1.0</span>) - costheta);</span><br><span class="line"></span><br><span class="line">    result[<span class="number">0</span>] = pt[<span class="number">0</span>] * costheta + w_cross_pt[<span class="number">0</span>] * sintheta + w[<span class="number">0</span>] * tmp;</span><br><span class="line">    result[<span class="number">1</span>] = pt[<span class="number">1</span>] * costheta + w_cross_pt[<span class="number">1</span>] * sintheta + w[<span class="number">1</span>] * tmp;</span><br><span class="line">    result[<span class="number">2</span>] = pt[<span class="number">2</span>] * costheta + w_cross_pt[<span class="number">2</span>] * sintheta + w[<span class="number">2</span>] * tmp;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// Near zero, the first order Taylor approximation of the rotation</span></span><br><span class="line">    <span class="comment">// matrix R corresponding to a vector w and angle theta is</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">//   R = I + hat(w) * sin(theta)</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// But sintheta ~ theta and theta * w = angle_axis, which gives us</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">//  R = I + hat(w)</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// and actually performing multiplication with the point pt, gives us</span></span><br><span class="line">    <span class="comment">// R * pt = pt + w x pt.</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// Switching to the Taylor expansion near zero provides meaningful</span></span><br><span class="line">    <span class="comment">// derivatives when evaluated using Jets.</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// Explicitly inlined evaluation of the cross product for</span></span><br><span class="line">    <span class="comment">// performance reasons.</span></span><br><span class="line">    <span class="keyword">const</span> T w_cross_pt[<span class="number">3</span>] = &#123; angle_axis[<span class="number">1</span>] * pt[<span class="number">2</span>] - angle_axis[<span class="number">2</span>] * pt[<span class="number">1</span>],</span><br><span class="line">                              angle_axis[<span class="number">2</span>] * pt[<span class="number">0</span>] - angle_axis[<span class="number">0</span>] * pt[<span class="number">2</span>],</span><br><span class="line">                              angle_axis[<span class="number">0</span>] * pt[<span class="number">1</span>] - angle_axis[<span class="number">1</span>] * pt[<span class="number">0</span>] &#125;;</span><br><span class="line"></span><br><span class="line">    result[<span class="number">0</span>] = pt[<span class="number">0</span>] + w_cross_pt[<span class="number">0</span>];</span><br><span class="line">    result[<span class="number">1</span>] = pt[<span class="number">1</span>] + w_cross_pt[<span class="number">1</span>];</span><br><span class="line">    result[<span class="number">2</span>] = pt[<span class="number">2</span>] + w_cross_pt[<span class="number">2</span>];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-SO-3-上的距离测量-Distance-Measure"><a href="#6-SO-3-上的距离测量-Distance-Measure" class="headerlink" title="6. $SO(3)$ 上的距离测量 (Distance Measure)"></a>6. $SO(3)$ 上的距离测量 (Distance Measure)</h3><h5 id="1-Bi-invariant-distance"><a href="#1-Bi-invariant-distance" class="headerlink" title="(1) Bi-invariant distance"></a>(1) Bi-invariant distance</h5><p>如果对于所有的 $S$ 和 $R_i$，我们有 : </p>
+<script type="math/tex; mode=display">
+d(SR_1, SR_2) = d(R_1, R_2) = d(R_1S, R_2S) \tag{17}</script><p>那么这样的一个距离测量称为 <code>Bi-invariant</code>.</p>
+<h5 id="2-Angular-Distance-Geodesic-Distance"><a href="#2-Angular-Distance-Geodesic-Distance" class="headerlink" title="(2) Angular Distance (Geodesic Distance)"></a>(2) Angular Distance (Geodesic Distance)</h5><p>定义 R 和 S 之间的 <code>angular distance</code> 为旋转 $SR^T$ 的角度，并且处于区间 $[0, \pi]$ 里。因此，</p>
+<script type="math/tex; mode=display">
+d(S, R) = d(SR^T, I) = ||log(SR^T)||_2 \tag{18}</script><p>距离测量函数 $d(S, R)$ 和 $SR^T$ 的旋转角度相等。需要注意，我们可能会等价地写为 $R^TS$，$RS^T$，$S^TR$，因为这些都表示同一个旋转。</p>
+<h5 id="3-Chordal-Distance"><a href="#3-Chordal-Distance" class="headerlink" title="(3) Chordal Distance"></a>(3) Chordal Distance</h5><p>旋转 $R$ 和 $S$ 之间的 <code>chordal distance</code> 定义为:</p>
+<script type="math/tex; mode=display">
+d_{chord}(S, R) = ||S-R||_F \tag{19}</script><p>其中，$||\cdot||_F$ 表示矩阵的 <code>Frobenius 范数</code>。</p>
+<p><code>chordal distance</code> 和 <code>angular distance</code> 之间可以通过罗德里格斯公式关联起来:</p>
+<script type="math/tex; mode=display">
+exp(\theta \bold{v}) = I + sin\theta\ [\bold{v}]_{\times} + (1-cos\theta)([\bold{v}]_{\times})^2</script><p>具体来讲，令 $SR^T = exp(\theta \bold{v})$，由于 $[\bold{v}]_{\times}$ 和 $([\bold{v}]_{\times})^2$正交，且 $||[\bold{v}]_{\times}||^2_F = ||([\bold{v}]_{\times})^2||^2_F = 2$，因此，我们有</p>
+<script type="math/tex; mode=display">
+d_{chord}(S, R)^2 = ||S - R||^2 = ||SR^T - I||^2 = 2(sin^2\theta + (1-cos\theta)^2) = 8sin^2\frac{\theta}{2}</script><p>因此，</p>
+<script type="math/tex; mode=display">
+d_{chord}(S, R) = 2\sqrt{2} sin\frac{\theta}{2} \tag{20}</script><h3 id="7-扰动模型对旋转求导"><a href="#7-扰动模型对旋转求导" class="headerlink" title="7. 扰动模型对旋转求导"></a>7. 扰动模型对旋转求导</h3><p>设左扰动 $\nabla R$ 对应的李代数为 $\bold{a}$。对 $\bold{a}$ 求导，有</p>
+<script type="math/tex; mode=display">
+\frac{\delta(R\bold{p})}{\delta \bold{a}} = {\lim_{\bold{a} \to 0}} \frac{exp([\bold{a}]_{\times}) exp([\bold{a}]_{\times})\bold{p} - exp([\bold{a}]_{\times})\bold{p}}{\bold{a}} \\
+= {\lim_{\bold{a} \to 0}} \frac{(1 + [\bold{a}]_{\times}) exp([\bold{a}]_{\times})\bold{p} - exp([\bold{a}]_{\times})\bold{p}}{\bold{a}}\\
+= {\lim_{\bold{a} \to 0}} \frac{[\bold{a}]_{\times}R\bold{p}}{\bold{a}} = {\lim_{\bold{a} \to 0}} \frac{-[R\bold{p}]_{\times}\bold{a}}{\bold{a}} = -[R\bold{p}]_{\times}</script><h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li>[1] 视觉SLAM十四讲 从理论到实践</li>
+<li>[2] <a href="https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula</a></li>
+<li>[3] <a href="https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation</a></li>
+<li>[4] Hartley, Richard, Trumpf, et al. Rotation Averaging[J]. International Journal of Computer Vision, 2013, 103(3):267-305.</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,170 +382,122 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/04/resume/" class="archive-article-date">
-  	<time datetime="2019-04-04T03:33:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/04/resume/">About me</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/04/view-graph/" class="archive-article-date">
-  	<time datetime="2019-04-04T03:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/04/view-graph/">Viewing Graph</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">structure from motion</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/04/sfm-md/" class="archive-article-date">
-  	<time datetime="2019-04-04T01:19:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/04/sfm-md/">Introduction to Structure from Motion</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">structure from motion</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/26/LIFT/" class="archive-article-date">
-  	<time datetime="2018-04-26T09:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/26/LIFT/">LIFT</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Paper Reading</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/16/rotation/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/04/04/resume/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">About me</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2019/04/16/rotation/",
+  owner: 'AIBluefisher',
+  repo: 'AIBluefisher.github.io',
+  oauth: {
+    client_id: 'e4da4f81b18c8f09b39d',
+    client_secret: '79be81bc1944a20b28ae7aad76617f079bb9f5d9',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -379,8 +520,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
