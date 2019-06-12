@@ -6,26 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Introduction to Structure from Motion | AIBluefisher</title>
+  <title>Archives: 2019/6 | AIBluefisher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. Incremental Structure from Motion [x] [3DV 2013] Towards Linear-time Incremental Structure from Motion  第一次提出 Retriangulate 的概念来尝试解决incremental SfM中的drift.由于初始的相机姿态和经过BA之后的姿态可能都不够准，一些正确的匹配在triangul">
-<meta name="keywords" content="structure from motion">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Structure from Motion">
-<meta property="og:url" content="http://yoursite.com/2019/04/04/sfm-md/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="AIBluefisher">
+<meta property="og:url" content="http://yoursite.com/archives/2019/06/index.html">
 <meta property="og:site_name" content="AIBluefisher">
-<meta property="og:description" content="1. Incremental Structure from Motion [x] [3DV 2013] Towards Linear-time Incremental Structure from Motion  第一次提出 Retriangulate 的概念来尝试解决incremental SfM中的drift.由于初始的相机姿态和经过BA之后的姿态可能都不够准，一些正确的匹配在triangul">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/sfm/retriangulate.png">
-<meta property="og:image" content="http://yoursite.com/img/sfm/pipeline.png">
-<meta property="og:image" content="http://yoursite.com/img/sfm/result1.png">
-<meta property="og:image" content="http://yoursite.com/img/sfm/result2.png">
-<meta property="og:image" content="http://yoursite.com/img/sfm/result3.png">
-<meta property="og:updated_time" content="2019-04-04T02:06:52.976Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Introduction to Structure from Motion">
-<meta name="twitter:description" content="1. Incremental Structure from Motion [x] [3DV 2013] Towards Linear-time Incremental Structure from Motion  第一次提出 Retriangulate 的概念来尝试解决incremental SfM中的drift.由于初始的相机姿态和经过BA之后的姿态可能都不够准，一些正确的匹配在triangul">
-<meta name="twitter:image" content="http://yoursite.com/img/sfm/retriangulate.png">
+<meta name="twitter:title" content="AIBluefisher">
   
     <link rel="alternative" href="/atom.xml" title="AIBluefisher" type="application/atom+xml">
   
@@ -163,241 +152,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-sfm-md" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Introduction to Structure from Motion
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/06/12/globalsfm/" class="archive-article-date">
+  	<time datetime="2019-06-12T14:23:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/06/12/globalsfm/">Survey of Global Structure from Motion</a>
     </h1>
   
 
-        
-        <a href="/2019/04/04/sfm-md/" class="archive-article-date">
-  	<time datetime="2019-04-04T01:19:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Incremental-Structure-from-Motion"><a href="#1-Incremental-Structure-from-Motion" class="headerlink" title="1. Incremental Structure from Motion"></a>1. Incremental Structure from Motion</h2><ul>
-<li>[x] <a href="http://ccwu.me/vsfm/vsfm.pdf" target="_blank" rel="noopener">[3DV 2013] Towards Linear-time Incremental Structure from Motion</a></li>
-</ul>
-<p>第一次提出 <code>Retriangulate</code> 的概念来尝试解决incremental SfM中的drift.<br>由于初始的相机姿态和经过BA之后的姿态可能都不够准，一些正确的匹配在triangulate的时候失败了。而这些正确匹配的累计丢失是造成<br>drift的一个主因。</p>
-<p>为了解决这个问题，<code>VSFM</code>提出对失败的匹配进行 <code>re-triangulate(RT)</code>。<code>RT</code>的时候，需要选择相机对。</p>
-<a id="more"></a>
-<p>怎么识别不好的相机姿态: 两个相机之间的公共三维点和匹配点数目的比例太低。这样的相机对被称为<code>under-recontructed</code>。<br>为了使得相机姿态更稳定，需要对这些<code>under-reconstructed</code>的相机进行re-triangulate。为了得到更多的点，冲投影误差的阈值加大。<br>从上到下为<code>Without RT</code>、<code>With RT</code> :<br><img src="/img/sfm/retriangulate.png" alt=""></p>
-<hr>
-<ul>
-<li>[x] <a href="https://demuc.de/papers/schoenberger2016sfm.pdf" target="_blank" rel="noopener">[CVPR 2016] Structure-from-Motion Revisited</a></li>
-</ul>
-<hr>
-<ul>
-<li>[x] <a href="ir.ia.ac.cn/bitstream/173211/19771/1/HainanCui_3DV2017.pdf">[3DV 2017] Batched Incremental Structure-from-Motion</a></li>
-</ul>
-<p>主要贡献点在于<code>batched camera registration</code>和<code>batched tracks selection</code>。</p>
-<p>(1) 不同于COLMAP，在对相机进行注册的时候不再考虑使用next view selection的策略，而是把有足够多2D-3D点对的相机批量式(batched)进行注册。<br>这样做的原因是: incremental SfM的误差是累积的，更早注册的相机要比后注册的相机姿态更为准确。</p>
-<p>(2) batched tracks selection的意思是，在每个相机注册的步骤，不再考虑所有的track，而是仅把track的一部分进行选择并且优化。<br>对于大规模重建了来说，track通常是冗余的并且对于BA来说既耗内存也耗时间。为了保证下一个相机注册的成功率，track的选择有三个原则:</p>
-<ul>
-<li>包含已标定的相机，来优化它们的姿态</li>
-<li>包含将要在下一个步骤中进行标定的相机</li>
-<li>更长的track应该优先选择</li>
-</ul>
-<p>在进行增量重建的过程中，不使用匹配点而使用track。原因:</p>
-<ul>
-<li>track的长度通常比较长，使用track能够在相机注册的时候得到更多的候选。</li>
-<li>track构建的时候，很多错误的匹配已经被筛选出来了。</li>
-<li>track是feature match的集合，相比feature match来说更可信。</li>
-</ul>
-<p>流程如下：</p>
-<p><img src="/img/sfm/pipeline.png" alt="pipeline"></p>
-<h4 id="1-Batched-Seed-Selection"><a href="#1-Batched-Seed-Selection" class="headerlink" title="1. Batched Seed Selection"></a>1. Batched Seed Selection</h4><p>初始对的选取原则：<br>(1) 能看到尽可能多的相机<br>(2) 宽基线</p>
-<h5 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h5><p>在构造<code>Epipolar Graph</code>的时候，先用初始的<code>EG</code>中的相对相机姿态通过<code>rotation averaging(RA)</code>计算出global的相机姿态。然后通过计算<script type="math/tex">acos(||R_{ij} - R_jR_i^T||_F)</script> 来将误差大的边删除，然后相对旋转通过 <script type="math/tex">R_{ij}=R_jR_i^T</script>重新计算得到。然后，对于EG中的每条边，通过<script type="math/tex">\rho_{ij} = min(n_i, n_j)</script> 来表示与至相邻的相机密度, 其中<script type="math/tex">n_i</script>是相机<script type="math/tex">i</script>在EG中相邻相机的个数。最后，得到以<script type="math/tex">\rho_{ij}</script> 的大小为优先级的候选<code>seeds</code>.</p>
-<h4 id="2-Batched-Camera-Registration"><a href="#2-Batched-Camera-Registration" class="headerlink" title="2. Batched Camera Registration"></a>2. Batched Camera Registration</h4><p>所有能够看到大于12个三维点的相机都考虑为候选标定相机，然后<code>RANSAC + P3P</code>计算初始相机姿态，最后加<code>bundle adjustment</code>优化。这时固定三维点和内参，只对外参进行优化。</p>
-<h4 id="3-Tracks-Triangulation-and-Selection"><a href="#3-Tracks-Triangulation-and-Selection" class="headerlink" title="3. Tracks Triangulation and Selection"></a>3. Tracks Triangulation and Selection</h4><p>使用track作为输入，每次选两个相机，使用<code>RANSAC + Triangulation</code>来计算三维点。一个较为稳定的三维点应满足:</p>
-<ul>
-<li>投影回图像平面的两条射线的家教应该大于 $2^{\circ}$</li>
-<li>满足cheirality约束(在相机前方，具有正的深度值)</li>
-</ul>
-<p>为了提高效率，不使用所有的track，而是找track的子集，这些track需要对每个相机至少包含 <script type="math/tex">K</script> 次</p>
-<h4 id="4-Batched-Bundle-Adjustment"><a href="#4-Batched-Bundle-Adjustment" class="headerlink" title="4. Batched Bundle Adjustment"></a>4. Batched Bundle Adjustment</h4><h4 id="5-Iterative-Re-triangulation-and-Re-selection"><a href="#5-Iterative-Re-triangulation-and-Re-selection" class="headerlink" title="5. Iterative Re-triangulation and Re-selection"></a>5. Iterative Re-triangulation and Re-selection</h4><h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/img/sfm/result1.png" alt=""><br><img src="/img/sfm/result2.png" alt=""><br><img src="/img/sfm/result3.png" alt=""></p>
-<hr>
-<h2 id="2-Global-Structure-from-Motion"><a href="#2-Global-Structure-from-Motion" class="headerlink" title="2. Global Structure from Motion"></a>2. Global Structure from Motion</h2><h2 id="3-Hierarchical-Structure-from-Motion"><a href="#3-Hierarchical-Structure-from-Motion" class="headerlink" title="3. Hierarchical Structure from Motion"></a>3. Hierarchical Structure from Motion</h2><h2 id="4-Hybrid-Structure-from-Motion"><a href="#4-Hybrid-Structure-from-Motion" class="headerlink" title="4. Hybrid Structure from Motion"></a>4. Hybrid Structure from Motion</h2><ul>
-<li><p>[x] <a href="">[ACCV 2014] Divide and Conquer: Efficient Large-Scale Structure from Motion Using Graph Partitioning</a></p>
-</li>
-<li><p>[x] <a href="https://arxiv.org/pdf/1702.08601.pdf" target="_blank" rel="noopener">[arXiv 2017] Parallel Structure from Motion from Local Increment to Global Averaging</a></p>
-</li>
-<li><p>[x] <a href="https://www.cs.sfu.ca/~pingtan/Papers/cvpr18sfm.pdf" target="_blank" rel="noopener">[CVPR 2018] Very Large-scale Global SfM by Distributed Motion Averaging</a></p>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">structure from motion</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">structure from motion, 3D reconstruction</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/04/sfm-md/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/04/04/view-graph/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Viewing Graph
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/04/26/LIFT/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LIFT</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "http://yoursite.com/2019/04/04/sfm-md/",
-  owner: 'AIBluefisher',
-  repo: 'AIBluefisher.github.io',
-  oauth: {
-    client_id: 'e4da4f81b18c8f09b39d',
-    client_secret: '79be81bc1944a20b28ae7aad76617f079bb9f5d9',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
+    
 
 
           </div>
@@ -420,8 +228,8 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
