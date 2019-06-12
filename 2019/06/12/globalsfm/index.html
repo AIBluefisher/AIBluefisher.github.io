@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://yoursite.com/img/globalsfm/global_sim_6.png">
 <meta property="og:image" content="http://yoursite.com/img/globalsfm/global_sim_7.png">
 <meta property="og:image" content="http://yoursite.com/img/globalsfm/global_sim_8.png">
-<meta property="og:updated_time" content="2019-06-12T15:06:13.007Z">
+<meta property="og:updated_time" content="2019-06-12T15:08:38.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Survey of Global Structure from Motion">
 <meta name="twitter:description" content="1. Global Structure-from-Motion by Similarity Averaging之前所有的global SfM方法都分为四步：Rotation Averaging, Translation Averaging, Triangulation, Bundle Adjustment。但是，众所周知的是，translation averaging这一步很难做好，主要有两个原因">
@@ -188,8 +188,11 @@
       
         <h2 id="1-Global-Structure-from-Motion-by-Similarity-Averaging"><a href="#1-Global-Structure-from-Motion-by-Similarity-Averaging" class="headerlink" title="1. Global Structure-from-Motion by Similarity Averaging"></a>1. Global Structure-from-Motion by Similarity Averaging</h2><p>之前所有的global SfM方法都分为四步：Rotation Averaging, Translation Averaging, Triangulation, Bundle Adjustment。但是，众所周知的是，translation averaging这一步很难做好，主要有两个原因: essential matrix只能估计的relative translation只有方向，没有尺度；很难剔除所有的outlier导致的bad essential matrix。这篇文章的方法则拓宽了思路，如果知道尺度的话，那么global translation的估计就容易的多了。为此，这篇文章通过卫星图构建的局部重建为每张图片生成一张稀疏深度图，通过稀疏深度图来估计图片之间相对尺度。</p>
 <a id="more"></a>
-<h3 id="1-1-方法概述"><a href="#1-1-方法概述" class="headerlink" title="1.1 方法概述"></a>1.1 方法概述</h3><p>这篇文章的pipeline如下：<br><img src="/img/globalsfm/global_sim_1.png" alt="pipeline"></p>
-<p>首先通过特征点匹配之后得到的correspondences计算essential matrix，由于essential matrix只能在parallel rigid graph中确定相机位置，因此这篇文章通过从stellate graph构造为每张图片都构造一张深度图来提升global SfM方法。stellate graph如下图(b)所示:<br><img src="/img/globalsfm/global_sim_2.png" alt="stellate graph"><br>在构造稀疏深度图的时候还会通过depth consistency check来去除noisy essential matrices。除此之外，还有两个可选的筛除outlier的步骤: <code>local BA</code>用于local stellate graph来提升relative motion的准确性并且筛除一些错误的essential matrices；<code>missing correspondence analysis</code>用于排除由于重复的场景结构造成的outlier essential matrices。之后，Rotation Averaging和Scale Averaging同时进行。一旦global rotation和global scale都确定了，scale-aware translation averaging(尺度已知的translation averaging)就可以用于估计global scale了。最后，triangulation之后通过BA来同时优化相机姿态和三维点。</p>
+<h3 id="1-1-方法概述"><a href="#1-1-方法概述" class="headerlink" title="1.1 方法概述"></a>1.1 方法概述</h3><p>这篇文章的pipeline如下：</p>
+<p><div align="center"><img src="/img/globalsfm/global_sim_1.png" alt="pipeline"></div></p>
+<p>首先通过特征点匹配之后得到的correspondences计算essential matrix，由于essential matrix只能在parallel rigid graph中确定相机位置，因此这篇文章通过从stellate graph构造为每张图片都构造一张深度图来提升global SfM方法。stellate graph如下图(b)所示: </p>
+<p><div align="center"><img src="/img/globalsfm/global_sim_2.png" alt="stellate graph"></div></p>
+<p>在构造稀疏深度图的时候还会通过depth consistency check来去除noisy essential matrices。除此之外，还有两个可选的筛除outlier的步骤: <code>local BA</code>用于local stellate graph来提升relative motion的准确性并且筛除一些错误的essential matrices；<code>missing correspondence analysis</code>用于排除由于重复的场景结构造成的outlier essential matrices。之后，Rotation Averaging和Scale Averaging同时进行。一旦global rotation和global scale都确定了，scale-aware translation averaging(尺度已知的translation averaging)就可以用于估计global scale了。最后，triangulation之后通过BA来同时优化相机姿态和三维点。</p>
 <h3 id="1-2-稀疏深度图的构建"><a href="#1-2-稀疏深度图的构建" class="headerlink" title="1.2 稀疏深度图的构建"></a>1.2 稀疏深度图的构建</h3><p>对于epipolar graph中的每一条边，我们都已经通过triangulation计算得到一个局部重建，基线宽度设为1。之后，可以通过一个卫星图将这些局部重建拼接起来。这个卫星图不包括环，因此这一步骤简单且鲁棒。为了考虑计算效率，只最多考虑和$i$相连的80个相机。这些相机之间的边是匹配数最多的。对于卫星图之间的局部重建，只需要对图片(i, j)之间计算一个相对尺度$s_{ij}^i$就能将这些局部重建拼接起来。这里的上标$i$表示以$i$为卫星图的中心。对于图片$i$中的一个特征点，如果它同时在$(i, j)$和$(i, k)$中都重建出来了，他的深度和这两个局部重建之间的尺度关系为:</p>
 <script type="math/tex; mode=display">
 \frac{s_{ik}^i}{s_{ij}^i} = \frac{d_{ij}}{d_{ik}} = d_{jk}^k \tag{1}</script><p>其中，$d_{ij}$ 和 $d_{ik}$分别是特征点从$(i, j)$和$(i, k)$中重建出来的。对公式(1)的两边同时取对数，则有</p>
@@ -201,7 +204,7 @@ Ax=b \tag{3}</script><p>其中 $x$ 和 $b$ 分别是把 $log(s_{ij}^i)$ 和 $log
 \argmin_x ||Ax-b||_1 \tag{4}</script><p>$L_1$优化是凸函数可以得到全局最优解，可以通过ADMM进行求解。</p>
 <h4 id="1-2-1-Depth-consistency-check"><a href="#1-2-1-Depth-consistency-check" class="headerlink" title="1.2.1 Depth consistency check"></a>1.2.1 Depth consistency check</h4><p>将这些局部重建合并在一起会造成 $i$ 中的每个特征点有多个深度值。可以通过检验它们的一致性来筛选outlier essential matrices。所有深度值偏离中值滤波之后的深度值的5%都被当做outlier。如果图片对$(i, j)$中的inlier少于5，那么这个图片对将被移除，因为一个本质矩阵需要至少5个点来计算得到。</p>
 <h4 id="1-2-2-missing-correspondence-analysis"><a href="#1-2-2-missing-correspondence-analysis" class="headerlink" title="1.2.2 missing correspondence analysis"></a>1.2.2 missing correspondence analysis</h4><p>missing correspondence analysis已经在一些文献中证明，对于有large repetitive scene structures是一种有效的筛除outlier EG的策略。这篇文章将深度图$D_i$中的三维点都投影到$j$的图像平面中，如下图所示:</p>
-<p><img src="/img/globalsfm/global_sim_3.png" alt="FOV"></p>
+<p><div align="center"><img src="/img/globalsfm/global_sim_3.png" alt="FOV"></div></p>
 <p>其中绿色的点表示在$j$中匹配上的特征点。红色的点是<code>missing correspondences</code>，也就是在$j$中没有匹配上的点。可以通过分析红色点和绿色点的比例来移除repetitive scene structures中的outlier epipolar graph。绿虚线框中的红点是由于feature matching的imperfect repeatability造成的，因此，这篇文章只考虑框外的红色点。对于$M_j^i = \frac{n_{red}}{n_{green}}$，如果$M_j^i &gt; \epsilon$，$(i, j)$就被当成outlier被移除掉。</p>
 <h3 id="1-3-Similarity-Averaging"><a href="#1-3-Similarity-Averaging" class="headerlink" title="1.3 Similarity Averaging"></a>1.3 Similarity Averaging</h3><p>一旦深度图构建完成，对于epipolar graph 中的每一条边，都可以计算一个相似变换。理论上，相似变换可以通过3D-3D的对应计算得到，但是实际上，这些local reconstructions用来做3D-3D的registeration是不够准的(这也验证了我之前的实验，ransac采了很多次样都算不出一个准确的similarity transformation)。因此，对于相似变换中的R和t，可以从之前得到的essential matrices计算得到或者local BA之后得到，并且通过以下公式计算相对尺度：</p>
 <script type="math/tex; mode=display">
@@ -220,10 +223,12 @@ R_j(c_i - c_j) = b_{ij}t_{ij} \tag{9}</script><p>这些方程收集起来同样�
 <script type="math/tex; mode=display">
 A_cx_c = b_c \tag{10}</script><p>然后通过优化$L_1$-范数下的方程:</p>
 <script type="math/tex; mode=display">
-\argmin_{x_c} ||A_c x_c - b_c||_1 \tag{11}</script><h2 id="2-实验"><a href="#2-实验" class="headerlink" title="2. 实验"></a>2. 实验</h2><h3 id="2-1-重复场景的数据集"><a href="#2-1-重复场景的数据集" class="headerlink" title="2.1 重复场景的数据集"></a>2.1 重复场景的数据集</h3><p><img src="/img/globalsfm/global_sim_4.png" alt="global_sim_4"><br>(a)为数据集中的图片，(b)为1DSfM的结果，(c)为这篇文章的结果<br><img src="/img/globalsfm/global_sim_5.png" alt="global_sim_5"></p>
-<h3 id="2-2-Sequential-Dataset"><a href="#2-2-Sequential-Dataset" class="headerlink" title="2.2 Sequential Dataset"></a>2.2 Sequential Dataset</h3><p><img src="/img/globalsfm/global_sim_6.png" alt="global_sim_6"></p>
-<h3 id="2-3-Internet-Dataset"><a href="#2-3-Internet-Dataset" class="headerlink" title="2.3 Internet Dataset"></a>2.3 Internet Dataset</h3><p><img src="/img/globalsfm/global_sim_7.png" alt="global_sim_7"></p>
-<h3 id="2-4-统计结果"><a href="#2-4-统计结果" class="headerlink" title="2.4 统计结果"></a>2.4 统计结果</h3><p><img src="/img/globalsfm/global_sim_8.png" alt="global_sim_8"></p>
+\argmin_{x_c} ||A_c x_c - b_c||_1 \tag{11}</script><h2 id="2-实验"><a href="#2-实验" class="headerlink" title="2. 实验"></a>2. 实验</h2><h3 id="2-1-重复场景的数据集"><a href="#2-1-重复场景的数据集" class="headerlink" title="2.1 重复场景的数据集"></a>2.1 重复场景的数据集</h3><p><div align="center"><img src="/img/globalsfm/global_sim_4.png" alt="global_sim_4"></div></p>
+<p>(a)为数据集中的图片，(b)为1DSfM的结果，(c)为这篇文章的结果</p>
+<p><div align="center"><img src="/img/globalsfm/global_sim_5.png" alt="global_sim_5"></div></p>
+<h3 id="2-2-Sequential-Dataset"><a href="#2-2-Sequential-Dataset" class="headerlink" title="2.2 Sequential Dataset"></a>2.2 Sequential Dataset</h3><p><div align="center"><img src="/img/globalsfm/global_sim_6.png" alt="global_sim_6"></div></p>
+<h3 id="2-3-Internet-Dataset"><a href="#2-3-Internet-Dataset" class="headerlink" title="2.3 Internet Dataset"></a>2.3 Internet Dataset</h3><p><div align="center"><img src="/img/globalsfm/global_sim_7.png" alt="global_sim_7"></div></p>
+<h3 id="2-4-统计结果"><a href="#2-4-统计结果" class="headerlink" title="2.4 统计结果"></a>2.4 统计结果</h3><p><div align="center"><img src="/img/globalsfm/global_sim_8.png" alt="global_sim_8"></div></p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] Moulon P , Monasse P , Marlet R . Global Fusion of Relative Motions for Robust, Accurate and Scalable Structure from Motion[C]// IEEE International Conference on Computer Vision. IEEE Computer Society, 2013.</p>
 <p>[2] Cui Z , Tan P . Global Structure-from-Motion by Similarity Averaging[C]// 2015 IEEE International Conference on Computer Vision (ICCV). IEEE, 2015.</p>
 <p>[3] Sweeney C , Sattler T , Hollerer T , et al. Optimizing the Viewing Graph for Structure-from-Motion[C]// 2015 IEEE International Conference on Computer Vision (ICCV). IEEE Computer Society, 2015.</p>
@@ -489,11 +494,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Paper Reading</a>
+                <a href="javascript:void(0)" class="js-tag color1">structure from motion, 3D reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">structure from motion, 3D reconstruction</a>
+                <a href="javascript:void(0)" class="js-tag color4">Paper Reading</a>
               </li>
              
               <li class="article-tag-list-item">
