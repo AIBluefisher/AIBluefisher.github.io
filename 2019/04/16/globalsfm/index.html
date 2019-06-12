@@ -6,27 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LIFT | AIBluefisher</title>
+  <title>Survey of Global Structure from Motion | AIBluefisher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LIFT[1]是一种使用CNN来提取特征点(feature points / interests)的方法, 发表在ECCV 2016. 众所周知, 尽管在2004年就已经发表出来, 但是SIFT(Scale Invariant Feature Transform)在三维重建中一直至今都无可替代. 随着学习的火热, 研究人员开始将目光更多转向于寻求一种基于学习的方法来提取特征点, 从而代替人工设计的">
-<meta name="keywords" content="Paper Reading">
+  <meta name="description" content="1. Global Structure-from-Motion by Similarity Averaging之前所有的global SfM方法都分为四步：Rotation Averaging, Translation Averaging, Triangulation, Bundle Adjustment。但是，众所周知的是，translation averaging这一步很难做好，主要有两个原因">
+<meta name="keywords" content="structure from motion, 3D reconstruction">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LIFT">
-<meta property="og:url" content="http://yoursite.com/2018/04/26/LIFT/index.html">
+<meta property="og:title" content="Survey of Global Structure from Motion">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/globalsfm/index.html">
 <meta property="og:site_name" content="AIBluefisher">
-<meta property="og:description" content="LIFT[1]是一种使用CNN来提取特征点(feature points / interests)的方法, 发表在ECCV 2016. 众所周知, 尽管在2004年就已经发表出来, 但是SIFT(Scale Invariant Feature Transform)在三维重建中一直至今都无可替代. 随着学习的火热, 研究人员开始将目光更多转向于寻求一种基于学习的方法来提取特征点, 从而代替人工设计的">
+<meta property="og:description" content="1. Global Structure-from-Motion by Similarity Averaging之前所有的global SfM方法都分为四步：Rotation Averaging, Translation Averaging, Triangulation, Bundle Adjustment。但是，众所周知的是，translation averaging这一步很难做好，主要有两个原因">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/lift/7.png">
-<meta property="og:image" content="http://yoursite.com/img/lift/1.png">
-<meta property="og:image" content="http://yoursite.com/img/lift/2.png">
-<meta property="og:image" content="http://yoursite.com/img/lift/3.png">
-<meta property="og:image" content="http://yoursite.com/img/lift/4.png">
-<meta property="og:image" content="http://yoursite.com/img/lift/5.png">
-<meta property="og:updated_time" content="2018-04-27T04:55:18.988Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_4.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_5.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_6.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_7.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_8.png">
+<meta property="og:updated_time" content="2019-06-12T15:00:08.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LIFT">
-<meta name="twitter:description" content="LIFT[1]是一种使用CNN来提取特征点(feature points / interests)的方法, 发表在ECCV 2016. 众所周知, 尽管在2004年就已经发表出来, 但是SIFT(Scale Invariant Feature Transform)在三维重建中一直至今都无可替代. 随着学习的火热, 研究人员开始将目光更多转向于寻求一种基于学习的方法来提取特征点, 从而代替人工设计的">
-<meta name="twitter:image" content="http://yoursite.com/img/lift/7.png">
+<meta name="twitter:title" content="Survey of Global Structure from Motion">
+<meta name="twitter:description" content="1. Global Structure-from-Motion by Similarity Averaging之前所有的global SfM方法都分为四步：Rotation Averaging, Translation Averaging, Triangulation, Bundle Adjustment。但是，众所周知的是，translation averaging这一步很难做好，主要有两个原因">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/16/globalsfm/img/global_sim_1.png">
   
     <link rel="alternative" href="/atom.xml" title="AIBluefisher" type="application/atom+xml">
   
@@ -164,59 +166,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LIFT" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-globalsfm" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      LIFT
+      Survey of Global Structure from Motion
     </h1>
   
 
         
-        <a href="/2018/04/26/LIFT/" class="archive-article-date">
-  	<time datetime="2018-04-26T09:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-26</time>
+        <a href="/2019/04/16/globalsfm/" class="archive-article-date">
+  	<time datetime="2019-04-16T14:23:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>LIFT[1]是一种使用CNN来提取特征点(feature points / interests)的方法, 发表在ECCV 2016.</p>
-<p>众所周知, 尽管在2004年就已经发表出来, 但是SIFT(Scale Invariant Feature Transform)在三维重建中一直至今都无可替代. 随着学习的火热, 研究人员开始将目光更多转向于寻求一种基于学习的方法来提取特征点, 从而代替人工设计的特征点.</p>
-<a id="more"></a>
-<h2 id="1-Motivation"><a href="#1-Motivation" class="headerlink" title="1.Motivation"></a>1.Motivation</h2><p>SIFT提取特征点包括三个步骤: 关键点检测器检测候选特征点、方向赋值、计算128维描述子向量. 在LIFT之前的工作中, 有很多使用CNN来学习这三个步骤的算法, 然而LIFT是第一个提出将这三个网络整合到一起并提出成功的训练方法.</p>
-<p>LIFT的作者发现, 从零开始训练整个网络是不可能的, 因为这三个神经网络的目的不同. 因此, 他们提出分别训练这三个网络来解决这个问题: 首先训练描述子(Descriptor), 然后是方向估计子(Orientation Estimator), 最后是特征点检测器(detector).</p>
-<h2 id="2-训练数据"><a href="#2-训练数据" class="headerlink" title="2.训练数据"></a>2.训练数据</h2><p>LIFT的训练数据来源于使用Structure from Motion(SfM)算法得到的特征点, 而SfM算法的输入为在不同视点(viewpoints)和光照条件下获取到的图像. </p>
-<p>实际上, LIFT使用的训练数据并非一个个像素点, 而是一些图像块(image patches). 为了使得优化过程更易于处理, 这些图像块在不同的尺度空间中提取得到(这句话没太理解, 先留作疑问. 原文是: “We formulate this training problem on image patches extracted at different scales to make the optimization tractable”). </p>
-<h2 id="3-方法"><a href="#3-方法" class="headerlink" title="3.方法"></a>3.方法</h2><h3 id="3-1-训练数据的构建"><a href="#3-1-训练数据的构建" class="headerlink" title="3.1 训练数据的构建"></a>3.1 训练数据的构建</h3><p>使用Piccadilly和Roman Forum和Visual SFM来重建三维场景. 其中Piccadilly数据集包含3384张图片, 最后的重建结果包含59k个特征点(平均每张图片6.5个特征点); Roman-Forum数据集包含1658张图片, 最后的重建结果包含51k个特征点(平均每张图片包含5.2个特征点).</p>
-<p>作者将这些数据分成训练集和验证集. 为了构建一个正的训练样本, 他们只使用了在SfM重建之后保留下的特征点(不是使用最初SIFT提取出来的特征点).<br><img src="/img/lift/7.png" alt="feature"></p>
-<p>运行时的pipeline<br><img src="/img/lift/1.png" alt="pipeline"></p>
-<h3 id="3-2-三个网络"><a href="#3-2-三个网络" class="headerlink" title="3.2 三个网络"></a>3.2 三个网络</h3><p>这部分内容还没看太懂, 之后再更~</p>
-<h2 id="4-实验结果及对比"><a href="#4-实验结果及对比" class="headerlink" title="4.实验结果及对比"></a>4.实验结果及对比</h2><p>LIFT的作者使用了三个数据集进行对比实验:</p>
-<p>Strecha数据集. 包含从不同视角拍摄的两个场景的19张图片.<br>DTU数据集. 包含在不同视点和光照条件下拍摄的60张图片. 这个数据集用于检测LIFT在视点变化下的性能.<br>Webcam数据集. 包含同一视点拍摄的强光照变化下的6个场景的710张图片. 这个数据集用于检测LIFT在自然光照变化下的性能.<br>.对于Strcha和DTU数据集, LIFT的作者使用所提供的ground truth来进行匹配. 同时, 他们使用三个度量标准来评估性能:</p>
-<p>可重复性(repeatability, Rep): 这个标准用于检测feature detector的性能.<br>最近邻mAP(Nearest Neighbor mean Average Precision, NN mAP)<br>匹配得分(Matching Score, M. Score): 匹配点的ground truth可以被恢复出来的比例. 这个标准用于评估整个算法的性能.</p>
-<h3 id="4-1-匹配结果对比"><a href="#4-1-匹配结果对比" class="headerlink" title="4.1 匹配结果对比"></a>4.1 匹配结果对比</h3><p>下图展示了分别使用SIFT(左边)和LIFT(右边)在Piccadilly数据集训练之后, 在500个特征点的图像上的匹配结果. 实验结果表明LIFT能得到更多正确的匹配.<br><img src="/img/lift/2.png" alt="compare"></p>
-<h3 id="4-2-整个LIFT网络评估"><a href="#4-2-整个LIFT网络评估" class="headerlink" title="4.2 整个LIFT网络评估"></a>4.2 整个LIFT网络评估</h3><p>对于整个网络的性能评估, 论文中和多种传统方法以及基于学习的方法进行了对比.</p>
-<p>下图给出了在三个数据集中各个方法得到的average matching score.<br><img src="/img/lift/3.png" alt="matching score"></p>
-<p>下表给出了各个方法得到的average matching score的确切数字.<br><img src="/img/lift/4.png" alt="matching score number"></p>
-<p>其中LIFT-pic是使用Piccadilly数据集训练, LIFT-rf使用Roman-Forum训练. 结果显示在这三个数据集上, LIFT都超过了其他方法. 其中一个有趣的结果是: 在DTU数据集上, SIFT仍然是除LIFT之外的性能最好的方法(包括使用其他基于学习方法的特征点).</p>
-<p>最后, 为了了解LIFT中, detector, orientation estimator, descriptor对于整个LIFT的影响, 作者还将LIFT中每个部分得到的结果和SIFT交换, 并比较了它们的性能, 结果如下表.<br><img src="/img/lift/5.png" alt="performance"></p>
-<p>结果表明, LIFT中每一个部分得到的结果都超过了SIFT的每一个部分, 并在LIFT的整个过程中都起到了重要作用.</p>
-<h2 id="5-缺点-不足"><a href="#5-缺点-不足" class="headerlink" title="5.缺点/不足"></a>5.缺点/不足</h2><p>尽管LIFT已经很优秀了, 但是它还存在一些明显的不足: LIFT使用Spatial Transformer和softargmax将之前工作中三个独立的网络整合到一个统一的网络中, 并且能够使用反向传播算法进行端到端的训练(感觉地位和faster-RCNN相似), 但是这也使得整个网络从零开始学习尽管在理论上可行, 实际上却是不行的. 因此, 还需要一个更有效的策略来对LIFT进行训练.</p>
-<p>除此之外, 由于只使用Internet数据集进行训练, LIFT还表现出对数据的过拟合[2], 因此下一个目标应该是使用更多数据集进行训练.</p>
-<h2 id="Future-work"><a href="#Future-work" class="headerlink" title="Future work"></a>Future work</h2><p>寻找一种更有效的训练策略来对整个网络进行训练<br>使用hard negative mining策略来使用整张图片而不只是图片块对LIFT进行训练</p>
-<h2 id="6-补充材料"><a href="#6-补充材料" class="headerlink" title="6. 补充材料"></a>6. 补充材料</h2><p>看视频应该更能直观地感受LIFT的效果:</p>
-<p><a href="https://www.youtube.com/watch?v=hhxAttChmCo" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hhxAttChmCo</a></p>
-<p>以及, 关于LIFT的所有材料都能在这个网站上找到: </p>
-<p><a href="https://cvlab.epfl.ch/research/detect/lift" target="_blank" rel="noopener">https://cvlab.epfl.ch/research/detect/lift</a></p>
-<p>LIFT也在Github上公布了模型及其tensorflow实现:</p>
-<p>模型 - <a href="https://github.com/cvlab-epfl/LIFT" target="_blank" rel="noopener">https://github.com/cvlab-epfl/LIFT</a></p>
-<p>tensorflow实现 - <a href="https://github.com/cvlab-epfl/tf-lift" target="_blank" rel="noopener">https://github.com/cvlab-epfl/tf-lift</a></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Yi K M, Trulls E, Lepetit V, et al. LIFT: Learned Invariant Feature Transform[C]// European Conference on Computer Vision. Springer, Cham, 2016:467-483.</p>
-<p>[2] Schonberger J L, Hardmeier H, Sattler T, et al. Comparative Evaluation of Hand-Crafted and Learned Local Features[C]// IEEE Conference on Computer Vision and Pattern Recognition. IEEE Computer Society, 2017:6959-6968.</p>
+        <h2 id="1-Global-Structure-from-Motion-by-Similarity-Averaging"><a href="#1-Global-Structure-from-Motion-by-Similarity-Averaging" class="headerlink" title="1. Global Structure-from-Motion by Similarity Averaging"></a>1. Global Structure-from-Motion by Similarity Averaging</h2><p>之前所有的global SfM方法都分为四步：Rotation Averaging, Translation Averaging, Triangulation, Bundle Adjustment。但是，众所周知的是，translation averaging这一步很难做好，主要有两个原因: essential matrix只能估计的relative translation只有方向，没有尺度；很难剔除所有的outlier导致的bad essential matrix。这篇文章的方法则拓宽了思路，如果知道尺度的话，那么global translation的估计就容易的多了。为此，这篇文章通过卫星图构建的局部重建为每张图片生成一张稀疏深度图，通过稀疏深度图来估计图片之间相对尺度。</p>
+<h3 id="1-1-方法概述"><a href="#1-1-方法概述" class="headerlink" title="1.1 方法概述"></a>1.1 方法概述</h3><p>这篇文章的pipeline如下：<br><img src="img/global_sim_1.png" alt="pipeline"></p>
+<p>首先通过特征点匹配之后得到的correspondences计算essential matrix，由于essential matrix只能在parallel rigid graph中确定相机位置，因此这篇文章通过从stellate graph构造为每张图片都构造一张深度图来提升global SfM方法。stellate graph如下图(b)所示:<br><img src="img/global_sim_2.png" alt="stellate graph"><br>在构造稀疏深度图的时候还会通过depth consistency check来去除noisy essential matrices。除此之外，还有两个可选的筛除outlier的步骤: <code>local BA</code>用于local stellate graph来提升relative motion的准确性并且筛除一些错误的essential matrices；<code>missing correspondence analysis</code>用于排除由于重复的场景结构造成的outlier essential matrices。之后，Rotation Averaging和Scale Averaging同时进行。一旦global rotation和global scale都确定了，scale-aware translation averaging(尺度已知的translation averaging)就可以用于估计global scale了。最后，triangulation之后通过BA来同时优化相机姿态和三维点。</p>
+<h3 id="1-2-稀疏深度图的构建"><a href="#1-2-稀疏深度图的构建" class="headerlink" title="1.2 稀疏深度图的构建"></a>1.2 稀疏深度图的构建</h3><p>对于epipolar graph中的每一条边，我们都已经通过triangulation计算得到一个局部重建，基线宽度设为1。之后，可以通过一个卫星图将这些局部重建拼接起来。这个卫星图不包括环，因此这一步骤简单且鲁棒。为了考虑计算效率，只最多考虑和$i$相连的80个相机。这些相机之间的边是匹配数最多的。对于卫星图之间的局部重建，只需要对图片(i, j)之间计算一个相对尺度$s_{ij}^i$就能将这些局部重建拼接起来。这里的上标$i$表示以$i$为卫星图的中心。对于图片$i$中的一个特征点，如果它同时在$(i, j)$和$(i, k)$中都重建出来了，他的深度和这两个局部重建之间的尺度关系为:</p>
+<script type="math/tex; mode=display">
+\frac{s_{ik}^i}{s_{ij}^i} = \frac{d_{ij}}{d_{ik}} = d_{jk}^k \tag{1}</script><p>其中，$d_{ij}$ 和 $d_{ik}$分别是特征点从$(i, j)$和$(i, k)$中重建出来的。对公式(1)的两边同时取对数，则有</p>
+<script type="math/tex; mode=display">
+log(s_{ik}^i) - log(s_{ij}^i) = log(d_{jk}^i) \tag{2}</script><p>把所有这些线性方程收集起来，可以得到一个线性方程组</p>
+<script type="math/tex; mode=display">
+Ax=b \tag{3}</script><p>其中 $x$ 和 $b$ 分别是把 $log(s_{ij}^i)$ 和 $log(d_{jk}^i)$ 堆叠在一起的向量。为了对(3)进行鲁棒估计，可以通过在 $L_1$-范数意义下进行优化:</p>
+<script type="math/tex; mode=display">
+\argmin_x ||Ax-b||_1 \tag{4}</script><p>$L_1$优化是凸函数可以得到全局最优解，可以通过ADMM进行求解。</p>
+<h4 id="1-2-1-Depth-consistency-check"><a href="#1-2-1-Depth-consistency-check" class="headerlink" title="1.2.1 Depth consistency check"></a>1.2.1 Depth consistency check</h4><p>将这些局部重建合并在一起会造成 $i$ 中的每个特征点有多个深度值。可以通过检验它们的一致性来筛选outlier essential matrices。所有深度值偏离中值滤波之后的深度值的5%都被当做outlier。如果图片对$(i, j)$中的inlier少于5，那么这个图片对将被移除，因为一个本质矩阵需要至少5个点来计算得到。</p>
+<h4 id="1-2-2-missing-correspondence-analysis"><a href="#1-2-2-missing-correspondence-analysis" class="headerlink" title="1.2.2 missing correspondence analysis"></a>1.2.2 missing correspondence analysis</h4><p>missing correspondence analysis已经在一些文献中证明，对于有large repetitive scene structures是一种有效的筛除outlier EG的策略。这篇文章将深度图$D_i$中的三维点都投影到$j$的图像平面中，如下图所示:</p>
+<p><img src="img/global_sim_3.png" alt="FOV"></p>
+<p>其中绿色的点表示在$j$中匹配上的特征点。红色的点是<code>missing correspondences</code>，也就是在$j$中没有匹配上的点。可以通过分析红色点和绿色点的比例来移除repetitive scene structures中的outlier epipolar graph。绿虚线框中的红点是由于feature matching的imperfect repeatability造成的，因此，这篇文章只考虑框外的红色点。对于$M_j^i = \frac{n_{red}}{n_{green}}$，如果$M_j^i &gt; \epsilon$，$(i, j)$就被当成outlier被移除掉。</p>
+<h3 id="1-3-Similarity-Averaging"><a href="#1-3-Similarity-Averaging" class="headerlink" title="1.3 Similarity Averaging"></a>1.3 Similarity Averaging</h3><p>一旦深度图构建完成，对于epipolar graph 中的每一条边，都可以计算一个相似变换。理论上，相似变换可以通过3D-3D的对应计算得到，但是实际上，这些local reconstructions用来做3D-3D的registeration是不够准的(这也验证了我之前的实验，ransac采了很多次样都算不出一个准确的similarity transformation)。因此，对于相似变换中的R和t，可以从之前得到的essential matrices计算得到或者local BA之后得到，并且通过以下公式计算相对尺度：</p>
+<script type="math/tex; mode=display">
+S_{ij} = s_{ji}^j / s_{ij}^i \tag{5}</script><p>其中，$s_{ji}^j$和$s_{ij}^i$是在构建$D_i$和$D_j$时通过(4)解出来的相对尺度。</p>
+<h4 id="1-3-1-Robust-Scale-Averaging"><a href="#1-3-1-Robust-Scale-Averaging" class="headerlink" title="1.3.1 Robust Scale Averaging"></a>1.3.1 Robust Scale Averaging</h4><p>对于每张深度图$D_i$，我们都需要计算一个尺度因子$s_i$来把它们register到一起。由已知的relative scale，我们有</p>
+<script type="math/tex; mode=display">
+\frac{s_i}{s_j} = S_{ij} \tag{6}</script><p>和(4)类似，我们可以得到</p>
+<script type="math/tex; mode=display">
+A_sx_s=b_s \tag{7}</script><p>同样，我们可以在$L_1$-范数下求解这个线性方程:</p>
+<script type="math/tex; mode=display">
+\argmin_{x_s} ||A_sx_s-b_s||_1 \tag{8}</script><h4 id="1-3-2-Robust-Scale-Aware-Translation-Averaging"><a href="#1-3-2-Robust-Scale-Aware-Translation-Averaging" class="headerlink" title="1.3.2 Robust Scale-Aware Translation Averaging"></a>1.3.2 Robust Scale-Aware Translation Averaging</h4><p>当每张深度图的全局尺度因子都已知时，基线宽度可以通过以下公式计算得到:</p>
+<script type="math/tex; mode=display">
+b_{ij} = \frac{1}{2}(s_i s_{ij}^i + s_j s_{ij}^j) \tag{9}</script><p>在global rotation已知之后，可以通过以下线性方程计算相机位置:</p>
+<script type="math/tex; mode=display">
+R_j(c_i - c_j) = b_{ij}t_{ij} \tag{9}</script><p>这些方程收集起来同样可以得到一个线性方程组:</p>
+<script type="math/tex; mode=display">
+A_cx_c = b_c \tag{10}</script><p>然后通过优化$L_1$-范数下的方程:</p>
+<script type="math/tex; mode=display">
+\argmin_{x_c} ||A_c x_c - b_c||_1 \tag{11}</script><h2 id="2-实验"><a href="#2-实验" class="headerlink" title="2. 实验"></a>2. 实验</h2><h3 id="2-1-重复场景的数据集"><a href="#2-1-重复场景的数据集" class="headerlink" title="2.1 重复场景的数据集"></a>2.1 重复场景的数据集</h3><p><img src="img/global_sim_4.png" alt="global_sim_4"><br>(a)为数据集中的图片，(b)为1DSfM的结果，(c)为这篇文章的结果<br><img src="img/global_sim_5.png" alt="global_sim_5"></p>
+<h3 id="2-2-Sequential-Dataset"><a href="#2-2-Sequential-Dataset" class="headerlink" title="2.2 Sequential Dataset"></a>2.2 Sequential Dataset</h3><p><img src="img/global_sim_6.png" alt="global_sim_6"></p>
+<h3 id="2-3-Internet-Dataset"><a href="#2-3-Internet-Dataset" class="headerlink" title="2.3 Internet Dataset"></a>2.3 Internet Dataset</h3><p><img src="img/global_sim_7.png" alt="global_sim_7"></p>
+<h3 id="2-4-统计结果"><a href="#2-4-统计结果" class="headerlink" title="2.4 统计结果"></a>2.4 统计结果</h3><p><img src="img/global_sim_8.png" alt="global_sim_8"></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] Moulon P , Monasse P , Marlet R . Global Fusion of Relative Motions for Robust, Accurate and Scalable Structure from Motion[C]// IEEE International Conference on Computer Vision. IEEE Computer Society, 2013.</p>
+<p>[2] Cui Z , Tan P . Global Structure-from-Motion by Similarity Averaging[C]// 2015 IEEE International Conference on Computer Vision (ICCV). IEEE, 2015.</p>
+<p>[3] Sweeney C , Sattler T , Hollerer T , et al. Optimizing the Viewing Graph for Structure-from-Motion[C]// 2015 IEEE International Conference on Computer Vision (ICCV). IEEE Computer Society, 2015.</p>
+<p>[4] Sengupta S , Amir T , Galun M , et al. A New Rank Constraint on Multi-view Fundamental Matrices, and its Application to Camera Location Recovery[J]. 2017.</p>
 
       
 
@@ -251,7 +261,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Paper Reading</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">structure from motion, 3D reconstruction</a>
         		</li>
       		
 		</ul>
@@ -307,7 +317,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/26/LIFT/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/16/globalsfm/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,15 +331,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/04/sfm-md/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/17/resume/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Introduction to Structure from Motion
+          About me
         
       </div>
     </a>
   
+  
+    <a href="/2019/04/16/rotation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">三维重建中的旋转(Rotation)</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -366,7 +381,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://yoursite.com/2018/04/26/LIFT/",
+  id: "http://yoursite.com/2019/04/16/globalsfm/",
   owner: 'AIBluefisher',
   repo: 'AIBluefisher.github.io',
   oauth: {
