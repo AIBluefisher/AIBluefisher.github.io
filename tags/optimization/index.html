@@ -6,28 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Viewing Graph | AIBluefisher</title>
+  <title>Tag: optimization | AIBluefisher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先我们来看看什么是Viewing Graph以及为什么Viewing Graph在重建中有什么作用？ 1A Viewing Graph is a graph which nodes represent images and edges represent the number of matches between two nodes. Viewing Graph 实际上就是一个图，节点对应图片，">
-<meta name="keywords" content="structure from motion">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Viewing Graph">
-<meta property="og:url" content="http://yoursite.com/2019/04/04/view-graph/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="AIBluefisher">
+<meta property="og:url" content="http://yoursite.com/tags/optimization/index.html">
 <meta property="og:site_name" content="AIBluefisher">
-<meta property="og:description" content="首先我们来看看什么是Viewing Graph以及为什么Viewing Graph在重建中有什么作用？ 1A Viewing Graph is a graph which nodes represent images and edges represent the number of matches between two nodes. Viewing Graph 实际上就是一个图，节点对应图片，">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/view_graph/match_time.png">
-<meta property="og:image" content="http://yoursite.com/img/view_graph/voc_tree_generation.png">
-<meta property="og:image" content="http://yoursite.com/img/view_graph/inverted_file.png">
-<meta property="og:image" content="http://yoursite.com/img/view_graph/inverted_file_store.png">
-<meta property="og:image" content="http://yoursite.com/img/view_graph/ge.png">
-<meta property="og:image" content="http://yoursite.com/img/view_graph/vt.png">
-<meta property="og:image" content="http://yoursite.com/img/view_graph/compare.png">
-<meta property="og:updated_time" content="2019-04-04T03:24:41.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Viewing Graph">
-<meta name="twitter:description" content="首先我们来看看什么是Viewing Graph以及为什么Viewing Graph在重建中有什么作用？ 1A Viewing Graph is a graph which nodes represent images and edges represent the number of matches between two nodes. Viewing Graph 实际上就是一个图，节点对应图片，">
-<meta name="twitter:image" content="http://yoursite.com/img/view_graph/match_time.png">
+<meta name="twitter:title" content="AIBluefisher">
   
     <link rel="alternative" href="/atom.xml" title="AIBluefisher" type="application/atom+xml">
   
@@ -165,257 +152,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-view-graph" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Viewing Graph
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/07/28/optimization/" class="archive-article-date">
+  	<time datetime="2019-07-28T03:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-28</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/28/optimization/">Robust Optimization in 3D Vision</a>
     </h1>
   
 
-        
-        <a href="/2019/04/04/view-graph/" class="archive-article-date">
-  	<time datetime="2019-04-04T03:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先我们来看看什么是Viewing Graph以及为什么Viewing Graph在重建中有什么作用？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A Viewing Graph is a graph which nodes represent images and edges represent the number of matches between two nodes.</span><br></pre></td></tr></table></figure>
-<p><strong>Viewing Graph</strong> 实际上就是一个图，节点对应图片，边对应两幅图片之间的一些连接关系(可能包括匹配的数量，也包括两幅图片之间的一个相对运动关系)。Viewing Graph也叫做 <strong>Match Graph</strong>, 首先在[2]中提出一个比较明确的定义。</p>
-<p>我们直到，特征点匹配一直是三维重建中一个瓶颈-不仅仅在于匹配比较费时间，而且很多错误的匹配也能通过geometric verification, 从而影响重建精度。而对于单对图片的匹配来说，提出新的加速算法也不能有效的提升匹配效率。从下表可以看到，最好的算法每对图片匹配也得花0.1s(这里我们考虑的是SIFT的128维描述子，而不是ORB之类的二进制描述子，并且ORB效果上不如SIFT)。</p>
-<a id="more"></a>
-<p><img src="/img/view_graph/match_time.png" alt="vt"></p>
-<p>假设有1000张图片，那么穷举所有的情况需要做1000*(1000-1)/2次匹配。如果每次匹配花费0.1s，那么大约总共需要花费14个小时来做完这些匹配。而且这还只是1000张图片的情况！那么对于大规模的数据集(10000, 100000, …)，在不考虑硬件方面提升的情况下，该怎么来加速匹配呢？</p>
-<p>这就是Viewing Graph要做的事 - 通过减少大量不必要的匹配(很有可能是错配)，来提升匹配速度。</p>
-<h2 id="1-Vocabulary-Tree"><a href="#1-Vocabulary-Tree" class="headerlink" title="1. Vocabulary Tree"></a>1. Vocabulary Tree</h2><p>词汇树最初是用来做object recognition的，但是在三维重建中(SfM和SLAM)也被大量使用。</p>
-<h3 id="1-1-词汇树的构建"><a href="#1-1-词汇树的构建" class="headerlink" title="1.1 词汇树的构建"></a>1.1 词汇树的构建</h3><p>词汇树实际上就是一棵多层k叉树，通过反复的k-means聚类来得到。假设我们已经得到特征点的描述子，这些描述子则被用来构建词汇树。和原来的k-means聚类不同的是，原来的k指的是最终的聚类数量，而词汇树中的k指的是每一次迭代中的分支数目。首先，一个初始的k-means用于定义k个聚类中心，然后这些数据就被分成k组，每个组所包含的描述子到k-means聚类中心的距离最近。然后，该过程被反复调用，直到达到一个人为设定的参数-L层。如下图所示：</p>
-<p><img src="/img/view_graph/voc_tree_generation.png" alt="vt"></p>
-<p>词汇树的内存大小和叶节点的数量成正比。对于D维的描述子，构建一棵L层k个分支的词汇树，需要Dk^L字节(假设描述子的每个维度占用1字节)。因此，对于128维的SIFT描述子，构建一棵6层的10分支的词汇树，会产生1M的叶节点，需要占用143M的内存。</p>
-<h3 id="1-2-评分-score-的定义"><a href="#1-2-评分-score-的定义" class="headerlink" title="1.2 评分(score)的定义"></a>1.2 评分(score)的定义</h3><p>其实之前一直不太明白词汇树的评分怎么能够定义图片之间的相似度。然后看了参考文献[1]。词汇树的相似度借用了文本检索的方法。首先来看看文本检索中相似度怎么算的。</p>
-<p>假设一个拥有k个单词的词汇表，那么每个文本可以被一个k维向量表示：</p>
-<script type="math/tex; mode=display">V_d=(t_1,...,t_i,...,t_k)^T</script><p>其中，每一项的计算公式为 <script type="math/tex">t_i=\frac{n_{id}}{n_d}log\frac{N}{n_i}</script><br>其中，<script type="math/tex">n_{id}</script>是单词i在文档d中出现的次数，<script type="math/tex">n_d</script>是文档d中的单词总数，<script type="math/tex">n_i</script>是单词i在整个数据库中出现的次数，N是整个数据库中的文档数。<br>这个权重定义方法称为Term Frequency-Inver Document frequency (TF-IDF) - 它由两项的乘积组成：word frequency <script type="math/tex">n_{id}/n_d</script>以及inverse document frequency <script type="math/tex">logN/n_i</script>。这么做的intuition是(直接翻译不太好讲，就借用原文)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word frequency weights words occurring ofter in a particular document, and thus describe it well, whilst the inverse document frequency down-weights words that appear ofter in the database.</span><br></pre></td></tr></table></figure>
-<p>在检索的时候，文本根据查询向量v_q和其他所有向量v_d之间的归一化标量积(normalized scalar product)来排名。</p>
-<p>但是在[2]里，对于图片之间的相似度评分，稍微做了修改。在词汇树中，查询图片和数据库中图片的相关性需要通过比较数据库中描述子沿着词汇树的路径和查询图片描述子沿着词汇树的路径的相似性(大致理解就是这样，原文是: we wish to determine the relevance of a database image to the query image based on how similar the paths down the vocabulary tree are for the descriptors from the database image and the query image)。[2]中的方法是：对词汇树中的每一个节点都赋予一个权值<script type="math/tex">n_{id}/w_i</script>，并且定义查询向量<script type="math/tex">q_i</script>和数据库向量<script type="math/tex">d_i</script>：</p>
-<script type="math/tex; mode=display">
-q_i=n_iw_i,\ d_i=m_iw_i</script><p>其中<script type="math/tex">n_i</script>和<script type="math/tex">m_i</script>分别是所查询图片和数据库图片的描述子向量通过节点i的数量。<script type="math/tex">w_i</script>的定义和[1]中IDF的定义相似：<script type="math/tex">log\frac{N}{N_i}</script></p>
-<p>其中N是数据库中图片的数量，<script type="math/tex">N_i</script>是数据库中至少有一个描述子向量通过节点i的图片数量。然后查询向量和数据库向量之间的相似度评分通过下面的公式来定义：</p>
-<script type="math/tex; mode=display">s(q, d)=\lVert \frac{q}{\lVert q \rVert } - \frac{d}{\lVert d \rVert } \rVert</script><p>实际上就是两个归一化之后的向量的差的范数。上面公式中的范数理论上可以使用任意形式的范数，但是[2]中发现L1-范数比L2-范数得到的结果要更好。</p>
-<h3 id="1-3-评分的实现"><a href="#1-3-评分的实现" class="headerlink" title="1.3 评分的实现"></a>1.3 评分的实现</h3><p>为了高效地进行评分，[2]使用了 inverted file 。inverted file存储的是某个节点出现在的图片的id(这个节点有可能在很多张图片中出现，因此存储了多个id)，以及该描述子在数据库中出现的总数。可以通过下图理解: </p>
-<p><img src="/img/view_graph/inverted_file.png" alt="vt"></p>
-<p>[2]中的实现只存储了叶节点的inverted file,而对于内部节点的inverted file，就是叶节点的inverted files的简单的连接。也可以通过下图理解：</p>
-<p><img src="/img/view_graph/inverted_file_store.png" alt="vt"></p>
-<p>到此，词汇树的基本上讲解完了，更细节的内容还是见[1,2]两篇参考文献。对于vocabulary tree的实现，可以见Tianwei的工作<a href="https://github.com/hlzz/libvot" target="_blank" rel="noopener">libvot</a>以及Noah Snavely大神的实现<a href="https://github.com/snavely/VocabTree2" target="_blank" rel="noopener">VocabTree2</a>。</p>
-<h2 id="2-Build-Rome-in-a-Day-BRIAD-3"><a href="#2-Build-Rome-in-a-Day-BRIAD-3" class="headerlink" title="2. Build Rome in a Day (BRIAD)[3]"></a>2. Build Rome in a Day (BRIAD)<sup>[3]</sup></h2><p>在[3]中，词汇树用于计算图片之间的相似度。对于每张图片，取相似度得分前k1+k2张图片，其中的k1张图片用于初始的建图步骤，额外的k2张图片用于对连通分量(connected components)进行扩展/增大。在初始图构建完之后，可能存在多个连通分量。也就是说，整个场景肯定不是完整的。对于连通分量大于等于2的情况，接下来的k2张图片便被用于连接起这些连通分量。需要注意的是，只有处于不同连通分量之间的图片对才被考虑进来。这个过程称作”Components merging”。在component merging之后，匹配图通常还不够稠密来较为可靠地进行重建。因此，“Query Expansion”的步骤被提出来强化viewing graph. Query expansion的意思就是，如果图片i和图片j是一个正确匹配(匹配点的个数足够并且通过了geometric verification)，图片j和图片k是一个正确的匹配，那么接下来就尝试验证i和k是不是一个正确的匹配。Query expansion会在迭代一个固定的次数之后终止，也就得到了最终的一个match graph。</p>
-<p>但是，query expansion存在一个缺点：当query expansion重复一定次数之后，用于进行匹配的图片很快就和原图片相差很大了(也就意味着相似度不够，可能是错误的匹配)。正因为做了这些错误的匹配，query expansion会导致drift。尽管geometric verification用于筛除不满足对极几何的匹配，但是这些不必要的校验依然会降低匹配效率。</p>
-<h2 id="3-Graph-based-Consistency-Matching"><a href="#3-Graph-based-Consistency-Matching" class="headerlink" title="3. Graph-based Consistency Matching"></a>3. Graph-based Consistency Matching</h2><p>这篇工作尝试通过回环一致性来检测坏的匹配对。它的intuition在于：错误的匹配会造成较大的误差累积，并且一些错误的匹配能够在更长的路径中通过回环一致性检测出来。</p>
-<p>为了检验回环一致性，这篇文章中定义了两个术语：Weak Consistency和Strong Consistency。Weak consistency对应于较短路径下的回环一致性(三个节点两条边，路径长度为2)，Strong consistency对应于较长路径下的回环一致性 (路径长度不是一个定值)。consistency指的是图片间的相对运动通过矩阵链乘得到的结果和单位阵之差的范数应当小于某个阈值。</p>
-<p>为了找到一个一致的match graph，需要对以下三个性能标准进行平衡:</p>
-<ul>
-<li>完整性 (completeness)</li>
-<li>效率 (efficiency)</li>
-<li>一致性 (consistency)</li>
-</ul>
-<p>通过这三个标准，Shen [4]的方法可以找到一个能够进行完整重建的匹配对的下界。该算法包含下面三个步骤。</p>
-<h3 id="3-1-Match-Graph-Initilization"><a href="#3-1-Match-Graph-Initilization" class="headerlink" title="3.1 Match Graph Initilization"></a>3.1 Match Graph Initilization</h3><p>Shen [4]使用词汇树得到的相似度评分作为一个初始图的权值 (实际上该权值的定义没有这么简单，这里为了简便就这样写，具体可以见参考文献)，然后构建出一棵最小生成树。需要注意的是，如果图片集合包含一些孤立的视图(singleton views)或者分块的场景，图的初始化过程可能会耗费比较长的时间，因为我们需要遍历每一条边来尝试把singleton image加入到图里面。这个图初始化算法比较简单，可以通过对Kruskal算法做略微的修改得到。</p>
-<h2 id="3-2-Graph-Expansion-by-Strong-Triplets"><a href="#3-2-Graph-Expansion-by-Strong-Triplets" class="headerlink" title="3.2 Graph Expansion by Strong Triplets"></a>3.2 Graph Expansion by Strong Triplets</h2><p>这个过程称作三元组扩展。其实思路和[3]的query expansion差不多： 如果图片i和图片j是一个正确匹配，图片j和图片k是一个正确的匹配，那么接下来就尝试验证i和k是不是一个正确的匹配。不过稍有不同的是，这个过程还验证了loop consistency。而且，为了保证效率，triplets expansion的过程只做三次(因为做所有的triplets expansion的时间复杂度是O(n^3))。整个过程如下图所示：</p>
-<p><img src="/img/view_graph/ge.png" alt="ge"></p>
-<h3 id="3-3-Component-Merging"><a href="#3-3-Component-Merging" class="headerlink" title="3.3 Component Merging"></a>3.3 Component Merging</h3><p>这一步是对triplets expansion步骤的一个扩展。在triplets expansion中，只有局部的几何信息被考虑到，这意味着并没有考虑一个全局的回环结构，因此也就无法反映出整个数据集的潜在的位姿图。除此之外，更长的回环被忽略掉了。因此，component merging这一步被提出来强化之前的match graph。</p>
-<p>通过community detection，图被划分成几块区域，区域内的图片有着较为紧密的联系，区域之间的图片联系较弱。因此，组间的更长的路径被用于检验回环一致性。假设图片i在编号为k1的组内，图片j在编号为k2的组内，接着，使用广度优先搜索算法寻找这两张图片的最短路径(这个时候，边的权值设为1)，然后所有边之间的相对运动的矩阵表示便被用于检验strong consistency.</p>
-<p>需要注意的是，一般情况下，图割算法可以作为community detection的一个代替。</p>
-<h2 id="4-GraphMatch"><a href="#4-GraphMatch" class="headerlink" title="4. GraphMatch"></a>4. GraphMatch</h2><p>尽管词汇树能够用于快速寻找潜在的匹配对，但是，词汇树仍然存在一些缺点：</p>
-<ul>
-<li><p>构建一棵词汇树的代价比较大(当然，现在有一些训练好的词汇树可以用)并且需要较大的内存。</p>
-</li>
-<li><p>在大规模的图片中，SfM系统需要将所有图片的索引加载到内存中来寻找合适的图片对进行匹配。这种情况下，潜在的内存开系哦啊依然非常大</p>
-</li>
-</ul>
-<p>除此之外，词汇树并不是一种很可信的寻找正确匹配的方法 - 用词汇树来对图片进行表示对于匹配来说提供的信息非常有限，就像下图所示，词汇树的相似度评分对于匹配和非匹配的概率分布图来说，重合度非常大(也就是说，词汇树并不能有效区分匹配和不匹配的图片)。</p>
-<p><img src="/img/view_graph/vt.png" alt="vt"></p>
-<p>因此， GraphMatch[4]通过实验，对比使用了一些比词汇树更能有效地区分匹配和不配的图片对的方法。他们的实验结果表明，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fisher vector distances are faster to compute and more indicative of a possible match than vocabulary tree similarity scores.</span><br></pre></td></tr></table></figure></p>
-<p>如下面的概率分布图所示：</p>
-<p><img src="/img/view_graph/compare.png" alt="vt"></p>
-<p>GraphMatch算法分为三个步骤(实际上和之前的算法大同小异)：</p>
-<h3 id="4-1-预处理-Pre-processing"><a href="#4-1-预处理-Pre-processing" class="headerlink" title="4.1 预处理 (Pre-processing)"></a>4.1 预处理 (Pre-processing)</h3><p>首先，计算SIFT特征以及描述子，然后，使用Fisher-vector encoder来计算Fisher vector。在每一张图片的Fisher vector都计算完之后，GraphMatch对每对图片都计算一个distance matrix。最后，这些Fisher distances用来对所有图片进行一个相似度的排名。越小的Fisher distance意味着越高的相似度。</p>
-<h3 id="4-2-采样和冒泡-Sampling-and-Propagation"><a href="#4-2-采样和冒泡-Sampling-and-Propagation" class="headerlink" title="4.2 采样和冒泡 (Sampling and Propagation)"></a>4.2 采样和冒泡 (Sampling and Propagation)</h3><p>实际上，这里的采样和冒泡个人觉得仅仅是这篇文章包装之后的说法，和前面两篇论文的做法并无本质上的区别。</p>
-<p>采样是指，对于之前排名的结果，每张图片都选一个固定的值来选取图片进行匹配。而冒泡指的是(还是引用原文吧，翻译感觉没必要):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Given a pair *A* and *B* that share an edge, the propagation step takes the top ranked neighbors of B and tests them against *A* and vice-versa. And GraphMatch propagates only from vertices that have less that *MAXNUMNEIGHBORS* for termination criterion.</span><br></pre></td></tr></table></figure></p>
-<h2 id="5-实现"><a href="#5-实现" class="headerlink" title="5. 实现"></a>5. 实现</h2><p>自己目前还没找到关于viewing graph的一个开源实现。因为viewing graph对于构建大规模重建系统确实是必要的，因此自己也正在实现。代码可见 <a href="">XFeatures</a></p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] Sivic J, Zisserman A. Video Google: A text retrieval approach to object matching in videos[C]//null. IEEE, 2003: 1470.</p>
-<p>[3] Nister D, Stewenius H. Scalable Recognition with a Vocabulary Tree[J]. Proc Cvpr, 2006, 2(10):2161-2168.</p>
-<p>[3] Agarwal S , Snavely N , Simon I , et al. Building Rome in a day[C]// IEEE International Conference on Computer Vision. IEEE, 2009.</p>
-<p>[4] Shen T, Zhu S, Fang T, et al. Graph-Based Consistent Matching for Structure-from-Motion[C]// European Conference on Computer Vision. 2016.</p>
-<p>[5] Cui Q, Fragoso V, Sweeney C, et al. GraphMatch: Efficient Large-Scale Graph Construction for Structure from Motion[J]. 2017.</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">structure from motion</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">optimization</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/04/view-graph/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/04/16/rotation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          三维重建中的旋转(Rotation)
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/04/04/sfm-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Introduction to Structure from Motion</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "http://yoursite.com/2019/04/04/view-graph/",
-  owner: 'AIBluefisher',
-  repo: 'AIBluefisher.github.io',
-  oauth: {
-    client_id: 'e4da4f81b18c8f09b39d',
-    client_secret: '79be81bc1944a20b28ae7aad76617f079bb9f5d9',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
+    
 
 
           </div>
@@ -438,9 +228,9 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
