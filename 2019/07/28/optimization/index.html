@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/img/optimization/non_convex_function.jpg">
 <meta property="og:image" content="http://yoursite.com/img/optimization/pinhole_camera_model1.jpg">
 <meta property="og:image" content="http://yoursite.com/img/optimization/hessian.png">
-<meta property="og:updated_time" content="2019-07-28T03:45:39.380Z">
+<meta property="og:updated_time" content="2019-07-28T03:49:41.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Robust Optimization in 3D Vision">
 <meta name="twitter:description" content="1. 凸优化和非凸优化凸优化问题的一般形式  \mathop{min}\quad f(x) \qquad\qquad\qquad\qquad\\ s.t.\quad h_i(x) = 0, \forall i = 1,\cdots, n\\ \qquad\quad g_j(x) &amp;lt; 0, \forall j = 1, \cdots, m \tag{1}其中 $f(x), g_j(x)$ 都是凸函数">
@@ -464,7 +464,7 @@ W = \left[
 <script type="math/tex; mode=display">
 W^T\delta c + V\delta p = r_c \tag{48}</script><p>在求解得到相机之后，由 (48)，我们有</p>
 <script type="math/tex; mode=display">
-\delta p = V^{-1}(r_p - W^T\delta c) \tag{49}</script><p>到这里，BA 的求解基本上可以结束了。不过，为了加速BA，还有一些求解技巧，像 <code>Preconditioned Conjugate Gradient</code>。对这些感兴趣的可以参考相关文献 [9,10,11]。</p>
+\delta p = V^{-1}(r_p - W^T\delta c) \tag{49}</script><p>到这里，BA 的求解基本上可以结束了。不过，为了加速BA，还有一些求解技巧，像 <code>Preconditioned Conjugate Gradient</code>。对这些感兴趣的可以参考相关文献 [6,7,8]。</p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Boyd. Convex Optimization.</p>
 <p>[2] Govindu V M . Combining two-view constraints for motion estimation[C]// Computer Vision and Pattern Recognition, 2001. CVPR 2001. Proceedings of the 2001 IEEE Computer Society Conference on. IEEE, 2001.</p>
 <p>[3] Govindu V M . Lie-Algebraic Averaging for Globally Consistent Motion Estimation[C]// null. IEEE Computer Society, 2004.</p>
@@ -734,11 +734,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">structure from motion, 3D reconstruction</a>
+                <a href="javascript:void(0)" class="js-tag color4">Paper Reading</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Paper Reading</a>
+                <a href="javascript:void(0)" class="js-tag color1">structure from motion, 3D reconstruction</a>
               </li>
              
               <li class="article-tag-list-item">
