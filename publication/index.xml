@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | AIBluefisher</title>
+    <link>https://AIBluefisher.github.io/publication/</link>
+      <atom:link href="https://AIBluefisher.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>2020</copyright><lastBuildDate>Thu, 05 Mar 2020 00:09:33 +0800</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Publications</title>
+      <link>https://AIBluefisher.github.io/publication/</link>
+    </image>
+    
+    <item>
+      <title>大规模场景下的运动恢复结构算法 (Master Thesis)</title>
+      <link>https://AIBluefisher.github.io/publication/ms-thesis/</link>
+      <pubDate>Thu, 05 Mar 2020 00:09:33 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/ms-thesis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Graph-Based Parallel Large Scale Structure from Motion</title>
+      <link>https://AIBluefisher.github.io/publication/graph-sfm/</link>
+      <pubDate>Tue, 31 Dec 2019 23:46:17 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/graph-sfm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Large-Scale Structure from Motion with Semantic Constraints of Aerial Images</title>
+      <link>https://AIBluefisher.github.io/publication/semantic-sfm/</link>
+      <pubDate>Thu, 01 Nov 2018 23:48:28 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/semantic-sfm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bundle Adjustment Revisited</title>
+      <link>https://AIBluefisher.github.io/publication/bundle-adjustment/</link>
+      <pubDate>Sat, 15 Sep 2018 23:57:07 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/bundle-adjustment/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

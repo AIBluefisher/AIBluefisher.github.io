@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yisong Chen | AIBluefisher</title>
+    <link>https://AIBluefisher.github.io/authors/yisong-chen/</link>
+      <atom:link href="https://AIBluefisher.github.io/authors/yisong-chen/index.xml" rel="self" type="application/rss+xml" />
+    <description>Yisong Chen</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>2020</copyright><lastBuildDate>Tue, 31 Dec 2019 23:46:17 +0800</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Yisong Chen</title>
+      <link>https://AIBluefisher.github.io/authors/yisong-chen/</link>
+    </image>
+    
+    <item>
+      <title>Graph-Based Parallel Large Scale Structure from Motion</title>
+      <link>https://AIBluefisher.github.io/publication/graph-sfm/</link>
+      <pubDate>Tue, 31 Dec 2019 23:46:17 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/graph-sfm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bundle Adjustment Revisited</title>
+      <link>https://AIBluefisher.github.io/publication/bundle-adjustment/</link>
+      <pubDate>Sat, 15 Sep 2018 23:57:07 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/bundle-adjustment/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guoping Wang | AIBluefisher</title>
+    <link>https://AIBluefisher.github.io/authors/guoping-wang/</link>
+      <atom:link href="https://AIBluefisher.github.io/authors/guoping-wang/index.xml" rel="self" type="application/rss+xml" />
+    <description>Guoping Wang</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>2020</copyright><lastBuildDate>Tue, 31 Dec 2019 23:46:17 +0800</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Guoping Wang</title>
+      <link>https://AIBluefisher.github.io/authors/guoping-wang/</link>
+    </image>
+    
+    <item>
+      <title>Graph-Based Parallel Large Scale Structure from Motion</title>
+      <link>https://AIBluefisher.github.io/publication/graph-sfm/</link>
+      <pubDate>Tue, 31 Dec 2019 23:46:17 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/graph-sfm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bundle Adjustment Revisited</title>
+      <link>https://AIBluefisher.github.io/publication/bundle-adjustment/</link>
+      <pubDate>Sat, 15 Sep 2018 23:57:07 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/bundle-adjustment/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
