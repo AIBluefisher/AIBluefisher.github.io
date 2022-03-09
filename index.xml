@@ -5,7 +5,7 @@
     <link>https://AIBluefisher.github.io/</link>
       <atom:link href="https://AIBluefisher.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>AIBluefisher</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>2020</copyright><lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>2020</copyright><lastBuildDate>Sun, 02 May 2021 23:46:17 +0800</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>AIBluefisher</title>
@@ -13,10 +13,10 @@
     </image>
     
     <item>
-      <title>大规模场景下的运动恢复结构算法 (Master Thesis)</title>
-      <link>https://AIBluefisher.github.io/publication/ms-thesis/</link>
-      <pubDate>Thu, 05 Mar 2020 00:09:33 +0800</pubDate>
-      <guid>https://AIBluefisher.github.io/publication/ms-thesis/</guid>
+      <title>Hybrid Rotation Averaging: A Fast and Robust Rotation Averaging Approach</title>
+      <link>https://AIBluefisher.github.io/publication/ra/</link>
+      <pubDate>Sun, 02 May 2021 23:46:17 +0800</pubDate>
+      <guid>https://AIBluefisher.github.io/publication/ra/</guid>
       <description></description>
     </item>
     
@@ -977,93 +977,6 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Introduction to Structure from Motion</title>
-      <link>https://AIBluefisher.github.io/post/sfm/</link>
-      <pubDate>Thu, 04 Apr 2019 09:19:14 +0800</pubDate>
-      <guid>https://AIBluefisher.github.io/post/sfm/</guid>
-      <description>&lt;h2 id=&#34;1-incremental-structure-from-motion&#34;&gt;1. Incremental Structure from Motion&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;
-&lt;a href=&#34;http://ccwu.me/vsfm/vsfm.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[3DV 2013] Towards Linear-time Incremental Structure from Motion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;第一次提出 &lt;code&gt;Retriangulate&lt;/code&gt; 的概念来尝试解决incremental SfM中的drift.
-由于初始的相机姿态和经过BA之后的姿态可能都不够准，一些正确的匹配在triangulate的时候失败了。而这些正确匹配的累计丢失是造成
-drift的一个主因。&lt;/p&gt;
-&lt;p&gt;为了解决这个问题，&lt;code&gt;VSFM&lt;/code&gt;提出对失败的匹配进行 &lt;code&gt;re-triangulate(RT)&lt;/code&gt;。&lt;code&gt;RT&lt;/code&gt;的时候，需要选择相机对。&lt;/p&gt;
-&lt;p&gt;怎么识别不好的相机姿态: 两个相机之间的公共三维点和匹配点数目的比例太低。这样的相机对被称为&lt;code&gt;under-recontructed&lt;/code&gt;。
-为了使得相机姿态更稳定，需要对这些&lt;code&gt;under-reconstructed&lt;/code&gt;的相机进行re-triangulate。为了得到更多的点，冲投影误差的阈值加大。
-从上到下为&lt;code&gt;Without RT&lt;/code&gt;、&lt;code&gt;With RT&lt;/code&gt; :
-&lt;img src=&#34;https://AIBluefisher.github.io/img/sfm/retriangulate.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;
-&lt;a href=&#34;https://demuc.de/papers/schoenberger2016sfm.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[CVPR 2016] Structure-from-Motion Revisited&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;
-&lt;a href=&#34;ir.ia.ac.cn/bitstream/173211/19771/1/HainanCui_3DV2017.pdf&#34;&gt;[3DV 2017] Batched Incremental Structure-from-Motion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;主要贡献点在于&lt;code&gt;batched camera registration&lt;/code&gt;和&lt;code&gt;batched tracks selection&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;(1) 不同于COLMAP，在对相机进行注册的时候不再考虑使用next view selection的策略，而是把有足够多2D-3D点对的相机批量式(batched)进行注册。
-这样做的原因是: incremental SfM的误差是累积的，更早注册的相机要比后注册的相机姿态更为准确。&lt;/p&gt;
-&lt;p&gt;(2) batched tracks selection的意思是，在每个相机注册的步骤，不再考虑所有的track，而是仅把track的一部分进行选择并且优化。
-对于大规模重建了来说，track通常是冗余的并且对于BA来说既耗内存也耗时间。为了保证下一个相机注册的成功率，track的选择有三个原则:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;包含已标定的相机，来优化它们的姿态&lt;/li&gt;
-&lt;li&gt;包含将要在下一个步骤中进行标定的相机&lt;/li&gt;
-&lt;li&gt;更长的track应该优先选择&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在进行增量重建的过程中，不使用匹配点而使用track。原因:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;track的长度通常比较长，使用track能够在相机注册的时候得到更多的候选。&lt;/li&gt;
-&lt;li&gt;track构建的时候，很多错误的匹配已经被筛选出来了。&lt;/li&gt;
-&lt;li&gt;track是feature match的集合，相比feature match来说更可信。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;流程如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://AIBluefisher.github.io/img/sfm/pipeline.png&#34; alt=&#34;pipeline&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;1-batched-seed-selection&#34;&gt;1. Batched Seed Selection&lt;/h4&gt;
-&lt;p&gt;初始对的选取原则：
-(1) 能看到尽可能多的相机
-(2) 宽基线&lt;/p&gt;
-&lt;h5 id=&#34;细节&#34;&gt;细节&lt;/h5&gt;
-&lt;p&gt;在构造&lt;code&gt;Epipolar Graph&lt;/code&gt;的时候，先用初始的&lt;code&gt;EG&lt;/code&gt;中的相对相机姿态通过&lt;code&gt;rotation averaging(RA)&lt;/code&gt;计算出global的相机姿态。然后通过计算$$acos(||R_{ij} - R_jR_i^T||_F)$$ 来将误差大的边删除，然后相对旋转通过 $$R_{ij}=R_jR_i^T$$重新计算得到。然后，对于EG中的每条边，通过$$\rho_{ij} = min(n_i, n_j)$$ 来表示与至相邻的相机密度, 其中$$n_i$$是相机$$i$$在EG中相邻相机的个数。最后，得到以$$\rho_{ij}$$ 的大小为优先级的候选&lt;code&gt;seeds&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;2-batched-camera-registration&#34;&gt;2. Batched Camera Registration&lt;/h4&gt;
-&lt;p&gt;所有能够看到大于12个三维点的相机都考虑为候选标定相机，然后&lt;code&gt;RANSAC + P3P&lt;/code&gt;计算初始相机姿态，最后加&lt;code&gt;bundle adjustment&lt;/code&gt;优化。这时固定三维点和内参，只对外参进行优化。&lt;/p&gt;
-&lt;h4 id=&#34;3-tracks-triangulation-and-selection&#34;&gt;3. Tracks Triangulation and Selection&lt;/h4&gt;
-&lt;p&gt;使用track作为输入，每次选两个相机，使用&lt;code&gt;RANSAC + Triangulation&lt;/code&gt;来计算三维点。一个较为稳定的三维点应满足:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;投影回图像平面的两条射线的家教应该大于 $2^{\circ}$&lt;/li&gt;
-&lt;li&gt;满足cheirality约束(在相机前方，具有正的深度值)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;为了提高效率，不使用所有的track，而是找track的子集，这些track需要对每个相机至少包含 $$K$$ 次&lt;/p&gt;
-&lt;h4 id=&#34;4-batched-bundle-adjustment&#34;&gt;4. Batched Bundle Adjustment&lt;/h4&gt;
-&lt;h4 id=&#34;5-iterative-re-triangulation-and-re-selection&#34;&gt;5. Iterative Re-triangulation and Re-selection&lt;/h4&gt;
-&lt;h4 id=&#34;结果&#34;&gt;结果&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://AIBluefisher.github.io/img/sfm/result1.png&#34; alt=&#34;&#34;&gt;
-&lt;img src=&#34;https://AIBluefisher.github.io/img/sfm/result2.png&#34; alt=&#34;&#34;&gt;
-&lt;img src=&#34;https://AIBluefisher.github.io/img/sfm/result3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;2-global-structure-from-motion&#34;&gt;2. Global Structure from Motion&lt;/h2&gt;
-&lt;h2 id=&#34;3-hierarchical-structure-from-motion&#34;&gt;3. Hierarchical Structure from Motion&lt;/h2&gt;
-&lt;h2 id=&#34;4-hybrid-structure-from-motion&#34;&gt;4. Hybrid Structure from Motion&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;
-&lt;a href=&#34;&#34;&gt;[ACCV 2014] Divide and Conquer: Efficient Large-Scale Structure from Motion Using Graph Partitioning&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;
-&lt;a href=&#34;https://arxiv.org/pdf/1702.08601.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[arXiv 2017] Parallel Structure from Motion from Local Increment to Global Averaging&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;
-&lt;a href=&#34;https://www.cs.sfu.ca/~pingtan/Papers/cvpr18sfm.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[CVPR 2018] Very Large-scale Global SfM by Distributed Motion Averaging&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
       <title>Large-Scale Structure from Motion with Semantic Constraints of Aerial Images</title>
       <link>https://AIBluefisher.github.io/publication/semantic-sfm/</link>
       <pubDate>Thu, 01 Nov 2018 23:48:28 +0800</pubDate>
@@ -1077,24 +990,6 @@ drift的一个主因。&lt;/p&gt;
       <pubDate>Sat, 15 Sep 2018 23:57:07 +0800</pubDate>
       <guid>https://AIBluefisher.github.io/publication/bundle-adjustment/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Privacy Policy</title>
-      <link>https://AIBluefisher.github.io/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>https://AIBluefisher.github.io/privacy/</guid>
-      <description>&lt;p&gt;Add your privacy policy here and set &lt;code&gt;draft: false&lt;/code&gt; to publish it. Otherwise, delete this file if you don&amp;rsquo;t need it.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Terms</title>
-      <link>https://AIBluefisher.github.io/terms/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>https://AIBluefisher.github.io/terms/</guid>
-      <description>&lt;p&gt;Add your terms here and set &lt;code&gt;draft: false&lt;/code&gt; to publish it. Otherwise, delete this file if you don&amp;rsquo;t need it.&lt;/p&gt;
-</description>
     </item>
     
     <item>
