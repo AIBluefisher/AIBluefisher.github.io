@@ -23,7 +23,144 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./resources/icon.png">
 <link rel="stylesheet" href="./resources/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="./resources/index.css">
-<style type="text/css" abt="234"></style><script>//remove baidu search ad
+<!-- <link rel="stylesheet" type="text/css" href="./resources/css/svg-with-js.min.css"> -->
+<style type="text/css" abt="234">
+  body {
+		/* font-family: 'Noto Sans', sans-serif; */
+		color: #4a4a4a;
+		font-size: 1em;
+		font-weight: 400;
+		/* line-height: 1.5; */
+		/* margin-left: auto;
+		margin-right: auto; */
+		/* width: 1100px; */
+	}
+
+	.button.is-dark {
+		background-color: #363636;
+		border-color: transparent;
+		color: #fff;
+	}	
+
+	.button.is-rounded {
+		border-radius: 290486px;
+		padding-left: calc(1em + .25em);
+		padding-right: calc(1em + .25em);
+	}
+
+	.button.is-normal {
+  		font-size: 1rem;
+	}
+
+	.button .button .icon.is-large, .button .icon.is-medium, .button .icon.is-small {
+  		height: 0.3em;
+  		width: 0.3em;
+	}
+
+	.icon {
+		align-items: center;
+		display: inline-flex;
+		justify-content: center;
+		height: 1rem;
+		width: 1rem;
+	}
+
+	.button.is-normal {
+		font-size: 1rem;
+	}
+
+	.button {
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-width: 1px;
+    color: #363636;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
+	}
+
+	.button .icon:first-child:not(:last-child) {
+    margin-left: calc(-.5em - 1px);
+    margin-right: .25em;
+	}	
+	
+	.button.is-rounded {
+    border-radius: 290486px;
+    padding-left:  calc(1em + .25em);
+    padding-right: calc(1em );
+	}
+	.button.is-normal {
+	  font-size: 1rem;
+	}
+
+	.button.is-dark {
+    background-color: #363636;
+    border-color: transparent;
+    color: #fff;
+	}
+	.link-block a {
+    margin-top: 15px;
+    margin-bottom: 15px;
+	}
+	.button {
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-width: 1px;
+    color: #363636;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
+	}
+	.button, .file-cta, .file-name, .input, .pagination-ellipsis, .pagination-link, .pagination-next, .pagination-previous, .select select, .textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    align-items: center;
+    border: 1px solid transparent;
+      border-top-color: transparent;
+      border-top-width: 1px;
+      border-right-color: transparent;
+      border-right-width: 1px;
+      border-bottom-color: transparent;
+      border-bottom-width: 1px;
+      border-left-color: transparent;
+      border-left-width: 1px;
+    border-radius: 4px;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: calc(.75em - 1px);
+    padding-right: calc(.75em - 1px);
+    padding-top: calc(.5em - 1px);
+    position: relative;
+    vertical-align: top;
+	}
+	.breadcrumb, .button, .delete, .file, .is-unselectable, .modal-close, .pagination-ellipsis, .pagination-link, .pagination-next, .pagination-previous, .tabs {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	}
+  a {
+    text-decoration: none;
+  }
+</style>
+
+<script>//remove baidu search ad
 var _countAA = 0
 function doBBBd(){}
 doBBBd()
@@ -190,12 +327,46 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             <b>Yu Chen</b>, Gim Hee Lee
           </p>
           <p class="pub-text-p"> The IEEE Conference on Computer Vision and Pattern Recognition 2023 <span class="pub-note"></span></p>
-          <a target="_blank" href="">
-            <i class="fa-solid fa-file fa-lg"></i>
-          </a> &nbsp; 
-          <a target="_blank" href="https://aibluefisher.github.io/dbarf"><i class="fa-brands fa-html5 fa-lg"></i></a> &nbsp; 
-          <a target="_blank" href="https://github.com/AIBluefisher/dbarf"><i class="fa-brands fa-github fa-lg"></i></a> &nbsp; 
-          <a data-target="#bibcvpr2023" data-toggle="collapse"><i class="fa-solid fa-code fa-lg"></i></a>
+
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="https://arxiv.org/pdf/2303.14478.pdf" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-file-pdf fa-lg"></i>
+                </span>
+              <span style="color:#FFFFFF">Paper</span>
+            </a>
+          </span>
+
+          <!-- Webpage Link. -->
+          <span class="link-block">
+            <a href="https://github.com/AIBluefisher/dbarf" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-brands fa-html5 fa-lg"></i>
+              </span>
+              <span style="color:#FFFFFF">Web Page</span>
+              </a>
+          </span>
+
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="https://github.com/AIBluefisher/dbarf" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fab fa-github fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Code</span>
+              </a>
+          </span>
+          
+          <!-- Bib Link. -->
+          <span class="link-block">
+            <a data-target="#bibcvpr2023" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-solid fa-code fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Cite</span>
+              </a>
+          </span>
         
           <div class="collapse out" id="bibcvpr2023">
             <div class="card card-body bibtex">
@@ -231,13 +402,47 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             <b>Yu Chen</b>, Zihao Yu, Shu Song, Tianning Yu, Jianming Li, Gim Hee Lee
           </p>
           <p class="pub-text-p"> The IEEE International Conference on Robotics and Automation (ICRA) 2023 <span class="pub-note"></span></p>
-          <a target="_blank" href="https://arxiv.org/pdf/2301.12135.pdf">
-            <i class="fa-solid fa-file fa-lg"></i>
-          </a> &nbsp; 
-          <a target="_blank" href="https://aibluefisher.github.io/AdaSfM/"><i class="fa-brands fa-html5 fa-lg"></i></a> &nbsp; 
-          <a target="_blank" href="https://aibluefisher.github.io/AdaSfM/"><i class="fa-brands fa-github fa-lg"></i></a> &nbsp; 
-          <a data-target="#bibicra2023" data-toggle="collapse"><i class="fa-solid fa-code fa-lg"></i></a>
-        
+
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="https://arxiv.org/pdf/2301.12135.pdf" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-file-pdf fa-lg"></i>
+                </span>
+              <span style="color:#FFFFFF">Paper</span>
+            </a>
+          </span>
+
+          <!-- Webpage Link. -->
+          <span class="link-block">
+            <a href="https://aibluefisher.github.io/AdaSfM/" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-brands fa-html5 fa-lg"></i>
+              </span>
+              <span style="color:#FFFFFF">Web Page</span>
+              </a>
+          </span>
+
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="https://aibluefisher.github.io/AdaSfM/" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fab fa-github fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Code</span>
+              </a>
+          </span>
+          
+          <!-- Bib Link. -->
+          <span class="link-block">
+            <a data-target="#bibicra2023" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-solid fa-code fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Cite</span>
+              </a>
+          </span>
+
           <div class="collapse out" id="bibicra2023">
             <div class="card card-body bibtex">
               <!-- <pre>@inproceedings{DBLP:conf/cvpr/Chen0K21,
@@ -272,13 +477,47 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             <b>Yu Chen</b>, Ji Zhao, Laurent Kneip
           </p>
           <p class="pub-text-p">The IEEE Conference on Computer Vision and Pattern Recognition 2021 <span class="pub-note"></span></p>
-          <a target="_blank" href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Hybrid_Rotation_Averaging_A_Fast_and_Robust_Rotation_Averaging_Approach_CVPR_2021_paper.pdf">
-            <i class="fa-solid fa-file fa-lg"></i>
-          </a> &nbsp; 
-          <a target="_blank" href=""><i class="fa-brands fa-html5 fa-lg"></i></a> &nbsp; 
-          <a target="_blank" href="https://github.com/AIBluefisher/GraphOptim"><i class="fa-brands fa-github fa-lg"></i></a> &nbsp; 
-          <a data-target="#bibcvpr2021" data-toggle="collapse"><i class="fa-solid fa-code fa-lg"></i></a>
         
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Hybrid_Rotation_Averaging_A_Fast_and_Robust_Rotation_Averaging_Approach_CVPR_2021_paper.pdf" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-file-pdf fa-lg"></i>
+                </span>
+              <span style="color:#FFFFFF">Paper</span>
+            </a>
+          </span>
+
+          <!-- Webpage Link. -->
+          <span class="link-block">
+            <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-brands fa-html5 fa-lg"></i>
+              </span>
+              <span style="color:#FFFFFF">Web Page</span>
+              </a>
+          </span>
+
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="https://github.com/AIBluefisher/GraphOptim" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fab fa-github fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Code</span>
+              </a>
+          </span>
+          
+          <!-- Bib Link. -->
+          <span class="link-block">
+            <a data-target="#bibcvpr2021" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-solid fa-code fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Cite</span>
+              </a>
+          </span>
+
           <div class="collapse out" id="bibcvpr2021">
             <div class="card card-body bibtex">
               <pre>@inproceedings{DBLP:conf/cvpr/Chen0K21,
@@ -311,23 +550,60 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           <b>Yu Chen</b>, Shuhan Shen, Yisong Chen, Guoping Wang
         </p>
         <p class="pub-text-p">Pattern Recognition 2020 <span class="pub-note"></span></p>
-        <a target="_blank" href="https://arxiv.org/pdf/1912.10659.pdf"><i class="fa-solid fa-file fa-lg"></i></a> &nbsp; 
-        <a target="_blank" href=""><i class="fa-brands fa-html5 fa-lg"></i></a> &nbsp; 
-        <a target="_blank" href="https://github.com/AIBluefisher/GraphSfM"><i class="fa-brands fa-github fa-lg"></i></a> &nbsp; 
-        <a data-target="#bibpr2020" data-toggle="collapse"><i class="fa-solid fa-code fa-lg"></i></a>
+
+        <!-- PDF Link. -->
+        <span class="link-block">
+          <a href="https://arxiv.org/pdf/1912.10659.pdf" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+              <i class="fa-solid fa-file-pdf fa-lg"></i>
+              </span>
+            <span style="color:#FFFFFF">Paper</span>
+          </a>
+        </span>
+        
+        <!-- Webpage Link. -->
+        <span class="link-block">
+          <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+                <i class="fa-brands fa-html5 fa-lg"></i>
+            </span>
+            <span style="color:#FFFFFF">Web Page</span>
+            </a>
+        </span>
+        
+        <!-- Code Link. -->
+        <span class="link-block">
+          <a href="https://github.com/AIBluefisher/GraphSfM" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+              <i class="fab fa-github fa-lg"></i>
+            </span> &nbsp;
+            <span style="color:#FFFFFF">Code</span>
+            </a>
+        </span>
+                  
+        <!-- Bib Link. -->
+        <span class="link-block">
+          <a data-target="#bibpr2020" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-code fa-lg"></i>
+            </span> &nbsp;
+            <span style="color:#FFFFFF">Cite</span>
+            </a>
+        </span>
+
         <div class="collapse out" id="bibpr2020">
-        <div class="card card-body bibtex">
-        <pre>@article{DBLP:journals/pr/ChenSCW20,
-          author    = {Yu Chen and
-                       Shuhan Shen and
-                       Yisong Chen and
-                       Guoping Wang},
-          title     = {Graph-based parallel large scale structure from motion},
-          journal   = {Pattern Recognition},
-          volume    = {107},
-          pages     = {107537},
-          year      = {2020},
-        }</pre>
+          <div class="card card-body bibtex">
+          <pre>@article{DBLP:journals/pr/ChenSCW20,
+            author    = {Yu Chen and
+                        Shuhan Shen and
+                        Yisong Chen and
+                        Guoping Wang},
+            title     = {Graph-based parallel large scale structure from motion},
+            journal   = {Pattern Recognition},
+            volume    = {107},
+            pages     = {107537},
+            year      = {2020},
+          }</pre>
         </div>
       </div>
     </div>
@@ -348,10 +624,47 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           <b>Yu Chen</b>, Yisong Chen, Guoping Wang
         </p>
         <p class="pub-text-p">arXiv 2019 <span class="pub-note"></span></p>
-        <a target="_blank" href="https://arxiv.org/pdf/1912.03858.pdf"><i class="fa-solid fa-file fa-lg"></i></a> &nbsp; 
-        <a target="_blank" href=""><i class="fa-brands fa-html5 fa-lg"></i></a> &nbsp; 
-        <a target="_blank" href=""><i class="fa-brands fa-github fa-lg"></i></a> &nbsp; 
-        <a data-target="#bibarxiv19" data-toggle="collapse"><i class="fa-solid fa-code fa-lg"></i></a>
+
+        <!-- PDF Link. -->
+        <span class="link-block">
+          <a href="https://arxiv.org/pdf/1912.03858.pdf" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+              <i class="fa-solid fa-file-pdf fa-lg"></i>
+              </span>
+            <span style="color:#FFFFFF">Paper</span>
+          </a>
+        </span>
+                
+        <!-- Webpage Link. -->
+        <span class="link-block">
+          <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+                <i class="fa-brands fa-html5 fa-lg"></i>
+            </span>
+            <span style="color:#FFFFFF">Web Page</span>
+            </a>
+        </span>
+                
+        <!-- Code Link. -->
+        <span class="link-block">
+          <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+              <i class="fab fa-github fa-lg"></i>
+            </span> &nbsp;
+            <span style="color:#FFFFFF">Code</span>
+            </a>
+        </span>
+                          
+        <!-- Bib Link. -->
+        <span class="link-block">
+          <a data-target="#bibarxiv19" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-code fa-lg"></i>
+            </span> &nbsp;
+            <span style="color:#FFFFFF">Cite</span>
+            </a>
+        </span>
+
         <div class="collapse out" id="bibarxiv19">
         <div class="card card-body bibtex">
         <pre>@article{DBLP:journals/corr/abs-1912-03858,
@@ -380,14 +693,60 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           Large-Scale Structure from Motion with Semantic Constraints of Aerial Images
         </p>
         <p class="pub-text-authors pub-text-p">
-          <b>Yu Chen</b>, Yao Wang, Peng Lu, Yisong Chen, Guoping Wang
+          <b>Yu Chen</b><sup>*</sup>, Yao Wang<sup>*</sup>, Peng Lu, Yisong Chen, Guoping Wang (<sup>*</sup> denotes equal contribution)
         </p>
         <p class="pub-text-p">Pattern Recognition and Computer Vision 2018 <span class="pub-note"></span></p>
-        <a target="_blank" href="https://link.springer.com/chapter/10.1007/978-3-030-03398-9_30"><i class="fa-solid fa-file fa-lg"></i></a> &nbsp; 
-        <a target="_blank" href=""><i class="fa-brands fa-html5 fa-lg"></i></a> &nbsp; 
-        <a target="_blank" href="https://github.com/MarcWong/SemanticSfM"><i class="fa-brands fa-github fa-lg"></i></a> &nbsp; 
-        <a target="_blank" href="https://github.com/MarcWong/UDD"><i class="fa-solid fa-database fa-lg"></i></a> &nbsp; 
-        <a data-target="#bibprcv2018" data-toggle="collapse"><i class="fa-solid fa-code fa-lg"></i></a>
+
+        <!-- PDF Link. -->
+        <span class="link-block">
+          <a href="https://link.springer.com/chapter/10.1007/978-3-030-03398-9_30" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+              <i class="fa-solid fa-file-pdf fa-lg"></i>
+              </span>
+            <span style="color:#FFFFFF">Paper</span>
+          </a>
+        </span>
+        
+        <!-- Webpage Link. -->
+        <span class="link-block">
+          <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+                <i class="fa-brands fa-html5 fa-lg"></i>
+            </span>
+            <span style="color:#FFFFFF">Web Page</span>
+            </a>
+        </span>
+                
+        <!-- Code Link. -->
+        <span class="link-block">
+          <a href="https://github.com/MarcWong/SemanticSfM" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+              <i class="fab fa-github fa-lg"></i>
+            </span> &nbsp;
+            <span style="color:#FFFFFF">Code</span>
+            </a>
+        </span>
+
+        <!-- Dataset Link. -->
+        <span class="link-block">
+          <a href="https://github.com/MarcWong/UDD" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+              <i class="fa-solid fa-database fa-lg"></i>
+            </span> &nbsp;
+            <span style="color:#FFFFFF">Dataset</span>
+            </a>
+        </span>
+                          
+        <!-- Bib Link. -->
+        <span class="link-block">
+          <a data-target="#bibprcv2018" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="background-color:#000000; text-decoration: none;">
+            <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-code fa-lg"></i>
+            </span> &nbsp;
+            <span style="color:#FFFFFF">Cite</span>
+            </a>
+        </span>
+
         <div class="collapse out" id="bibprcv2018">
         <div class="card card-body bibtex">
         <pre>@inproceedings{DBLP:conf/prcv/ChenWLCW18,
