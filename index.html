@@ -38,7 +38,7 @@
 
 	.button.is-dark {
 		background-color: #363636;
-		border-color: transparent;`
+		border-color: transparent;
 		color: #fff;
 	}
 
@@ -195,7 +195,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
 
 
       <p>
-        I'm currently a 1st year Ph.D student in the <b>National University of Singapore</b> and I'm advised by 
+        I'm currently a Ph.D candidate in the <b>National University of Singapore</b> and I'm advised by 
         <a target="_blank" href="https://www.comp.nus.edu.sg/~leegh/">Prof. Gim Hee Lee</a>. I worked at <b>Segway Robotics</b> 
         during 2020.07-2021.12, where I designed algorithms to enhance the robustness of mapping algorithms for <i>canteen robots</i> 
         and <i>low-speed autonomous driving cars</i>. Before that, I obtained my M.S. degree in 
@@ -203,11 +203,12 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
         <a target="_blank" href=""></a>Prof. Yisong Chen and co-supervised by 
         <a target="_blank" href="http://vision.ia.ac.cn/faculty/shshen/index.htm">Prof. Shuhan Shen</a>. I also spent 4 years 
         in <b>Beihang University</b>, where I majored in software engineering. Now, I'm eager to tackle 3D computer vision problem 
-        by combining deep learning and geometric methods. (<font color="red">Never ask me to send your CVs to Gim Hee or anything 
-        related to that since I do not know you at all !</font>)
+        by combining deep learning and geometric methods. 
+        <!-- (<font color="red">Never ask me to send your CVs to Gim Hee or anything  -->
+        <!-- related to that since I do not know you at all !</font>) -->
       </p>
     </div>
-    <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="75%" color=#987cb9 SIZE=1>
+    <!-- <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="75%" color=#987cb9 SIZE=1> -->
   </section>
 
 
@@ -223,6 +224,13 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
         <div class="items">
           <table class="news-table">
             <tbody>
+              <tr>
+                <td class="news-date">14.Jul/2023:</td>
+                <td class="news-text">
+                  Our paper on <font color="red">registering neural radiance fields</font> accepted at <b>ICCV 2023</b>! 
+                </td>
+              </tr>
+
               <tr>
                 <td class="news-date">28.Feb/2023:</td>
                 <td class="news-text">
@@ -299,12 +307,77 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
       </div>
       <!-- <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="80%" color=#987cb9 SIZE=1>       -->
     </section>
-    <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="100%" color=#987cb9 SIZE=1>
+    <!-- <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="100%" color=#987cb9 SIZE=1> -->
     <br />
 
 
     <section class="mb-5">
       <h3 class="pb-2">Publications &nbsp; <i class="fa-regular fa-book"></i></h3>
+
+      <div class="row align-items-center">
+        <div class="col-sm-3 pub-image-cell hover-img-div">
+          <a target="_blank" href="">
+            <img class="img-fluid pub-image hover-img" alt="DReg-NeRF" 
+            src="" style="padding-left:9%;padding-right:9%"></a>
+        </div>
+      
+        <div class="col-sm-9 py-3">
+          <p class="pub-text-title pub-text-p">
+            DReg-NeRF: Deep Registration for Neural Radiance Fields
+          </p>
+        
+          <p class="pub-text-authors pub-text-p">
+            <b>Yu Chen</b>, Gim Hee Lee
+          </p>
+          <p class="pub-text-p"> The International Conference on Computer Vision (ICCV) 2023 <span class="pub-note"></span></p>
+
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-file-pdf fa-lg"></i>
+                </span>
+              <span style="color:#FFFFFF">Paper</span>
+            </a>
+          </span>
+
+          <!-- Webpage Link. -->
+          <span class="link-block">
+            <a href="https://aibluefisher.github.io/DReg-NeRF/" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-brands fa-html5 fa-lg"></i>
+              </span>
+              <span style="color:#FFFFFF">Web Page</span>
+              </a>
+          </span>
+
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="https://github.com/AIBluefisher/DReg-NeRF" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fab fa-github fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Code</span>
+              </a>
+          </span>
+          
+          <!-- Bib Link. -->
+          <span class="link-block">
+            <a data-target="#bibcvpr2023" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-solid fa-code fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Cite</span>
+              </a>
+          </span>
+        
+          <div class="collapse out" id="bibcvpr2023">
+            <div class="card card-body bibtex">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
 
       <div class="row align-items-center">
         <div class="col-sm-3 pub-image-cell hover-img-div">
@@ -321,7 +394,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           <p class="pub-text-authors pub-text-p">
             <b>Yu Chen</b>, Gim Hee Lee
           </p>
-          <p class="pub-text-p"> The IEEE Conference on Computer Vision and Pattern Recognition 2023 <span class="pub-note"></span></p>
+          <p class="pub-text-p"> The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2023 <span class="pub-note"></span></p>
 
           <!-- PDF Link. -->
           <span class="link-block">
@@ -469,7 +542,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           <p class="pub-text-authors pub-text-p">
             <b>Yu Chen</b>, Ji Zhao, Laurent Kneip
           </p>
-          <p class="pub-text-p">The IEEE Conference on Computer Vision and Pattern Recognition 2021 <span class="pub-note"></span></p>
+          <p class="pub-text-p">The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2021 <span class="pub-note"></span></p>
         
           <!-- PDF Link. -->
           <span class="link-block">
@@ -542,7 +615,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
         <p class="pub-text-authors pub-text-p">
           <b>Yu Chen</b>, Shuhan Shen, Yisong Chen, Guoping Wang
         </p>
-        <p class="pub-text-p">Pattern Recognition 2020 <span class="pub-note"></span></p>
+        <p class="pub-text-p">Pattern Recognition (PR) 2020 <span class="pub-note"></span></p>
 
         <!-- PDF Link. -->
         <span class="link-block">
