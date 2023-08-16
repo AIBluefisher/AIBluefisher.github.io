@@ -178,36 +178,40 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
       <!-- </h1> -->
 
       <!-- <p> -->
-        <a href="mailto:hackerdreamer34@gmail.com"><i class="fa-regular fa-envelope "></i></a> &nbsp;
-        <a target="_blank" href="https://www.linkedin.com/in/"><i class="fa-brands fa-linkedin"></i></a> &nbsp;
-        <a target="_blank" href="https://github.com/AIBluefisher"><i class="fa-brands fa-github"></i></a> &nbsp;
-        <a target="_blank" href="https://twitter.com/yu47257737"><i class="fa-brands fa-square-twitter"></i></a> &nbsp;
-        <a target="_blank" href="https://scholar.google.com.sg/citations?user=eY18dlMAAAAJ&hl=zh-CN&oi=sra"><i class="fa-brands fa-google"></i></a> &nbsp;
-        <a target="_blank" href="./resources/files/cv.pdf"><i class="fa-solid fa-file"></i></a>
+        <a href="mailto:hackerdreamer34@gmail.com"><i class="fa-regular fa-envelope venue"></i></a> &nbsp;
+        <a target="_blank" href="https://www.linkedin.com/in/"><i class="fa-brands fa-linkedin venue"></i></a> &nbsp;
+        <a target="_blank" href="https://github.com/AIBluefisher"><i class="fa-brands fa-github venue"></i></a> &nbsp;
+        <a target="_blank" href="https://twitter.com/yu47257737"><i class="fa-brands fa-square-twitter venue"></i></a> &nbsp;
+        <a target="_blank" href="https://scholar.google.com.sg/citations?user=eY18dlMAAAAJ&hl=zh-CN&oi=sra"><i class="fa-brands fa-google venue"></i></a> &nbsp;
+        <a target="_blank" href="./resources/files/cv.pdf"><i class="fa-solid fa-file venue"></i></a>
       <!-- </p> -->
     </h1>
 
       <p class="me-subtitle">
         PhD student in the
-        <a target="_blank" href="https://www.comp.nus.edu.sg/~leegh/">Computer Vision and Robotic Perception Laboratory</a>
+        <a class="venue" target="_blank" href="https://www.comp.nus.edu.sg/~leegh/">Computer Vision and Robotic Perception Laboratory</a>
         at <a target="_blank" href="https://www.comp.nus.edu.sg">NUS</a>.
       </p>
 
 
       <p>
         I'm currently a Ph.D candidate in the <b>National University of Singapore</b> and I'm advised by 
-        <a target="_blank" href="https://www.comp.nus.edu.sg/~leegh/">Prof. Gim Hee Lee</a>. I worked at <b>Segway Robotics</b> 
+        <a class="venue" target="_blank" href="https://www.comp.nus.edu.sg/~leegh/">Prof. Gim Hee Lee</a>. I worked at <b>Segway Robotics</b> 
         during 2020.07-2021.12, where I designed algorithms to enhance the robustness of mapping algorithms for <i>canteen robots</i> 
         and <i>low-speed autonomous driving cars</i>. Before that, I obtained my M.S. degree in 
         <b>Electronic Engineering and Computer Science School, Peking University</b>, where I was advised by 
-        <a target="_blank" href=""></a>Prof. Yisong Chen and co-supervised by 
-        <a target="_blank" href="http://vision.ia.ac.cn/faculty/shshen/index.htm">Prof. Shuhan Shen</a>. I also spent 4 years 
+        <a class="venue" target="_blank" href="">Prof. Yisong Chen</a> and co-supervised by 
+        <a class="venue" target="_blank" href="http://vision.ia.ac.cn/faculty/shshen/index.htm">Prof. Shuhan Shen</a>. I also spent 4 years 
         in <b>Beihang University</b>, where I majored in software engineering. Now, I'm eager to tackle 3D computer vision problem 
         by combining deep learning and geometric methods. 
         <!-- (<font color="red">Never ask me to send your CVs to Gim Hee or anything  -->
         <!-- related to that since I do not know you at all !</font>) -->
       </p>
+      <div class="pub-divider">
+        <img src="./resources/divider2.png" />
+      </div>
     </div>
+    
     <!-- <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="75%" color=#987cb9 SIZE=1> -->
   </section>
 
@@ -305,6 +309,9 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           </table>
         </div>
       </div>
+      <div class="pub-divider">
+        <img src="./resources/divider2.png" />
+      </div>
       <!-- <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="80%" color=#987cb9 SIZE=1>       -->
     </section>
     <!-- <HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="100%" color=#987cb9 SIZE=1> -->
@@ -314,7 +321,7 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
     <section class="mb-5">
       <h3 class="pb-2">Publications &nbsp; <i class="fa-regular fa-book"></i></h3>
 
-      <div class="row align-items-center">
+      <div class="row align-items-center pub-block">
         <div class="col-sm-3 pub-image-cell hover-img-div">
           <a target="_blank" href="">
             <img class="img-fluid pub-image hover-img" alt="DReg-NeRF" 
@@ -327,9 +334,9 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           </p>
         
           <p class="pub-text-authors pub-text-p">
-            <b>Yu Chen</b>, Gim Hee Lee
+            <span class="me">Yu Chen</span>, Gim Hee Lee
           </p>
-          <p class="pub-text-p"> The International Conference on Computer Vision (ICCV) 2023 <span class="pub-note"></span></p>
+          <p class="pub-text-p venue"> The International Conference on Computer Vision <b>(ICCV)</b> 2023 <span class="pub-note"></span></p>
 
           <!-- PDF Link. -->
           <span class="link-block">
@@ -375,11 +382,16 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             <div class="card card-body bibtex">
             </div>
           </div>
+
+          <div class="pub-divider">
+            <img src="./resources/divider2.png" />
+          </div>
         </div>
+
       </div>
       <br />
 
-      <div class="row align-items-center">
+      <div class="row align-items-center pub-block">
         <div class="col-sm-3 pub-image-cell hover-img-div">
           <a target="_blank" href="">
             <img class="img-fluid pub-image hover-img" alt="global RA" 
@@ -392,9 +404,9 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           </p>
         
           <p class="pub-text-authors pub-text-p">
-            <b>Yu Chen</b>, Gim Hee Lee
+            <span class="me">Yu Chen</span>, Gim Hee Lee
           </p>
-          <p class="pub-text-p"> The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2023 <span class="pub-note"></span></p>
+          <p class="pub-text-p venue"> The IEEE Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b> 2023 <span class="pub-note"></span></p>
 
           <!-- PDF Link. -->
           <span class="link-block">
@@ -448,11 +460,15 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
             }</pre>
             </div>
           </div>
+          
+          <div class="pub-divider">
+            <img src="./resources/divider2.png" />
+          </div>
         </div>
       </div>
       <br />
 
-      <div class="row align-items-center">
+      <div class="row align-items-center pub-block">
         <div class="col-sm-3 pub-image-cell hover-img-div">
           <a target="_blank" href="">
             <img class="img-fluid pub-image hover-img" alt="global RA" 
@@ -465,9 +481,9 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           </p>
         
           <p class="pub-text-authors pub-text-p">
-            <b>Yu Chen</b>, Zihao Yu, Shu Song, Tianning Yu, Jianming Li, Gim Hee Lee
+            <span class="me">Yu Chen</span>, Zihao Yu, Shu Song, Tianning Yu, Jianming Li, Gim Hee Lee
           </p>
-          <p class="pub-text-p"> The IEEE International Conference on Robotics and Automation (ICRA) 2023 <span class="pub-note"></span></p>
+          <p class="pub-text-p venue"> The IEEE International Conference on Robotics and Automation <b>(ICRA)</b> 2023 <span class="pub-note"></span></p>
 
           <!-- PDF Link. -->
           <span class="link-block">
@@ -523,11 +539,15 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
               }</pre> -->
             </div>
           </div>
+          
+          <div class="pub-divider">
+            <img src="./resources/divider2.png" />
+          </div>
         </div>
       </div>
       <br />
 
-      <div class="row align-items-center">
+      <div class="row align-items-center pub-block">
         <div class="col-sm-3 pub-image-cell">
           <a target="_blank" href="">
             <img class="img-fluid pub-image hover-img" alt="global RA" 
@@ -540,9 +560,9 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
           </p>
         
           <p class="pub-text-authors pub-text-p">
-            <b>Yu Chen</b>, Ji Zhao, Laurent Kneip
+            <span class="me">Yu Chen</span>, Ji Zhao, Laurent Kneip
           </p>
-          <p class="pub-text-p">The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2021 <span class="pub-note"></span></p>
+          <p class="pub-text-p venue">The IEEE Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b> 2021 <span class="pub-note"></span></p>
         
           <!-- PDF Link. -->
           <span class="link-block">
@@ -598,242 +618,258 @@ document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
               }</pre>
             </div>
           </div>
+
+          <div class="pub-divider">
+            <img src="./resources/divider2.png" />
+          </div>
         </div>
       </div>
       <br />
 
-  <div class="row align-items-center">
-    <div class="col-sm-3 pub-image-cell">
-      <a target="_blank" href="">
-      <img class="img-fluid pub-image hover-img" alt="global RA" 
-            src="./resources/pr20_pku.png" style="padding-left:9%;padding-right:9%"></a>
-      </div>
-      <div class="col-sm-9 py-3">
-        <p class="pub-text-title pub-text-p">
-          Graph-Based Parallel Large Scale Structure from Motion
-        </p>
-        <p class="pub-text-authors pub-text-p">
-          <b>Yu Chen</b>, Shuhan Shen, Yisong Chen, Guoping Wang
-        </p>
-        <p class="pub-text-p">Pattern Recognition (PR) 2020 <span class="pub-note"></span></p>
+    <div class="row align-items-center pub-block">
+      <div class="col-sm-3 pub-image-cell">
+        <a target="_blank" href="">
+        <img class="img-fluid pub-image hover-img" alt="global RA" 
+              src="./resources/pr20_pku.png" style="padding-left:9%;padding-right:9%"></a>
+        </div>
+        <div class="col-sm-9 py-3">
+          <p class="pub-text-title pub-text-p">
+            Graph-Based Parallel Large Scale Structure from Motion
+          </p>
+          <p class="pub-text-authors pub-text-p">
+            <span class="me">Yu Chen</span>, Shuhan Shen, Yisong Chen, Guoping Wang
+          </p>
+          <p class="pub-text-p venue">Pattern Recognition <b>(PR)</b> 2020 <span class="pub-note"></span></p>
 
-        <!-- PDF Link. -->
-        <span class="link-block">
-          <a href="https://arxiv.org/pdf/1912.10659.pdf" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-              <i class="fa-solid fa-file-pdf fa-lg"></i>
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="https://arxiv.org/pdf/1912.10659.pdf" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-file-pdf fa-lg"></i>
+                </span>
+              <span style="color:#FFFFFF">Paper</span>
+            </a>
+          </span>
+          
+          <!-- Webpage Link. -->
+          <span class="link-block">
+            <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-brands fa-html5 fa-lg"></i>
               </span>
-            <span style="color:#FFFFFF">Paper</span>
-          </a>
-        </span>
-        
-        <!-- Webpage Link. -->
-        <span class="link-block">
-          <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-                <i class="fa-brands fa-html5 fa-lg"></i>
-            </span>
-            <span style="color:#FFFFFF">Web Page</span>
-            </a>
-        </span>
-        
-        <!-- Code Link. -->
-        <span class="link-block">
-          <a href="https://github.com/AIBluefisher/GraphSfM" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-              <i class="fab fa-github fa-lg"></i>
-            </span> &nbsp;
-            <span style="color:#FFFFFF">Code</span>
-            </a>
-        </span>
-                  
-        <!-- Bib Link. -->
-        <span class="link-block">
-          <a data-target="#bibpr2020" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-                <i class="fa-solid fa-code fa-lg"></i>
-            </span> &nbsp;
-            <span style="color:#FFFFFF">Cite</span>
-            </a>
-        </span>
+              <span style="color:#FFFFFF">Web Page</span>
+              </a>
+          </span>
+          
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="https://github.com/AIBluefisher/GraphSfM" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fab fa-github fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Code</span>
+              </a>
+          </span>
+                    
+          <!-- Bib Link. -->
+          <span class="link-block">
+            <a data-target="#bibpr2020" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-solid fa-code fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Cite</span>
+              </a>
+          </span>
 
-        <div class="collapse out" id="bibpr2020">
+          <div class="collapse out" id="bibpr2020">
+            <div class="card card-body bibtex">
+            <pre>@article{DBLP:journals/pr/ChenSCW20,
+              author    = {Yu Chen and
+                          Shuhan Shen and
+                          Yisong Chen and
+                          Guoping Wang},
+              title     = {Graph-based parallel large scale structure from motion},
+              journal   = {Pattern Recognition},
+              volume    = {107},
+              pages     = {107537},
+              year      = {2020},
+            }</pre>
+          </div>
+        </div>
+
+        <div class="pub-divider">
+          <img src="./resources/divider2.png" />
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="row align-items-center pub-block">
+      <div class="col-sm-3 pub-image-cell">
+        <a target="_blank" href="">
+        <img class="img-fluid pub-image hover-img" alt="global RA" 
+              src="./resources/arxiv19_ba.jpg" style="padding-left:9%;padding-right:9%"></a>
+        </div>
+        <div class="col-sm-9 py-3">
+          <p class="pub-text-title pub-text-p">
+            Bundle Adjustment Revisited
+          </p>
+          <p class="pub-text-authors pub-text-p">
+            <span class="me">Yu Chen</span>, Yisong Chen, Guoping Wang
+          </p>
+          <p class="pub-text-p venue">arXiv 2019 <span class="pub-note"></span></p>
+
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="https://arxiv.org/pdf/1912.03858.pdf" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-file-pdf fa-lg"></i>
+                </span>
+              <span style="color:#FFFFFF">Paper</span>
+            </a>
+          </span>
+                  
+          <!-- Webpage Link. -->
+          <span class="link-block">
+            <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-brands fa-html5 fa-lg"></i>
+              </span>
+              <span style="color:#FFFFFF">Web Page</span>
+              </a>
+          </span>
+                  
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fab fa-github fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Code</span>
+              </a>
+          </span>
+                            
+          <!-- Bib Link. -->
+          <span class="link-block">
+            <a data-target="#bibarxiv19" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-solid fa-code fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Cite</span>
+              </a>
+          </span>
+
+          <div class="collapse out" id="bibarxiv19">
           <div class="card card-body bibtex">
-          <pre>@article{DBLP:journals/pr/ChenSCW20,
+          <pre>@article{DBLP:journals/corr/abs-1912-03858,
             author    = {Yu Chen and
-                        Shuhan Shen and
                         Yisong Chen and
                         Guoping Wang},
-            title     = {Graph-based parallel large scale structure from motion},
-            journal   = {Pattern Recognition},
-            volume    = {107},
-            pages     = {107537},
-            year      = {2020},
+            title     = {Bundle Adjustment Revisited},
+            journal   = {CoRR},
+            volume    = {abs/1912.03858},
+            year      = {2019},
           }</pre>
+          </div>
+        </div>
+
+        <div class="pub-divider">
+          <img src="./resources/divider2.png" />
         </div>
       </div>
     </div>
-  </div>
-  <br />
+    <br />
 
-  <div class="row align-items-center">
-    <div class="col-sm-3 pub-image-cell">
-      <a target="_blank" href="">
-      <img class="img-fluid pub-image hover-img" alt="global RA" 
-            src="./resources/arxiv19_ba.jpg" style="padding-left:9%;padding-right:9%"></a>
-      </div>
-      <div class="col-sm-9 py-3">
-        <p class="pub-text-title pub-text-p">
-          Bundle Adjustment Revisited
-        </p>
-        <p class="pub-text-authors pub-text-p">
-          <b>Yu Chen</b>, Yisong Chen, Guoping Wang
-        </p>
-        <p class="pub-text-p">arXiv 2019 <span class="pub-note"></span></p>
+    <div class="row align-items-center pub-block">
+      <div class="col-sm-3 pub-image-cell">
+        <a target="_blank" href="">
+        <img class="img-fluid pub-image hover-img" alt="global RA" 
+              src="./resources/prcv18_semantic_sfm.png" style="padding-left:9%;padding-right:9%"></a>
+        </div>
+        <div class="col-sm-9 py-3">
+          <p class="pub-text-title pub-text-p">
+            Large-Scale Structure from Motion with Semantic Constraints of Aerial Images
+          </p>
+          <p class="pub-text-authors pub-text-p">
+            <span class="me">Yu Chen</span><sup>*</sup>, Yao Wang<sup>*</sup>, Peng Lu, Yisong Chen, Guoping Wang (<sup>*</sup> denotes equal contribution)
+          </p>
+          <p class="pub-text-p venue">Pattern Recognition and Computer Vision <b>PRCV</b> 2018 <span class="pub-note"></span></p>
 
-        <!-- PDF Link. -->
-        <span class="link-block">
-          <a href="https://arxiv.org/pdf/1912.03858.pdf" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-              <i class="fa-solid fa-file-pdf fa-lg"></i>
+          <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-030-03398-9_30" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-file-pdf fa-lg"></i>
+                </span>
+              <span style="color:#FFFFFF">Paper</span>
+            </a>
+          </span>
+          
+          <!-- Webpage Link. -->
+          <span class="link-block">
+            <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-brands fa-html5 fa-lg"></i>
               </span>
-            <span style="color:#FFFFFF">Paper</span>
-          </a>
-        </span>
-                
-        <!-- Webpage Link. -->
-        <span class="link-block">
-          <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-                <i class="fa-brands fa-html5 fa-lg"></i>
-            </span>
-            <span style="color:#FFFFFF">Web Page</span>
-            </a>
-        </span>
-                
-        <!-- Code Link. -->
-        <span class="link-block">
-          <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-              <i class="fab fa-github fa-lg"></i>
-            </span> &nbsp;
-            <span style="color:#FFFFFF">Code</span>
-            </a>
-        </span>
-                          
-        <!-- Bib Link. -->
-        <span class="link-block">
-          <a data-target="#bibarxiv19" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-                <i class="fa-solid fa-code fa-lg"></i>
-            </span> &nbsp;
-            <span style="color:#FFFFFF">Cite</span>
-            </a>
-        </span>
+              <span style="color:#FFFFFF">Web Page</span>
+              </a>
+          </span>
+                  
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="https://github.com/MarcWong/SemanticSfM" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fab fa-github fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Code</span>
+              </a>
+          </span>
 
-        <div class="collapse out" id="bibarxiv19">
-        <div class="card card-body bibtex">
-        <pre>@article{DBLP:journals/corr/abs-1912-03858,
-          author    = {Yu Chen and
-                       Yisong Chen and
-                       Guoping Wang},
-          title     = {Bundle Adjustment Revisited},
-          journal   = {CoRR},
-          volume    = {abs/1912.03858},
-          year      = {2019},
-        }</pre>
+          <!-- Dataset Link. -->
+          <span class="link-block">
+            <a href="https://github.com/MarcWong/UDD" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                <i class="fa-solid fa-database fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Dataset</span>
+              </a>
+          </span>
+                            
+          <!-- Bib Link. -->
+          <span class="link-block">
+            <a data-target="#bibprcv2018" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+              <span class="icon" style="color:#FFFFFF">
+                  <i class="fa-solid fa-code fa-lg"></i>
+              </span> &nbsp;
+              <span style="color:#FFFFFF">Cite</span>
+              </a>
+          </span>
+
+          <div class="collapse out" id="bibprcv2018">
+          <div class="card card-body bibtex">
+          <pre>@inproceedings{DBLP:conf/prcv/ChenWLCW18,
+            author    = {Yu Chen and
+                        Yao Wang and
+                        Peng Lu and
+                        Yisong Chen and
+                        Guoping Wang},
+            title     = {Large-Scale Structure from Motion with Semantic Constraints of Aerial
+                        Images},
+            booktitle = {Pattern Recognition and Computer Vision - First Chinese Conference},
+            series    = {Lecture Notes in Computer Science},
+            volume    = {11256},
+            pages     = {347--359},
+            publisher = {Springer},
+            year      = {2018},
+          }</pre>
+          </div>
+        </div>
+
+        <div class="pub-divider">
+          <img src="./resources/divider2.png" />
         </div>
       </div>
     </div>
-  </div>
-  <br />
-
-  <div class="row align-items-center">
-    <div class="col-sm-3 pub-image-cell">
-      <a target="_blank" href="">
-      <img class="img-fluid pub-image hover-img" alt="global RA" 
-            src="./resources/prcv18_semantic_sfm.png" style="padding-left:9%;padding-right:9%"></a>
-      </div>
-      <div class="col-sm-9 py-3">
-        <p class="pub-text-title pub-text-p">
-          Large-Scale Structure from Motion with Semantic Constraints of Aerial Images
-        </p>
-        <p class="pub-text-authors pub-text-p">
-          <b>Yu Chen</b><sup>*</sup>, Yao Wang<sup>*</sup>, Peng Lu, Yisong Chen, Guoping Wang (<sup>*</sup> denotes equal contribution)
-        </p>
-        <p class="pub-text-p">Pattern Recognition and Computer Vision 2018 <span class="pub-note"></span></p>
-
-        <!-- PDF Link. -->
-        <span class="link-block">
-          <a href="https://link.springer.com/chapter/10.1007/978-3-030-03398-9_30" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-              <i class="fa-solid fa-file-pdf fa-lg"></i>
-              </span>
-            <span style="color:#FFFFFF">Paper</span>
-          </a>
-        </span>
-        
-        <!-- Webpage Link. -->
-        <span class="link-block">
-          <a class="external-link button is-normal is-rounded is-dark" style="background-color:#808080; pointer-events: none; text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-                <i class="fa-brands fa-html5 fa-lg"></i>
-            </span>
-            <span style="color:#FFFFFF">Web Page</span>
-            </a>
-        </span>
-                
-        <!-- Code Link. -->
-        <span class="link-block">
-          <a href="https://github.com/MarcWong/SemanticSfM" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-              <i class="fab fa-github fa-lg"></i>
-            </span> &nbsp;
-            <span style="color:#FFFFFF">Code</span>
-            </a>
-        </span>
-
-        <!-- Dataset Link. -->
-        <span class="link-block">
-          <a href="https://github.com/MarcWong/UDD" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-              <i class="fa-solid fa-database fa-lg"></i>
-            </span> &nbsp;
-            <span style="color:#FFFFFF">Dataset</span>
-            </a>
-        </span>
-                          
-        <!-- Bib Link. -->
-        <span class="link-block">
-          <a data-target="#bibprcv2018" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
-            <span class="icon" style="color:#FFFFFF">
-                <i class="fa-solid fa-code fa-lg"></i>
-            </span> &nbsp;
-            <span style="color:#FFFFFF">Cite</span>
-            </a>
-        </span>
-
-        <div class="collapse out" id="bibprcv2018">
-        <div class="card card-body bibtex">
-        <pre>@inproceedings{DBLP:conf/prcv/ChenWLCW18,
-          author    = {Yu Chen and
-                       Yao Wang and
-                       Peng Lu and
-                       Yisong Chen and
-                       Guoping Wang},
-          title     = {Large-Scale Structure from Motion with Semantic Constraints of Aerial
-                       Images},
-          booktitle = {Pattern Recognition and Computer Vision - First Chinese Conference},
-          series    = {Lecture Notes in Computer Science},
-          volume    = {11256},
-          pages     = {347--359},
-          publisher = {Springer},
-          year      = {2018},
-        }</pre>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </section>
 

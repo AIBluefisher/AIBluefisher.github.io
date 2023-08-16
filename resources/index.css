@@ -14,18 +14,18 @@ a {
 }
 
 .container-center {
-    width: 75%;
+    width: 60%; /*75%;*/
     margin: auto;
 }
 
 .hover-img {
     cursor: pointer;
     transition: all 0.6s;
-    border-radius: 6px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+    border-radius: 1px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,.3);
     /*考虑浏览器兼容性*/
-    -moz-box-shadow: 5px 5px 5px rgba(0,0,0,.5);
-    -webkit-box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+    -moz-box-shadow: 2px 2px 2px 2px rgba(0,0,0,.3);
+    -webkit-box-shadow: 2px 2px 2px 2px rgba(0,0,0,.3);
 }
 .hover-img:hover {
     transform: scale(1.4);
@@ -91,13 +91,48 @@ td.news-text {
     /*border:1px solid black;*/
 }
 
+.pub-block {
+    /* position: relative;
+    display: block;
+    text-align: left;
+    width: 60%;
+    float: left;
+    padding: 10px 0 10px 0;
+    margin: 0 0 12px 0; */
+    /* float: left; */
+    background: no-repeat transparent right top url(resbg.png);
+    /* background-size: 40% 80px; */
+}
+
+.pub-divider {
+    margin: -4px 0 4px 0;
+}
+.pub-divider img {
+    width: 100%;
+    height: 2px;
+}
+
 .pub-text-p {
     margin-bottom: 8px;
     line-height: 1.1rem;
 }
 
+.venue {
+    color: #28C; /*#350;*/
+    text-shadow: 0px 0px 0.3px #2D6; /*0px 0px 1px #CF0;*/
+}
+
 .pub-text-title {
-    font-weight: 550;
+    color: #000;
+    padding: 0 0 5px 0;
+    font-weight: 600;
+    font-size: 107%;
+}
+
+.me {
+    color: #B09;
+    text-shadow: 0px 0px 0.5px #F00;
+    font-weight: 500;
 }
 
 b.myname {
