@@ -168,6 +168,46 @@ td.talks-text {
     padding-bottom: 5px;
 }
 
+/* .pb-2 {
+    color: #460;
+    font-weight: 600;
+    font-size: 150%;
+    margin: 0 0 20px 0;
+    text-shadow: 0px 0.5px 1px #AD4;
+} */
+.experience .logo {
+    float: left;
+    width: 220px;
+    margin: 0 15px 0 0;
+}
+
+.experience .content {
+    line-height: 1.25em;
+    overflow: hidden;
+}
+
+.content a {
+    color: #28C;
+    text-shadow: 0px 0px 0.3px #2D6;
+}
+
+.experience h4 {
+    display: inline-block;
+    /* font-weight: 600; */
+    color: #000;
+    padding: 0 0 5px 0;
+    font-weight: 600;
+    font-size: 115%;
+}
+
+.experience .intro {
+    font-weight: 400;
+    font-size: 93%;
+    color: #888;
+    display: inline-block;
+    line-height: 1.2em;
+}
+
 footer {
     background-color: #ECECEC;
     padding-bottom: 10px;
