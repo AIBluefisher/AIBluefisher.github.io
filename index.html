@@ -139,13 +139,14 @@
         </div>
         
       </section>
-
+    
+    <!--------------------------- News section ---------------------------->
     <section class="mb-4 container">
         <h3><b>NEWS &nbsp; <i class="fas fa-rss fa-beat"></i></b></h3>
         <div class="limit-items">
             <input type="checkbox" id="show-all">
-            <label for="show-all" class="text-show"><font color="red"><i class="fa-solid fa-arrow-down"></i> SHOW MORE <i class="fa-solid fa-arrow-down"></i></font></label>
-            <label for="show-all" class="text-hide"><font color="red"><i class="fa-solid fa-arrow-up"></i> HIDE <i class="fa-solid fa-arrow-up"></i></font></label>
+            <label for="show-all" class="text-show"><font color="red"><i class="fas fa-arrow-down"></i> SHOW MORE <i class="fas fa-arrow-down"></i></font></label>
+            <label for="show-all" class="text-hide"><font color="red"><i class="fas fa-arrow-up"></i> HIDE <i class="fas fa-arrow-up"></i></font></label>
     
             <div class="items">
               <ul class="news-list">
@@ -189,7 +190,7 @@
                   <span class="news-date">[20.06.2020]</span>
                   <span class="news-text">I successfully defended my M.S. thesis on <font class="hl-g">distributed large-scale Structure-from-Motion</font>!</span>
                 </li>
-                <li data-icon="🚀">
+                <li data-icon="🥈">
                   <span class="news-date">[15.11.2019]</span>
                   <span class="news-text">
                     We won <font class="hl-r-b">the 2nd place in the 3D Reconstruction Track</font> of the 2nd China Virtual Reality and 
@@ -219,6 +220,9 @@
 
       <!-- Your provided publications HTML code goes here -->
         <h3 class="pb-2"><b>PUBLICATIONS</b></h3>
+        <span style="font-size: small; color: rgba(128, 128, 128, 0.926);">
+          Hover over the <span data-icon="💡" class="idea-span"></span> to get the overall idea
+        </span>
   
         <div class="row align-items-center pub-block">
           <div class="col-sm-4 pub-image-cell hover-img-div">
@@ -232,6 +236,15 @@
             </p>
           
             <p class="pub-text-authors pub-text-p">
+              <div class="idea-container">
+                <a href="" class="idea-ref" ><span data-icon="💡" class="idea-span"></span></a>
+                <div class="hover-text">
+                  Given NeRF blocks that are in different coordinate systems, DReg-NeRF register them together end-to-end. 
+                  Firstly, we download 1.8K+ 3D meshes from Objaverse and render meshes into 
+                  images to train our NeRF model. Subsequently, DReg-NeRF extract the occupancy grid from each NeRF block
+                  and feed them into a 3D FPN and transformer to regress correspondences.
+                </div>
+              </div>
               <span class="me">Yu Chen</span>, Gim Hee Lee
             </p>
             <p class="pub-text-p venue"> The International Conference on Computer Vision <b>(ICCV)</b> 2023 <span class="pub-note"></span></p>
@@ -332,6 +345,14 @@
             </p>
           
             <p class="pub-text-authors pub-text-p">
+              <div class="idea-container">
+                <a href="" class="idea-ref" ><span data-icon="💡" class="idea-span"></span></a>
+                <div class="hover-text">
+                  DBARF jointly optimizing a generalizable neural radiance fields and the relative camera poses without 
+                  pose initialization. We extract feature maps from nearby views and construct a residual map based on 
+                  the extracted features. The residual map and rendering loss is minimized during training.
+                </div>
+              </div>
               <span class="me">Yu Chen</span>, Gim Hee Lee
             </p>
             <p class="pub-text-p venue"> The IEEE Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b> 2023 <span class="pub-note"></span></p>
@@ -417,6 +438,15 @@
             </p>
           
             <p class="pub-text-authors pub-text-p">
+              <div class="idea-container">
+                <a href="" class="idea-ref" ><span data-icon="💡" class="idea-span"></span></a>
+                <div class="hover-text">
+                  AdaSfM aims at adaptively recovering camera poses and scene structures in very large-scale outdoor scenes. We adopt 
+                  a coarse-to-fine strategy for SfM. In AdaSfM, a coarse global SfM is reconstructed and then used to provide
+                  priors to the local incremental SfM reconstruction. The local incremental SfM can be run in a distributed 
+                  way.
+                </div>
+              </div>
               <span class="me">Yu Chen</span>, Zihao Yu, Shu Song, Tianning Yu, Jianming Li, Gim Hee Lee
             </p>
             <p class="pub-text-p venue"> The IEEE International Conference on Robotics and Automation <b>(ICRA)</b> 2023 <span class="pub-note"></span></p>
@@ -508,6 +538,14 @@
             </p>
           
             <p class="pub-text-authors pub-text-p">
+              <div class="idea-container">
+                <a href="" class="idea-ref" ><span data-icon="💡" class="idea-span"></span></a>
+                <div class="hover-text">
+                  Hybrid rotation averaging hybrids a global rotation averaging method and a local rotation averaging method. 
+                  The robustness is enhanced by pre-filtering wrong edges in the triplets. The resulted global rotations are 
+                  used as priors to regularize the camera poses in incremental SfM.
+                </div>
+              </div>
               <span class="me">Yu Chen</span>, Ji Zhao, Laurent Kneip
             </p>
             <p class="pub-text-p venue">The IEEE Conference on Computer Vision and Pattern Recognition <b>(CVPR)</b> 2021 <span class="pub-note"></span></p>
@@ -583,6 +621,14 @@
               Graph-Based Parallel Large Scale Structure from Motion
             </p>
             <p class="pub-text-authors pub-text-p">
+              <div class="idea-container">
+                <a href="" class="idea-ref" ><span data-icon="💡" class="idea-span"></span></a>
+                <div class="hover-text">
+                  GraphSfM splits and stitches scenes based on the graph connectivity. GraphSfM can reconstruct large-scale 
+                  scenes efficiently in a distributed manner. We made the project publicly available and provide the first 
+                  open-source distributed SfM implementation.
+                </div>
+              </div>
               <span class="me">Yu Chen</span>, Shuhan Shen, Yisong Chen, Guoping Wang
             </p>
             <p class="pub-text-p venue">Pattern Recognition <b>(PR)</b> 2020 <span class="pub-note"></span></p>
@@ -805,16 +851,57 @@
       </div>
     </section>
 
+    <section class="mb-4 container">
+      <h3><b>AWARDS &nbsp;</b></h3>
+      <!-- <div> -->
+          <div class="items">
+            <ul class="award-list">
+              <li data-icon="🎁">
+                <span class="news-date">[11.2023]</span>
+                <span class="news-text">Google PhD Fellowship 2023</span>
+              </li>
+              <li data-icon="🎁">
+                <span class="news-date">[08.2023]</span>
+                <span class="news-text">Research Achievement Award of SoC, NUS</span>
+              </li>
+              <li data-icon="🏆">
+                <span class="news-date">[08.2021]</span>
+                <span class="news-text">Rising Star in the Quarter, Segway Robotics</span>
+              </li>
+              <li data-icon="🥈">
+                <span class="news-date">[11.2019]</span>
+                <span class="news-text">
+                  <font class="hl-r-b">the 2nd place in the 3D Reconstruction Track</font>, the 2nd China Virtual Reality and 
+                  Application Innovation Challenge
+                </span>
+              </li>
+              <li data-icon="🏅">
+                <span class="news-date">[04.2018]</span>
+                <span class="news-text">the 2nd place in <font class="hl-b">the 3v3 basketball game</font>, Peking University</span>
+              </li>
+              <li data-icon="🏆">
+                <span class="news-date">[03.2014]</span>
+                <span class="news-text">one of <font class="hl-b">the Top Ten Broadcasting Hosts</font>, BUAA</span>
+              </li>
+              <li data-icon="🥇">
+                <span class="news-date">[11.2013]:</span>
+                <span class="news-text">the champion in the <font class="hl-b">speech contest</font>, the School of Software, BUAA</span>
+              </li>
+            </ul>
+          </div>
+        <!-- </div> -->
+  </section>
+
     <section class="mb-5 container">
         <h3 class="pb-2"><b>EXPERIENCES</b> </h3>
       
         <div class="row align-items-center experience">
-          <div class="logo">
+          <div class="logo col-sm-3">
               <img class="img-fluid" alt="global RA" 
               src="./resources/segway-logo.png" style="padding-left:9%;padding-right:9%">
           </div>
       
-          <div class="content">
+          <div class="content col-sm-8">
             <h4><a href="https://www.segwayrobotics.com/">Segway Robotics</a></h4>, July. 2020 - Dec. 2022<br>
             SLAM Algorithm Engineer (with an excellent team)<br>
             <span class="intro">Visual-Inertial-Odometry SLAM, Marker SLAM, Outdoor Multi-sensor Fusion SfM</span>
@@ -823,12 +910,12 @@
         <br />
       
         <div class="row align-items-center experience">
-          <div class="logo">
+          <div class="logo col-sm-3">
               <img class="img-fluid" alt="global RA" 
               src="./resources/segway-logo.png">
           </div>
       
-          <div class="content">
+          <div class="content col-sm-8">
             <h4><a href="https://www.segwayrobotics.com/">Segway Robotics</a></h4>, Apr. 2020 - Jun. 2020<br>
             Algorithm Intern (with Jianming Li)<br>
             <span class="intro">Visual-Inertial SLAM, Self-Calibration on scooters</span>
@@ -837,12 +924,12 @@
         <br />
       
         <div class="row align-items-center experience">
-          <div class="logo">
+          <div class="logo col-sm-3">
               <img class="img-fluid" alt="global RA" 
               src="./resources/tusimple-logo.svg">
           </div>
       
-          <div class="content">
+          <div class="content col-sm-8">
             <h4><a href="https://www.tusimple.com/">TuSimple</a></h4>, Apr. 2019 - Jul. 2019<br>
             Research Intern (with Dr. <a href="" >Ji Zhao</a>)<br>
             <span class="intro">High-Definition mapping, Rotation Averaging</span>
@@ -851,12 +938,12 @@
         <br />
       
         <div class="row align-items-center experience">
-          <div class="logo">
+          <div class="logo col-sm-3">
               <img class="img-fluid" alt="global RA" 
               src="./resources/megvii-logo.png">
           </div>
       
-          <div class="content">
+          <div class="content col-sm-8">
             <h4><a href="https://www.megvii.com/">Megvii Research</a></h4>, Sep. 2018 - Dec. 2018<br>
             Algorithm Intern<br>
             <span class="intro">Real-time 3D reconstruction, texture mapping</span>
