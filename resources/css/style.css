@@ -1,5 +1,5 @@
 body {
-  background: url(../../resources/background4.jpeg) no-repeat center center fixed;
+  background: url(../../resources/background4-min.jpeg) no-repeat center center fixed;
   /* Keep the inherited background full size. */
   background-attachment: fixed; 
   -webkit-background-size: cover;

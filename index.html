@@ -93,7 +93,7 @@
             <a target="_blank" href="mailto:hackerdreamer34@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
             <a target="_blank" href="https://twitter.com/yu47257737" title="Twitter Profile"><i class="fab fa-twitter"></i></a>
             <a target="_blank" href="https://www.linkedin.com/in/" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-            <a target="_blank" href="https://scholar.google.com.sg/citations?user=eY18dlMAAAAJ&hl=zh-CN&oi=sra" title="Google Scholar Profile">
+            <a target="_blank" href="https://scholar.google.com.sg/citations?user=eY18dlMAAAAJ&hl=zh-CN&oi=sra" title="Google Scholar Profile" style="text-decoration: none;">
                 <i class="fas fa-graduation-cap"></i>
             </a>
             <a target="_blank" href="./resources/files/cv.pdf" title="Download Resume"><i class="fas fa-file-pdf"></i></a>
@@ -115,7 +115,7 @@
     
     
           <p>
-            I'm currently a Ph.D. candidate in the <b>National University of Singapore</b> advised by 
+            I'm a Ph.D. candidate in the <b>National University of Singapore</b> advised by 
             <a class="venue" target="_blank" href="https://www.comp.nus.edu.sg/~leegh/">Prof. Gim Hee Lee</a>. I worked at <b>Segway Robotics</b> 
             during 2020.07-2021.12 on enhancing the robustness of mapping algorithms for <i>canteen robots</i> 
             and <i>low-speed autonomous driving cars</i>. Before that, I obtained my M.S. degree in 
@@ -227,7 +227,86 @@
         <div class="row align-items-center pub-block">
           <div class="col-sm-4 pub-image-cell hover-img-div">
             <img id="iccv23-dreg-nerf" class="pub-image" alt="DReg-NeRF" 
-              src="./resources/iccv23_dreg_nerf.png" style="padding-left:9%;padding-right:9%;padding-top:8%;padding-bottom:5%;background-color: #fff;">
+              src="./resources/scalar_nerf_low.gif" style="padding: 2%;background-color: #fff;">
+          </div>
+        
+          <div class="col-sm-8 py-3 mt-3">
+            <p class="pub-text-title pub-text-p">
+              SCALAR-NeRF: SCAlable LARge-scale Neural Radiance Fields for Scene Reconstruction
+            </p>
+          
+            <p class="pub-text-authors pub-text-p">
+              <div class="idea-container">
+                <a href="" class="idea-ref" ><span data-icon="💡" class="idea-span"></span></a>
+                <div class="hover-text">
+                  SCALAR-NeRF aims at reconstructing large-scale scenes. We adopt a coarse-to-fine strategy, which a coarse global model is 
+                  trained first, and then local models are trained with finer details and further conditioned by a global shared decoder. 
+                  The final fusion can be guided by the global model.
+                </div>
+              </div>
+              <span class="me">Yu Chen</span>, Gim Hee Lee
+            </p>
+            <p class="pub-text-p venue"> Under Review <span class="pub-note"></span></p>
+  
+            <!-- PDF Link. -->
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/2311.16657.pdf" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+                <span class="icon" style="color:#FFFFFF">
+                  <i class="fas fa-file-pdf fa-lg"></i>
+                  </span>
+                <span style="color:#FFFFFF">Paper</span>
+              </a>
+            </span>
+  
+            <!-- Webpage Link. -->
+            <span class="link-block">
+              <a href="https://aibluefisher.github.io/SCALAR-NeRF/" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+                <span class="icon" style="color:#FFFFFF">
+                    <i class="fab fa-html5 fa-lg"></i>
+                </span>
+                <span style="color:#FFFFFF">Web Page</span>
+                </a>
+            </span>
+  
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a href="https://github.com/AIBluefisher/SCALAR-NeRF" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+                <span class="icon" style="color:#FFFFFF">
+                  <i class="fab fa-github fa-lg"></i>
+                </span> &nbsp;
+                <span style="color:#FFFFFF">Code</span>
+                </a>
+            </span>
+
+            <!-- Bib Link. -->
+            <span class="link-block">
+              <a href="" data-target="#bibiccv2023" data-toggle="collapse" class="external-link button is-normal is-rounded is-dark" style="text-decoration: none;">
+                <span class="icon" style="color:#FFFFFF">
+                    <i class="fas fa-code fa-lg"></i>
+                </span> &nbsp;
+                <span style="color:#FFFFFF">Cite</span>
+                </a>
+            </span>
+          
+            <div class="collapse out" id="bibiccv2023">
+              <div class="card card-body bibtex">
+                <pre>
+
+                </pre>
+              </div>
+            </div>
+  
+            <div class="pub-divider">
+              <img src="./resources/divider2.png" />
+            </div>
+          </div>
+  
+        </div>
+
+        <div class="row align-items-center pub-block">
+          <div class="col-sm-4 pub-image-cell hover-img-div">
+            <img id="iccv23-dreg-nerf" class="pub-image" alt="DReg-NeRF" 
+              src="./resources/iccv23_dreg_nerf.png" style="padding:5%;background-color: #fff;">
           </div>
         
           <div class="col-sm-8 py-3 mt-3">
@@ -239,10 +318,10 @@
               <div class="idea-container">
                 <a href="" class="idea-ref" ><span data-icon="💡" class="idea-span"></span></a>
                 <div class="hover-text">
-                  Given NeRF blocks that are in different coordinate systems, DReg-NeRF register them together end-to-end. 
+                  Given NeRF blocks that are in different coordinate systems, DReg-NeRF registers them together end-to-end. 
                   Firstly, we download 1.8K+ 3D meshes from Objaverse and render meshes into 
-                  images to train our NeRF model. Subsequently, DReg-NeRF extract the occupancy grid from each NeRF block
-                  and feed them into a 3D FPN and transformer to regress correspondences.
+                  images to train our NeRF model. Subsequently, DReg-NeRF extracts the occupancy grid from each NeRF block
+                  and feeds them into a 3D FPN and transformer to regress correspondences.
                 </div>
               </div>
               <span class="me">Yu Chen</span>, Gim Hee Lee
@@ -335,8 +414,8 @@
   
         <div class="row align-items-center pub-block">
           <div class="col-sm-4 pub-image-cell hover-img-div">
-              <img class="pub-image hover-img" alt="global RA" 
-              src="./resources/cvpr23_dbarf.gif" style="padding-left:9%;padding-right:9%;padding-top:5%;background-color: #fff;">
+              <img class="pub-image hover-img" alt="DBARF" 
+              src="./resources/cvpr23_dbarf.gif" style="padding-left:4%;padding-right:4%;padding-top:2%;background-color: #fff;">
           </div>
         
           <div class="col-sm-8 py-3 mt-3">
@@ -348,9 +427,9 @@
               <div class="idea-container">
                 <a href="" class="idea-ref" ><span data-icon="💡" class="idea-span"></span></a>
                 <div class="hover-text">
-                  DBARF jointly optimizing a generalizable neural radiance fields and the relative camera poses without 
+                  DBARF jointly optimizes a generalizable neural radiance fields and the relative camera poses without 
                   pose initialization. We extract feature maps from nearby views and construct a residual map based on 
-                  the extracted features. The residual map and rendering loss is minimized during training.
+                  the extracted features. The residual map and rendering loss are minimized during training.
                 </div>
               </div>
               <span class="me">Yu Chen</span>, Gim Hee Lee
@@ -428,8 +507,8 @@
   
         <div class="row align-items-center pub-block">
           <div class="col-sm-4 pub-image-cell hover-img-div">
-              <img class="pub-image hover-img" alt="global RA" 
-              src="./resources/icra23_teaser.png" style="padding-left:9%;padding-right:9%;padding-top:10%;padding-bottom:5%;background-color: #fff;">
+              <img class="pub-image hover-img" alt="AdaSfM" 
+              src="./resources/icra23_teaser.png" style="padding: 4% 4% 2% 4%;background-color: #fff;">
           </div>
         
           <div class="col-sm-8 py-3 mt-3">
@@ -529,7 +608,7 @@
         <div class="row align-items-center pub-block">
           <div class="col-sm-4 pub-image-cell">
               <img class="pub-image hover-img" alt="global RA" 
-              src="./resources/cvpr21_ra.gif" style="padding-left:9%;padding-right:9%;padding-top:8%;padding-bottom:5%;background-color: #fff;">
+              src="./resources/cvpr21_ra.gif" style="padding: 4% 4% 2% 4%;background-color: #fff;">
           </div>
         
           <div class="col-sm-8 py-3 mt-3">
@@ -614,7 +693,7 @@
       <div class="row align-items-center pub-block">
         <div class="col-sm-4 pub-image-cell">
           <img class="pub-image hover-img" alt="global RA" 
-                src="./resources/pr20_pku.png" style="padding-left:9%;padding-right:9%;padding-top:8%;padding-bottom:5%;background-color: #fff;">
+                src="./resources/pr20_pku.png" style="padding: 4% 4% 2% 4%;background-color: #fff;">
           </div>
           <div class="col-sm-8 py-3 mt-3">
             <p class="pub-text-title pub-text-p">
@@ -695,7 +774,7 @@
         </div>
       </div>
   
-      <div class="row align-items-center pub-block">
+      <!-- <div class="row align-items-center pub-block">
         <div class="col-sm-4 pub-image-cell">
           <img class="pub-image hover-img" alt="global RA" 
                 src="./resources/arxiv19_ba.jpg" style="padding-left:9%;padding-right:9%;background-color: #fff;">
@@ -763,7 +842,7 @@
             <img src="./resources/divider2.png" />
           </div>
         </div>
-      </div>
+      </div> -->
   
       <div class="row align-items-center pub-block">
         <div class="col-sm-4 pub-image-cell">
@@ -954,8 +1033,8 @@
 
   <!-- </div> -->
   <footer>© 2022-now Chen Yu </footer>
-<script src="./resources/jquery-3.4.1.slim.min.js"></script>
-<script src="./resources/bootstrap.min.js"></script>
+<script src="./resources/js/jquery-3.4.1.slim.min.js"></script>
+<script src="./resources/js/bootstrap.min.js"></script>
 
 </body>
 </html>
