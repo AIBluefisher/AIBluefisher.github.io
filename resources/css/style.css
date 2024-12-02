@@ -155,7 +155,7 @@ span.pub-note {
 /* Show More Feature */
 
 /* .limit-items .items tr:nth-of-type(n + 4) { */
-.limit-items .items li:nth-of-type(n + 4) {
+.limit-items .items li:nth-of-type(n + 8) {
     display: none;
 }
 
