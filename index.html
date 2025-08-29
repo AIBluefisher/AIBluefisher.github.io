@@ -43,28 +43,34 @@
 
     a {
       text-decoration: none;
+      color: rgba(67, 97, 238, 1.0);
     }
 
     .link-block {
-      /* margin-top: 10px; */
-      margin: -5px -8px -5px 0px;
+      margin: 0.02rem 0.02rem 0.02rem 0;
       display: inline-block;
     }
 
     .external-link {
-      background-color: #007bff;
+      background-color: rgba(67, 97, 238, 1.0);
       color: #fff;
-      padding: 8px 12px;
+      padding: 0.5rem 1rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       text-decoration: none;
       margin-right: 10px;
       display: inline-flex;
       align-items: center;
+      transition: var(--transition);
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 3px 8px rgba(67, 97, 238, 0.3);
     }
 
     .external-link:hover {
-      background-color: #0056b3;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+      color: #fff;
     }
 
     .icon {
@@ -74,6 +80,27 @@
     .pub-divider {
       width: 100%;
       margin: 15px 0;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 12px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--light);
+      color: var(--primary);
+      transition: var(--transition);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-icons a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
     }
   </style>
 </head>
@@ -140,12 +167,12 @@
     <h3><b>NEWS &nbsp; <i class="fas fa-rss fa-beat"></i></b></h3>
     <div class="limit-items">
       <input type="checkbox" id="show-all">
-      <label for="show-all" class="text-show">
-        <font color="red"><i class="fas fa-arrow-down"></i> SHOW MORE <i class="fas fa-arrow-down"></i></font>
-      </label>
-      <label for="show-all" class="text-hide">
-        <font color="red"><i class="fas fa-arrow-up"></i> HIDE <i class="fas fa-arrow-up"></i></font>
-      </label>
+        <label for="show-all" class="text-show">
+          <i class="fas fa-chevron-down"></i> SHOW MORE
+        </label>
+        <label for="show-all" class="text-hide">
+          <i class="fas fa-chevron-up"></i> SHOW LESS
+        </label>
 
       <div class="items">
         <ul class="news-list">
