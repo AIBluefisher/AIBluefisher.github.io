@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../resources/css/all.min.css">
+  <link rel="stylesheet" href="../resources/css/style.css">
+  <link rel="stylesheet" href="../resources/css/blog_style.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="../resources/icon.png">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+  <title>Blog: Scaling 3D data | Chen Yu</title>
+</head>
+<body>
+  <!-- Navigation Bar (same as index) -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="navbar-logo">
+        <img class="navbar-logo-image" src="../resources/profile.jpg" alt="Chen Yu">
+        <span>Chen Yu</span>
+      </a>
+      <div class="navbar-toggle" id="navbarToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="navbar-menu" id="navbarMenu">
+        <div class="navbar-close" id="navbarClose">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="navbar-mobile-profile">
+          <img src="../resources/profile.jpg" alt="Chen Yu">
+          <div>
+            <h4>Chen Yu</h4>
+            <p>Research Scientist</p>
+          </div>
+        </div>
+        <a href="../index.html#news" class="navbar-link"><i class="fas fa-rss"></i> News</a>
+        <a href="../index.html#publications" class="navbar-link"><i class="fas fa-file-alt"></i> Publications</a>
+        <a href="../index.html#awards" class="navbar-link"><i class="fas fa-trophy"></i> Awards</a>
+        <a href="../index.html#experience" class="navbar-link"><i class="fas fa-briefcase"></i> Experience</a>
+        <a href="../index.html#blog" class="navbar-link active"><i class="fas fa-pen-fancy"></i> Blog</a>
+        <div class="theme-switch-wrapper">
+          <div class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <label for="theme-toggle" aria-label="Toggle dark mode">
+              <i class="fas fa-sun"></i>
+              <i class="fas fa-moon"></i>
+            </label>
+            <div class="slider"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-overlay" id="navbarOverlay"></div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <a href="#" class="back-to-top-btn" id="backToTopBtn"><i class="fas fa-arrow-up"></i></a>
+  </div>
+
+  <!-- Blog Post Container -->
+  <div class="main-container blog-post-container">
+    <!-- Breadcrumb -->
+    <div class="blog-breadcrumb">
+      <a href="../index.html#blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+    </div>
+
+    <!-- Full Blog Post -->
+    <article class="blog-post-full glass-card">
+      <div class="post-header">
+        <h1 class="post-full-title">NeRF vs 3DGS: a unified view</h1>
+        <div class="post-meta-full">
+          <span class="post-date"><i class="far fa-calendar-alt"></i> Jan 15, 2026</span>
+          <span class="post-reading"><i class="far fa-clock"></i> 9 min read</span>
+          <span class="post-author"><i class="far fa-user"></i> Chen Yu</span>
+        </div>
+        <div class="post-tags-full">
+          <span class="tag"><i class="fas fa-cubes"></i> 3DGS</span>
+          <span class="tag"><i class="fas fa-bezier-curve"></i> NeRF</span>
+          <span class="tag"><i class="fas fa-square-root-alt"></i> math</span>
+        </div>
+      </div>
+
+      <div class="post-content">
+        <p>Both NeRF and 3DGS aim to represent a 3D scene for novel view synthesis. But their mathematical foundations differ: NeRF uses volumetric ray marching, while 3D Gaussian Splatting projects Gaussians onto the image plane. Interestingly, they can be seen as two sides of the same coin: an integral over 3D primitives.</p>
+
+        <p>The NeRF volume rendering equation is:</p>
+        <div class="blog-equation">
+          \[
+          C(\mathbf{r}) = \int_{t_n}^{t_f} T(t) \, \sigma(\mathbf{r}(t)) \, \mathbf{c}(\mathbf{r}(t), \mathbf{d}) \, dt
+          \]
+        </div>
+
+        <p>For 3DGS, the accumulated color for a pixel is approximated by blending sorted Gaussians:</p>
+        <div class="blog-equation">
+          \[
+          C = \sum_{i \in \mathcal{N}} \mathbf{c}_i \alpha_i \prod_{j=1}^{i-1} (1 - \alpha_j)
+          \]
+        </div>
+
+        <p>In the limit of infinitesimal Gaussians, the two converge. To illustrate, I recorded a short video comparing both methods on the same scene:</p>
+
+        <figure class="blog-figure">
+          <video controls class="blog-video" poster="./resources/anti_aliasing_gaussian.gif">
+            <source src="./resources/blog/nerf_vs_3dgs.mp4" type="video/mp4">
+          </video>
+          <figcaption>Video 2: side-by-side comparison – NeRF (left) vs 3DGS (right) on MipNeRF 360 scene.</figcaption>
+        </figure>
+
+        <p>What I find exciting is that future work might unify them in a single differentiable framework. Our recent DeepGfM (NeurIPS 2025) takes a step by using a geometric foundation model that initializes both representations.</p>
+      </div>
+
+      <!-- Share and Navigation -->
+      <div class="post-footer">
+        <div class="post-share">
+          <span>Share:</span>
+          <a href="https://twitter.com/intent/tweet?text=Scaling 3D data with Gaussian consensus&url=https://chenyu.com/blog/scaling-3d-gaussian" target="_blank" class="share-link"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://chenyu.com/blog/scaling-3d-gaussian" target="_blank" class="share-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:?subject=Blog post: Scaling 3D data&body=Check out this post: https://chenyu.com/blog/scaling-3d-gaussian" class="share-link"><i class="fas fa-envelope"></i></a>
+        </div>
+        
+        <div class="post-navigation">
+          <a href="#" class="prev-post"><i class="fas fa-chevron-left"></i> Previous post</a>
+          <a href="#" class="next-post">Next post <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Related Posts -->
+    <section class="related-posts glass-card">
+      <h3>Related posts</h3>
+      <div class="related-posts-grid">
+        <a href="nerf-vs-3dgs.html" class="related-post">
+          <h4>NeRF vs 3DGS: a unified view</h4>
+          <span class="related-date">Jan 15, 2026</span>
+        </a>
+        <a href="rotation-averaging.html" class="related-post">
+          <h4>On rotation averaging: hybrid revisited</h4>
+          <span class="related-date">Dec 3, 2025</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2022-now Chen Yu • Built with <i class="fas fa-heart" style="color: var(--accent);"></i> to the world
+    </footer>
+  </div>
+
+  <script src="../resources/js/jquery-3.4.1.slim.min.js"></script>
+  <script src="../resources/js/bootstrap.min.js"></script>
+  <script>
+    // Dark mode toggle (same as index)
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (themeToggle) themeToggle.checked = true;
+      }
+      if (themeToggle) {
+        themeToggle.addEventListener('change', function(e) {
+          if (this.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+    })();
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) backToTop.classList.add('show');
+      else backToTop.classList.remove('show');
+    });
+    document.getElementById('backToTopBtn')?.addEventListener('click', function(e) {
+      e.preventDefault(); 
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile menu
+    const navbarToggle = document.getElementById('navbarToggle');
+    const navbarMenu = document.getElementById('navbarMenu');
+    const navbarOverlay = document.getElementById('navbarOverlay');
+    const navbarClose = document.getElementById('navbarClose');
+    
+    function closeMenu() {
+      navbarMenu.classList.remove('show');
+      navbarOverlay?.classList.remove('show');
+      document.body.style.overflow = '';
+      const icon = navbarToggle.querySelector('i');
+      if (icon) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+    }
+    
+    function openMenu() {
+      navbarMenu.classList.add('show');
+      navbarOverlay?.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      const icon = navbarToggle.querySelector('i');
+      if (icon) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+    }
+    
+    if (navbarToggle) {
+      navbarToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navbarMenu.classList.contains('show') ? closeMenu() : openMenu();
+      });
+    }
+    if (navbarClose) navbarClose.addEventListener('click', closeMenu);
+    if (navbarOverlay) navbarOverlay.addEventListener('click', closeMenu);
+  </script>
+</body>
+</html>
