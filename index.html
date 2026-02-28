@@ -12,13 +12,29 @@
 
 <body>
   <!-- Navigation Bar with Profile Image -->
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <div class="navbar-container">
       <a href="#home" class="navbar-logo">
         <img class="navbar-logo-image" src="./resources/profile.jpg" alt="Chen Yu">
         <span>Chen Yu</span>
       </a>
-      <div class="navbar-menu">
+
+      <div class="navbar-toggle" id="navbarToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <div class="navbar-menu" id="navbarMenu">
+        <div class="navbar-close" id="navbarClose">
+          <i class="fas fa-times"></i>
+        </div>
+
+        <div class="navbar-mobile-profile">
+          <img src="./resources/profile.jpg" alt="Chen Yu">
+          <div>
+            <h4>Chen Yu</h4>
+            <p>Research Scientist</p>
+          </div>
+        </div>
         <a href="#news" class="navbar-link"><i class="fas fa-rss"></i> News</a>
         <a href="#publications" class="navbar-link"><i class="fas fa-file-alt"></i> Publications</a>
         <a href="#awards" class="navbar-link"><i class="fas fa-trophy"></i> Awards</a>
@@ -36,6 +52,8 @@
       </div>
     </div>
   </nav>
+
+  <div class="navbar-overlay" id="navbarOverlay"></div>
 
   <!-- Back to Top Button (Fixed) -->
   <div class="back-to-top" id="backToTop">
@@ -803,6 +821,125 @@
         this.style.transition = 'transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease';
       });
     });
+
+    // 移动端导航栏功能
+    (function () {
+      const navbarToggle = document.getElementById('navbarToggle');
+      const navbarMenu = document.getElementById('navbarMenu');
+      const navbarOverlay = document.getElementById('navbarOverlay');
+      const navbarClose = document.getElementById('navbarClose');
+      const navbarLinks = document.querySelectorAll('.navbar-link');
+
+      // 打开菜单
+      function openMenu() {
+        navbarMenu.classList.add('show');
+        navbarToggle.classList.add('active');
+        navbarOverlay.classList.add('show');
+        document.body.style.overflow = 'hidden'; // 禁止背景滚动
+      }
+
+      // 关闭菜单
+      function closeMenu() {
+        navbarMenu.classList.remove('show');
+        navbarToggle.classList.remove('active');
+        navbarOverlay.classList.remove('show');
+        document.body.style.overflow = ''; // 恢复背景滚动
+
+        // 重置图标
+        const icon = navbarToggle?.querySelector('i');
+        if (icon) {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      }
+
+      // 点击按钮切换菜单
+      if (navbarToggle) {
+        navbarToggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          if (navbarMenu.classList.contains('show')) {
+            closeMenu();
+          } else {
+            openMenu();
+            // 切换图标
+            const icon = this.querySelector('i');
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          }
+        });
+      }
+
+      // 点击关闭按钮
+      if (navbarClose) {
+        navbarClose.addEventListener('click', closeMenu);
+      }
+
+      // 点击遮罩层关闭菜单
+      if (navbarOverlay) {
+        navbarOverlay.addEventListener('click', closeMenu);
+      }
+
+      // 点击导航链接后关闭菜单
+      navbarLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          if (window.innerWidth <= 768) {
+            closeMenu();
+          }
+        });
+      });
+
+      // 滚动时改变按钮样式
+      window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // 窗口大小改变时重置菜单状态
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+          // 桌面端：确保菜单正常显示，关闭移动端菜单
+          if (navbarMenu) {
+            navbarMenu.classList.remove('show');
+            navbarMenu.style.display = 'flex';
+          }
+          if (navbarToggle) {
+            navbarToggle.style.display = 'none';
+          }
+          if (navbarOverlay) {
+            navbarOverlay.classList.remove('show');
+          }
+          document.body.style.overflow = '';
+        } else {
+          // 移动端：确保按钮显示，菜单隐藏
+          if (navbarToggle) {
+            navbarToggle.style.display = 'flex';
+          }
+          if (navbarMenu) {
+            navbarMenu.classList.remove('show');
+            navbarMenu.style.display = ''; // 恢复默认
+          }
+          // 重置图标
+          const icon = navbarToggle?.querySelector('i');
+          if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        }
+      });
+
+      // 初始化，根据窗口大小设置初始状态
+      if (window.innerWidth <= 768) {
+        if (navbarToggle) navbarToggle.style.display = 'flex';
+        if (navbarMenu) navbarMenu.classList.remove('show');
+      } else {
+        if (navbarToggle) navbarToggle.style.display = 'none';
+        if (navbarMenu) navbarMenu.style.display = 'flex';
+      }
+    })();
   </script>
 </body>
 
