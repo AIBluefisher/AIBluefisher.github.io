@@ -1131,65 +1131,106 @@ body::before {
         min-height: auto;
         aspect-ratio: auto;
         display: flex;
-        flex-direction: column;  /* Stack image on top of content */
-        height: auto;  /* Height determined by content */
-        max-height: none;  /* Remove max-height constraint */
+        flex-direction: column;
+        height: auto;
         background: var(--card-bg);
         border-radius: 20px;
         overflow: hidden;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 4px 12px var(--shadow-color);
     }
     
     .pub-card-image {
         width: 100%;
-        height: auto;  /* Height adjusts automatically */
-        aspect-ratio: 16/9;  /* Maintain consistent aspect ratio */
-        max-height: 200px;  /* Maximum height, but can be smaller */
+        height: 160px;  /* Reduced height */
         object-fit: cover;
         border-radius: 20px 20px 0 0;  /* Round only top corners */
-        border-right: none;  /* Remove right border */
-        border-bottom: 1px solid var(--glass-border);  /* Keep bottom border */
+        border-bottom: 1px solid var(--glass-border);
         flex-shrink: 0;
     }
     
     .pub-card-content {
-        height: auto;
-        padding: 1rem;  /* Consistent padding all around */
-        overflow-y: visible;  /* No scrollbar needed */
-        flex: 1;
+        padding: 0.75rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        background: var(--card-bg);
     }
     
+    /* Title styling */
     .pub-card-title {
-        font-size: 1rem;
-        -webkit-line-clamp: 2;
-        margin-bottom: 0.1rem;
-    }
-    
-    .pub-card-authors {
-        font-size: 0.8rem;
-        -webkit-line-clamp: 2;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-primary);
         margin-bottom: 0.3rem;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
+    /* Authors styling */
+    .pub-card-authors {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .pub-card-authors .highlight {
+        color: var(--primary);
+        font-weight: 600;
+    }
+    
+    /* Links section */
     .pub-card-links {
-        padding-top: 0.5rem;
-        gap: 0.3rem;
+        display: flex;
         flex-wrap: wrap;
+        gap: 0.3rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--glass-border);
+        margin-top: auto;
     }
     
     .pub-card-link {
-        font-size: 0.7rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.2rem;
         padding: 0.2rem 0.6rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 30px;
+        color: var(--primary);
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: var(--transition);
     }
     
     .pub-card-link i {
-        font-size: 0.55rem;
+        font-size: 0.6rem;
     }
     
+    /* Venue badge positioning */
     .pub-card-venue-badge {
         font-size: 0.7rem;
         padding: 0.2rem 0.6rem;
         top: 0.5rem;
         left: 0.5rem;
+        z-index: 10;
+    }
+    
+    /* Tooltip adjustments for mobile */
+    .pub-card-authors .tooltip-text {
+        width: 180px;
+        font-size: 0.7rem;
+        bottom: 120%;
+        left: 0;
     }
     
     /* Hide horizontal progress on mobile */
@@ -1234,23 +1275,14 @@ body::before {
 
 /* Small phones (below 400px) */
 @media (max-width: 480px) {
-    .publications-slider-container {
-        height: 450px;
-    }
-    
-    .publication-card {
-        max-height: 140px;
-    }
-    
     .pub-card-image {
-        aspect-ratio: 16/9;
-        max-height: 160px;
+        height: 140px;  /* Even smaller on very small screens */
     }
-
+    
     .pub-card-content {
-        padding: 0.75rem;
+        padding: 0.6rem 0.75rem 0.75rem;
     }
-
+    
     .pub-card-title {
         font-size: 0.9rem;
     }
@@ -1260,6 +1292,11 @@ body::before {
     }
     
     .pub-card-link {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.5rem;
+    }
+    
+    .pub-card-venue-badge {
         font-size: 0.65rem;
         padding: 0.15rem 0.5rem;
     }
@@ -1876,24 +1913,23 @@ a:hover {
         color: var(--text-secondary);
     }
 
-    .navbar-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(3px);
-        z-index: 1000;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
+.navbar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-    .navbar-overlay.show {
-        display: block;
-        opacity: 1;
-    }
+.navbar-overlay.show {
+    display: block;
+    opacity: 1;
+}
 
     .navbar-close {
         position: absolute;
@@ -2090,6 +2126,14 @@ a:hover {
     }
 }
 
+/* Remove backdrop-filter for mobile to prevent blur issues */
+@media (max-width: 768px) {
+    .navbar-overlay {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+}
+
 @media (min-width: 769px) {
     .navbar-toggle,
     .navbar-overlay,
@@ -2107,6 +2151,28 @@ a:hover {
     .pub-card-image {
         aspect-ratio: 16/9;
         max-height: 200px;
+    }
+}
+
+/* Medium phones (401px - 600px) */
+@media (min-width: 401px) and (max-width: 600px) {
+    .pub-card-image {
+        height: 150px;
+    }
+}
+
+/* Larger phones (601px - 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    .pub-card-image {
+        height: 170px;
+    }
+    
+    .pub-card-title {
+        font-size: 1rem;
+    }
+    
+    .pub-card-authors {
+        font-size: 0.8rem;
     }
 }
 
