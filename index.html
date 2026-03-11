@@ -363,248 +363,309 @@
       </div>
     </section>
 
-<!-- Publications Section - Responsive Slider (Horizontal on desktop, Vertical on mobile) -->
-<section class="glass-card" id="publications">
-  <div class="section-header">
-    <div class="icon-wrapper">
-      <i class="fas fa-scroll"></i>
-    </div>
-    <h3>Publications</h3>
-    <div class="slider-controls">
-      <!-- Desktop horizontal controls -->
-      <button class="slider-btn prev-btn desktop-only" id="pubSliderPrev" aria-label="Previous publications">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="slider-btn next-btn desktop-only" id="pubSliderNext" aria-label="Next publications">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-      
-      <!-- Mobile vertical controls -->
-      <button class="slider-btn up-btn mobile-only" id="pubSliderUp" aria-label="Previous publications">
-        <i class="fas fa-chevron-up"></i>
-      </button>
-      <button class="slider-btn down-btn mobile-only" id="pubSliderDown" aria-label="Next publications">
-        <i class="fas fa-chevron-down"></i>
-      </button>
-    </div>
-  </div>
+    <!-- Publications Section - Responsive Slider (Horizontal on desktop, Vertical on mobile) -->
+    <section class="glass-card" id="publications">
+      <div class="section-header">
+        <div class="icon-wrapper">
+          <i class="fas fa-scroll"></i>
+        </div>
+        <h3>Publications</h3>
+        <div class="slider-controls">
+          <!-- Desktop horizontal controls -->
+          <button class="slider-btn prev-btn desktop-only" id="pubSliderPrev" aria-label="Previous publications">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn next-btn desktop-only" id="pubSliderNext" aria-label="Next publications">
+            <i class="fas fa-chevron-right"></i>
+          </button>
 
-  <div class="pub-hint">
-    <i class="fas fa-lightbulb"></i>
-    <span class="tooltip-text">Hover over the 💡 icon next to author names to see the main idea</span>
-    <span class="pub-count"><i class="fas fa-file-alt"></i> 9 publications</span>
-  </div>
+          <!-- Mobile vertical controls -->
+          <button class="slider-btn up-btn mobile-only" id="pubSliderUp" aria-label="Previous publications">
+            <i class="fas fa-chevron-up"></i>
+          </button>
+          <button class="slider-btn down-btn mobile-only" id="pubSliderDown" aria-label="Next publications">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
 
-  <!-- Responsive Slider Container -->
-  <div class="publications-slider-container" id="pubSliderContainer">
-    <div class="publications-slider" id="publicationsSlider">
-      <!-- PhD Thesis -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">PhD Thesis 2025</span>
-          <img class="pub-card-image" alt="PhD Thesis" src="./resources/phd_thesis.png">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">Large-Scale Neural 3D Scene Reconstruction, Rendering, and Beyond</h4>
-            <div class="pub-card-authors"><span class="highlight">Yu Chen</span></div>
-            <div class="pub-card-links">
-              <a href="https://arxiv.org/pdf/2411.15779" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="./resources/files/chenyu_phd_thesis.pdf" target="_blank" class="pub-card-link"><i class="fa-regular fa-file-powerpoint"></i> Slides</a>
-              <a href="#" class="pub-card-link" onclick="alert('@phdthesis{chen2025large,\n  title={Large-Scale Neural 3D Scene Reconstruction, Rendering, and Beyond},\n  author={Chen, Yu},\n  year={2025}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
+      <div class="pub-hint">
+        <i class="fas fa-lightbulb"></i>
+        <span class="tooltip-text">Hover over the 💡 icon next to author names to see the main idea</span>
+        <span class="pub-count"><i class="fas fa-file-alt"></i> 9 publications</span>
+      </div>
+
+      <!-- Responsive Slider Container -->
+      <div class="publications-slider-container" id="pubSliderContainer">
+        <div class="publications-slider" id="publicationsSlider">
+          <!-- PhD Thesis -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">PhD Thesis 2025</span>
+              <img class="pub-card-image" alt="PhD Thesis" src="./resources/phd_thesis.png">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">Large-Scale Neural 3D Scene Reconstruction, Rendering, and Beyond</h4>
+                <div class="pub-card-authors"><span class="highlight">Yu Chen</span></div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/pdf/2411.15779" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="./resources/files/chenyu_phd_thesis.pdf" target="_blank" class="pub-card-link"><i
+                      class="fa-regular fa-file-powerpoint"></i> Slides</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@phdthesis{chen2025large,\n  title={Large-Scale Neural 3D Scene Reconstruction, Rendering, and Beyond},\n  author={Chen, Yu},\n  year={2025}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DeepGfM -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">NeurIPS 2025</span>
+              <img class="pub-card-image" alt="DeepGfM" src="./resources/deepgfm.gif">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">Deep Gaussian from Motion: Exploring 3D Geometric Foundation Models for
+                  Gaussian Splatting</h4>
+                <div class="pub-card-authors"><span class="highlight">Yu Chen</span>, Rolandos Alexandros Potamias,
+                  Evangelos Ververas, Jifei Song, Jiankang Deng, Gim Hee Lee</div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/pdf/2411.15779" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://aibluefisher.github.io/DeepGfM" target="_blank" class="pub-card-link"><i
+                      class="fab fa-html5"></i> Web</a>
+                  <a href="https://github.com/aibluefisher/DeepGfM" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@inproceedings{chen2025deep,\n  title={Deep Gaussian from Motion},\n  author={Chen, Yu and others},\n  booktitle={NeurIPS},\n  year={2025}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOGS -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">NeurIPS 2024</span>
+              <img class="pub-card-image" alt="DOGS" src="./resources/dogaussian.gif">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">DOGS: Distributed-Oriented Gaussian Splatting for Large-Scale 3D
+                  Reconstruction Via Gaussian Consensus</h4>
+                <div class="pub-card-authors"><span class="highlight">Yu Chen</span>, Gim Hee Lee</div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/abs/2405.13943" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://aibluefisher.github.io/DOGS/" target="_blank" class="pub-card-link"><i
+                      class="fab fa-html5"></i> Web</a>
+                  <a href="https://github.com/aibluefisher/DOGS" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="./resources/files/neurips24_dogs_poster.pdf" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-powerpoint"></i> Poster</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@inproceedings{chen2024dogs,\n  title={DOGS: Distributed-Oriented Gaussian Splatting},\n  author={Chen, Yu and Lee, Gim Hee},\n  booktitle={NeurIPS},\n  year={2024}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MS-GS -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">CVPR 2024</span>
+              <img class="pub-card-image" alt="MS-GS" src="./resources/anti_aliasing_gaussian.gif">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering</h4>
+                <div class="pub-card-authors">Zhiwen Yan, Weng Fei Low, <span class="highlight">Yu Chen</span>, Gim Hee
+                  Lee</div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/pdf/2311.17089.pdf" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://jokeryan.github.io/projects/ms-gs/" target="_blank" class="pub-card-link"><i
+                      class="fab fa-html5"></i> Web</a>
+                  <a href="https://github.com/jokeryan/ms-gs" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@inproceedings{yan2024multi,\n  title={Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering},\n  author={Yan, Zhiwen and Low, Weng Fei and Chen, Yu and Lee, Gim Hee},\n  booktitle={CVPR},\n  year={2024}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DReg-NeRF -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">ICCV 2023</span>
+              <img class="pub-card-image" alt="DReg-NeRF" src="./resources/iccv23_dreg_nerf.png">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">DReg-NeRF: Deep Registration for Neural Radiance Fields</h4>
+                <div class="pub-card-authors">
+                  <span class="idea-tooltip">
+                    <span class="highlight">Yu Chen</span>, Gim Hee Lee <span class="idea-icon">💡</span>
+                    <span class="tooltip-text">Given NeRF blocks in different coordinate systems, DReg-NeRF registers
+                      them together end-to-end using 3D FPN and transformers on occupancy grids.</span>
+                  </span>
+                </div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/abs/2308.09386" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://aibluefisher.github.io/DReg-NeRF/" target="_blank" class="pub-card-link"><i
+                      class="fab fa-html5"></i> Web</a>
+                  <a href="https://github.com/AIBluefisher/DReg-NeRF" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="./resources/files/iccv23_dreg_nerf_poster.pdf" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-powerpoint"></i> Poster</a>
+                  <a href="https://drive.google.com/drive/u/1/folders/1iQ7TlcqCbbKDBnEt4QBxaV2k1N1vQZzm" target="_blank"
+                    class="pub-card-link"><i class="fas fa-database"></i> Data</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@inproceedings{chen2023dreg,\n  title={DReg-NeRF: Deep Registration for Neural Radiance Fields},\n  author={Chen, Yu and Lee, Gim Hee},\n  booktitle={ICCV},\n  year={2023}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DBARF -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">CVPR 2023</span>
+              <img class="pub-card-image" alt="DBARF" src="./resources/cvpr23_dbarf.gif">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields</h4>
+                <div class="pub-card-authors">
+                  <span class="idea-tooltip">
+                    <span class="highlight">Yu Chen</span>, Gim Hee Lee <span class="idea-icon">💡</span>
+                    <span class="tooltip-text">DBARF jointly optimizes generalizable NeRF and camera poses without pose
+                      initialization by constructing residual maps from feature extraction.</span>
+                  </span>
+                </div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/pdf/2303.14478.pdf" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://aibluefisher.github.io/dbarf/" target="_blank" class="pub-card-link"><i
+                      class="fab fa-html5"></i> Web</a>
+                  <a href="https://github.com/AIBluefisher/dbarf" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="./resources/files/cvpr23_dbarf_poster.pdf" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-powerpoint"></i> Poster</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@inproceedings{chen2023dbarf,\n  title={DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields},\n  author={Chen, Yu and Lee, Gim Hee},\n  booktitle={CVPR},\n  year={2023}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AdaSfM -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">ICRA 2023</span>
+              <img class="pub-card-image" alt="AdaSfM" src="./resources/icra23_teaser.png">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion
+                </h4>
+                <div class="pub-card-authors">
+                  <span class="idea-tooltip">
+                    <span class="highlight">Yu Chen</span>, Zihao Yu, Shu Song, Tianning Yu, Jianming Li, Gim Hee Lee
+                    <span class="idea-icon">💡</span>
+                    <span class="tooltip-text">AdaSfM adopts a coarse-to-fine strategy for SfM, using coarse global
+                      reconstruction to provide priors for local incremental reconstruction in a distributed way.</span>
+                  </span>
+                </div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/pdf/2301.12135.pdf" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://aibluefisher.github.io/AdaSfM/" target="_blank" class="pub-card-link"><i
+                      class="fab fa-html5"></i> Web</a>
+                  <a href="https://github.com/AIBluefisher/AdaSfM" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="./resources/files/icra23_ada_sfm_poster.pdf" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-powerpoint"></i> Poster</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@inproceedings{chen2023adasfm,\n  title={AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion},\n  author={Chen, Yu and others},\n  booktitle={ICRA},\n  year={2023}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hybrid Rotation Averaging -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">CVPR 2021</span>
+              <img class="pub-card-image" alt="Hybrid Rotation Averaging" src="./resources/cvpr21_ra.gif">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">Hybrid Rotation Averaging: A Fast and Robust Rotation Averaging Approach</h4>
+                <div class="pub-card-authors">
+                  <span class="idea-tooltip">
+                    <span class="highlight">Yu Chen</span>, Ji Zhao, Laurent Kneip <span class="idea-icon">💡</span>
+                    <span class="tooltip-text">Hybrid rotation averaging combines global and local methods, enhancing
+                      robustness by pre-filtering wrong edges in triplets and using global rotations as priors for
+                      incremental SfM.</span>
+                  </span>
+                </div>
+                <div class="pub-card-links">
+                  <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Hybrid_Rotation_Averaging_A_Fast_and_Robust_Rotation_Averaging_Approach_CVPR_2021_paper.pdf"
+                    target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://github.com/AIBluefisher/GraphOptim" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@inproceedings{chen2021hybrid,\n  title={Hybrid Rotation Averaging: A Fast and Robust Rotation Averaging Approach},\n  author={Chen, Yu and Zhao, Ji and Kneip, Laurent},\n  booktitle={CVPR},\n  year={2021}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GraphSfM -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">Pattern Recognition 2020</span>
+              <img class="pub-card-image" alt="GraphSfM" src="./resources/pr20_pku.png">
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">Graph-Based Parallel Large Scale Structure from Motion</h4>
+                <div class="pub-card-authors">
+                  <span class="idea-tooltip">
+                    <span class="highlight">Yu Chen</span>, Shuhan Shen, Yisong Chen, Guoping Wang <span
+                      class="idea-icon">💡</span>
+                    <span class="tooltip-text">GraphSfM splits and stitches scenes based on graph connectivity, enabling
+                      efficient distributed large-scale reconstruction. First open-source distributed SfM
+                      implementation.</span>
+                  </span>
+                </div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/pdf/1912.10659.pdf" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://github.com/AIBluefisher/GraphSfM" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@article{chen2020graph,\n  title={Graph-Based Parallel Large Scale Structure from Motion},\n  author={Chen, Yu and Shen, Shuhan and Chen, Yisong and Wang, Guoping},\n  journal={Pattern Recognition},\n  year={2020}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- DeepGfM -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">NeurIPS 2025</span>
-          <img class="pub-card-image" alt="DeepGfM" src="./resources/deepgfm.gif">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">Deep Gaussian from Motion: Exploring 3D Geometric Foundation Models for Gaussian Splatting</h4>
-            <div class="pub-card-authors"><span class="highlight">Yu Chen</span>, Rolandos Alexandros Potamias, Evangelos Ververas, Jifei Song, Jiankang Deng, Gim Hee Lee</div>
-            <div class="pub-card-links">
-              <a href="https://arxiv.org/pdf/2411.15779" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="https://aibluefisher.github.io/DeepGfM" target="_blank" class="pub-card-link"><i class="fab fa-html5"></i> Web</a>
-              <a href="https://github.com/aibluefisher/DeepGfM" target="_blank" class="pub-card-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="pub-card-link" onclick="alert('@inproceedings{chen2025deep,\n  title={Deep Gaussian from Motion},\n  author={Chen, Yu and others},\n  booktitle={NeurIPS},\n  year={2025}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
-            </div>
-          </div>
-        </div>
+      <!-- Scroll Progress Indicators -->
+      <div class="slider-progress horizontal-progress" id="horizontalProgress">
+        <div class="progress-bar" id="pubProgressBarHorizontal"></div>
       </div>
 
-      <!-- DOGS -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">NeurIPS 2024</span>
-          <img class="pub-card-image" alt="DOGS" src="./resources/dogaussian.gif">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">DOGS: Distributed-Oriented Gaussian Splatting for Large-Scale 3D Reconstruction Via Gaussian Consensus</h4>
-            <div class="pub-card-authors"><span class="highlight">Yu Chen</span>, Gim Hee Lee</div>
-            <div class="pub-card-links">
-              <a href="https://arxiv.org/abs/2405.13943" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="https://aibluefisher.github.io/DOGS/" target="_blank" class="pub-card-link"><i class="fab fa-html5"></i> Web</a>
-              <a href="https://github.com/aibluefisher/DOGS" target="_blank" class="pub-card-link"><i class="fab fa-github"></i> Code</a>
-              <a href="./resources/files/neurips24_dogs_poster.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-powerpoint"></i> Poster</a>
-              <a href="#" class="pub-card-link" onclick="alert('@inproceedings{chen2024dogs,\n  title={DOGS: Distributed-Oriented Gaussian Splatting},\n  author={Chen, Yu and Lee, Gim Hee},\n  booktitle={NeurIPS},\n  year={2024}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
-            </div>
-          </div>
-        </div>
+      <div class="slider-progress vertical-progress" id="verticalProgress">
+        <div class="progress-bar vertical" id="pubProgressBarVertical"></div>
       </div>
 
-      <!-- MS-GS -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">CVPR 2024</span>
-          <img class="pub-card-image" alt="MS-GS" src="./resources/anti_aliasing_gaussian.gif">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering</h4>
-            <div class="pub-card-authors">Zhiwen Yan, Weng Fei Low, <span class="highlight">Yu Chen</span>, Gim Hee Lee</div>
-            <div class="pub-card-links">
-              <a href="https://arxiv.org/pdf/2311.17089.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="https://jokeryan.github.io/projects/ms-gs/" target="_blank" class="pub-card-link"><i class="fab fa-html5"></i> Web</a>
-              <a href="https://github.com/jokeryan/ms-gs" target="_blank" class="pub-card-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="pub-card-link" onclick="alert('@inproceedings{yan2024multi,\n  title={Multi-Scale 3D Gaussian Splatting for Anti-Aliased Rendering},\n  author={Yan, Zhiwen and Low, Weng Fei and Chen, Yu and Lee, Gim Hee},\n  booktitle={CVPR},\n  year={2024}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
-            </div>
-          </div>
-        </div>
+      <!-- Scroll Hint (changes based on device) -->
+      <div class="scroll-hint" id="scrollHint">
+        <i class="fas fa-arrows-left-right desktop-hint"></i>
+        <i class="fas fa-arrows-up-down mobile-hint"></i>
+        <span class="hint-text">Swipe or use arrows to scroll through publications</span>
       </div>
-
-      <!-- DReg-NeRF -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">ICCV 2023</span>
-          <img class="pub-card-image" alt="DReg-NeRF" src="./resources/iccv23_dreg_nerf.png">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">DReg-NeRF: Deep Registration for Neural Radiance Fields</h4>
-            <div class="pub-card-authors">
-              <span class="idea-tooltip">
-                <span class="highlight">Yu Chen</span>, Gim Hee Lee <span class="idea-icon">💡</span>
-                <span class="tooltip-text">Given NeRF blocks in different coordinate systems, DReg-NeRF registers them together end-to-end using 3D FPN and transformers on occupancy grids.</span>
-              </span>
-            </div>
-            <div class="pub-card-links">
-              <a href="https://arxiv.org/abs/2308.09386" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="https://aibluefisher.github.io/DReg-NeRF/" target="_blank" class="pub-card-link"><i class="fab fa-html5"></i> Web</a>
-              <a href="https://github.com/AIBluefisher/DReg-NeRF" target="_blank" class="pub-card-link"><i class="fab fa-github"></i> Code</a>
-              <a href="./resources/files/iccv23_dreg_nerf_poster.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-powerpoint"></i> Poster</a>
-              <a href="https://drive.google.com/drive/u/1/folders/1iQ7TlcqCbbKDBnEt4QBxaV2k1N1vQZzm" target="_blank" class="pub-card-link"><i class="fas fa-database"></i> Data</a>
-              <a href="#" class="pub-card-link" onclick="alert('@inproceedings{chen2023dreg,\n  title={DReg-NeRF: Deep Registration for Neural Radiance Fields},\n  author={Chen, Yu and Lee, Gim Hee},\n  booktitle={ICCV},\n  year={2023}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DBARF -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">CVPR 2023</span>
-          <img class="pub-card-image" alt="DBARF" src="./resources/cvpr23_dbarf.gif">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields</h4>
-            <div class="pub-card-authors">
-              <span class="idea-tooltip">
-                <span class="highlight">Yu Chen</span>, Gim Hee Lee <span class="idea-icon">💡</span>
-                <span class="tooltip-text">DBARF jointly optimizes generalizable NeRF and camera poses without pose initialization by constructing residual maps from feature extraction.</span>
-              </span>
-            </div>
-            <div class="pub-card-links">
-              <a href="https://arxiv.org/pdf/2303.14478.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="https://aibluefisher.github.io/dbarf/" target="_blank" class="pub-card-link"><i class="fab fa-html5"></i> Web</a>
-              <a href="https://github.com/AIBluefisher/dbarf" target="_blank" class="pub-card-link"><i class="fab fa-github"></i> Code</a>
-              <a href="./resources/files/cvpr23_dbarf_poster.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-powerpoint"></i> Poster</a>
-              <a href="#" class="pub-card-link" onclick="alert('@inproceedings{chen2023dbarf,\n  title={DBARF: Deep Bundle-Adjusting Generalizable Neural Radiance Fields},\n  author={Chen, Yu and Lee, Gim Hee},\n  booktitle={CVPR},\n  year={2023}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- AdaSfM -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">ICRA 2023</span>
-          <img class="pub-card-image" alt="AdaSfM" src="./resources/icra23_teaser.png">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion</h4>
-            <div class="pub-card-authors">
-              <span class="idea-tooltip">
-                <span class="highlight">Yu Chen</span>, Zihao Yu, Shu Song, Tianning Yu, Jianming Li, Gim Hee Lee <span class="idea-icon">💡</span>
-                <span class="tooltip-text">AdaSfM adopts a coarse-to-fine strategy for SfM, using coarse global reconstruction to provide priors for local incremental reconstruction in a distributed way.</span>
-              </span>
-            </div>
-            <div class="pub-card-links">
-              <a href="https://arxiv.org/pdf/2301.12135.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="https://aibluefisher.github.io/AdaSfM/" target="_blank" class="pub-card-link"><i class="fab fa-html5"></i> Web</a>
-              <a href="https://github.com/AIBluefisher/AdaSfM" target="_blank" class="pub-card-link"><i class="fab fa-github"></i> Code</a>
-              <a href="./resources/files/icra23_ada_sfm_poster.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-powerpoint"></i> Poster</a>
-              <a href="#" class="pub-card-link" onclick="alert('@inproceedings{chen2023adasfm,\n  title={AdaSfM: From Coarse Global to Fine Incremental Adaptive Structure from Motion},\n  author={Chen, Yu and others},\n  booktitle={ICRA},\n  year={2023}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hybrid Rotation Averaging -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">CVPR 2021</span>
-          <img class="pub-card-image" alt="Hybrid Rotation Averaging" src="./resources/cvpr21_ra.gif">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">Hybrid Rotation Averaging: A Fast and Robust Rotation Averaging Approach</h4>
-            <div class="pub-card-authors">
-              <span class="idea-tooltip">
-                <span class="highlight">Yu Chen</span>, Ji Zhao, Laurent Kneip <span class="idea-icon">💡</span>
-                <span class="tooltip-text">Hybrid rotation averaging combines global and local methods, enhancing robustness by pre-filtering wrong edges in triplets and using global rotations as priors for incremental SfM.</span>
-              </span>
-            </div>
-            <div class="pub-card-links">
-              <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Hybrid_Rotation_Averaging_A_Fast_and_Robust_Rotation_Averaging_Approach_CVPR_2021_paper.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="https://github.com/AIBluefisher/GraphOptim" target="_blank" class="pub-card-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="pub-card-link" onclick="alert('@inproceedings{chen2021hybrid,\n  title={Hybrid Rotation Averaging: A Fast and Robust Rotation Averaging Approach},\n  author={Chen, Yu and Zhao, Ji and Kneip, Laurent},\n  booktitle={CVPR},\n  year={2021}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- GraphSfM -->
-      <div class="publication-slide">
-        <div class="publication-card">
-          <span class="pub-card-venue-badge">Pattern Recognition 2020</span>
-          <img class="pub-card-image" alt="GraphSfM" src="./resources/pr20_pku.png">
-          <div class="pub-card-content">
-            <h4 class="pub-card-title">Graph-Based Parallel Large Scale Structure from Motion</h4>
-            <div class="pub-card-authors">
-              <span class="idea-tooltip">
-                <span class="highlight">Yu Chen</span>, Shuhan Shen, Yisong Chen, Guoping Wang <span class="idea-icon">💡</span>
-                <span class="tooltip-text">GraphSfM splits and stitches scenes based on graph connectivity, enabling efficient distributed large-scale reconstruction. First open-source distributed SfM implementation.</span>
-              </span>
-            </div>
-            <div class="pub-card-links">
-              <a href="https://arxiv.org/pdf/1912.10659.pdf" target="_blank" class="pub-card-link"><i class="fas fa-file-pdf"></i> Paper</a>
-              <a href="https://github.com/AIBluefisher/GraphSfM" target="_blank" class="pub-card-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="pub-card-link" onclick="alert('@article{chen2020graph,\n  title={Graph-Based Parallel Large Scale Structure from Motion},\n  author={Chen, Yu and Shen, Shuhan and Chen, Yisong and Wang, Guoping},\n  journal={Pattern Recognition},\n  year={2020}\n}'); return false;"><i class="fas fa-code"></i> Cite</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scroll Progress Indicators -->
-  <div class="slider-progress horizontal-progress" id="horizontalProgress">
-    <div class="progress-bar" id="pubProgressBarHorizontal"></div>
-  </div>
-  
-  <div class="slider-progress vertical-progress" id="verticalProgress">
-    <div class="progress-bar vertical" id="pubProgressBarVertical"></div>
-  </div>
-  
-  <!-- Scroll Hint (changes based on device) -->
-  <div class="scroll-hint" id="scrollHint">
-    <i class="fas fa-arrows-left-right desktop-hint"></i>
-    <i class="fas fa-arrows-up-down mobile-hint"></i>
-    <span class="hint-text">Swipe or use arrows to scroll through publications</span>
-  </div>
-</section>
+    </section>
 
     <!-- Awards Section -->
     <section class="glass-card" id="awards">
@@ -717,33 +778,33 @@
       </div>
     </section>
 
-<!-- Add this section after Publications or before Awards -->
-<section class="glass-card" id="blog">
-  <div class="section-header">
-    <div class="icon-wrapper">
-      <i class="fas fa-pen-fancy"></i>
-    </div>
-    <h3>Blog Posts</h3>
-  </div>
+    <!-- Add this section after Publications or before Awards -->
+    <section class="glass-card" id="blog">
+      <div class="section-header">
+        <div class="icon-wrapper">
+          <i class="fas fa-pen-fancy"></i>
+        </div>
+        <h3>Blog Posts</h3>
+      </div>
 
-  <!-- Blog Posts Container -->
-  <div class="blog-posts-container" id="blogPostsContainer">
-    <!-- Posts will be loaded here via JavaScript -->
-  </div>
+      <!-- Blog Posts Container -->
+      <div class="blog-posts-container" id="blogPostsContainer">
+        <!-- Posts will be loaded here via JavaScript -->
+      </div>
 
-  <!-- Pagination Controls -->
-  <div class="blog-pagination" id="blogPagination">
-    <button class="pagination-btn prev-page" id="prevPage" disabled>
-      <i class="fas fa-chevron-left"></i> Previous
-    </button>
-    <div class="pagination-numbers" id="paginationNumbers">
-      <!-- Page numbers will be generated here -->
-    </div>
-    <button class="pagination-btn next-page" id="nextPage">
-      Next <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
-</section>
+      <!-- Pagination Controls -->
+      <div class="blog-pagination" id="blogPagination">
+        <button class="pagination-btn prev-page" id="prevPage" disabled>
+          <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <div class="pagination-numbers" id="paginationNumbers">
+          <!-- Page numbers will be generated here -->
+        </div>
+        <button class="pagination-btn next-page" id="nextPage">
+          Next <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
 
     <footer class="footer">
       © 2022-now Chen Yu • Built with <i class="fas fa-heart" style="color: var(--accent);"></i> to the world
@@ -969,254 +1030,254 @@
       }
     })();
 
-// Responsive publications slider
-(function() {
-    const slider = document.getElementById('publicationsSlider');
-    const container = document.getElementById('pubSliderContainer');
-    const horizontalProgress = document.getElementById('pubProgressBarHorizontal');
-    const verticalProgress = document.getElementById('pubProgressBarVertical');
-    
-    // Buttons
-    const prevBtn = document.getElementById('pubSliderPrev');
-    const nextBtn = document.getElementById('pubSliderNext');
-    const upBtn = document.getElementById('pubSliderUp');
-    const downBtn = document.getElementById('pubSliderDown');
-    
-    if (!slider || !container) return;
-    
-    let isDragging = false;
-    let startPos;
-    let scrollStart;
-    let currentOrientation = window.innerWidth <= 768 ? 'vertical' : 'horizontal';
-    
-    // Update progress based on orientation
-    function updateProgress() {
+    // Responsive publications slider
+    (function () {
+      const slider = document.getElementById('publicationsSlider');
+      const container = document.getElementById('pubSliderContainer');
+      const horizontalProgress = document.getElementById('pubProgressBarHorizontal');
+      const verticalProgress = document.getElementById('pubProgressBarVertical');
+
+      // Buttons
+      const prevBtn = document.getElementById('pubSliderPrev');
+      const nextBtn = document.getElementById('pubSliderNext');
+      const upBtn = document.getElementById('pubSliderUp');
+      const downBtn = document.getElementById('pubSliderDown');
+
+      if (!slider || !container) return;
+
+      let isDragging = false;
+      let startPos;
+      let scrollStart;
+      let currentOrientation = window.innerWidth <= 768 ? 'vertical' : 'horizontal';
+
+      // Update progress based on orientation
+      function updateProgress() {
         if (currentOrientation === 'horizontal') {
-            // Horizontal scroll progress
-            const scrollWidth = slider.scrollWidth - container.clientWidth;
-            const scrolled = container.scrollLeft;
-            const progress = (scrolled / scrollWidth) * 100;
-            if (horizontalProgress) {
-                horizontalProgress.style.width = `${progress}%`;
-            }
-            
-            // Update button states
-            if (prevBtn) {
-                prevBtn.disabled = container.scrollLeft <= 10;
-            }
-            if (nextBtn) {
-                nextBtn.disabled = container.scrollLeft >= scrollWidth - 10;
-            }
+          // Horizontal scroll progress
+          const scrollWidth = slider.scrollWidth - container.clientWidth;
+          const scrolled = container.scrollLeft;
+          const progress = (scrolled / scrollWidth) * 100;
+          if (horizontalProgress) {
+            horizontalProgress.style.width = `${progress}%`;
+          }
+
+          // Update button states
+          if (prevBtn) {
+            prevBtn.disabled = container.scrollLeft <= 10;
+          }
+          if (nextBtn) {
+            nextBtn.disabled = container.scrollLeft >= scrollWidth - 10;
+          }
         } else {
-            // Vertical scroll progress
-            const scrollHeight = slider.scrollHeight - container.clientHeight;
-            const scrolled = container.scrollTop;
-            const progress = (scrolled / scrollHeight) * 100;
-            if (verticalProgress) {
-                verticalProgress.style.height = `${progress}%`;
-            }
-            
-            // Update button states
-            if (upBtn) {
-                upBtn.disabled = container.scrollTop <= 10;
-            }
-            if (downBtn) {
-                downBtn.disabled = container.scrollTop >= scrollHeight - 10;
-            }
+          // Vertical scroll progress
+          const scrollHeight = slider.scrollHeight - container.clientHeight;
+          const scrolled = container.scrollTop;
+          const progress = (scrolled / scrollHeight) * 100;
+          if (verticalProgress) {
+            verticalProgress.style.height = `${progress}%`;
+          }
+
+          // Update button states
+          if (upBtn) {
+            upBtn.disabled = container.scrollTop <= 10;
+          }
+          if (downBtn) {
+            downBtn.disabled = container.scrollTop >= scrollHeight - 10;
+          }
         }
-    }
-    
-    // Scroll by one card
-    function scrollByCard(direction) {
+      }
+
+      // Scroll by one card
+      function scrollByCard(direction) {
         if (currentOrientation === 'horizontal') {
-            const cardWidth = slider.querySelector('.publication-slide')?.offsetWidth || 300;
-            const gap = 24;
-            const scrollAmount = direction === 'next' ? cardWidth + gap : -(cardWidth + gap);
-            
-            container.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
+          const cardWidth = slider.querySelector('.publication-slide')?.offsetWidth || 300;
+          const gap = 24;
+          const scrollAmount = direction === 'next' ? cardWidth + gap : -(cardWidth + gap);
+
+          container.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+          });
         } else {
-            const cardHeight = slider.querySelector('.publication-slide')?.offsetHeight || 400;
-            const gap = 24;
-            const scrollAmount = direction === 'down' ? cardHeight + gap : -(cardHeight + gap);
-            
-            container.scrollBy({
-                top: scrollAmount,
-                behavior: 'smooth'
-            });
+          const cardHeight = slider.querySelector('.publication-slide')?.offsetHeight || 400;
+          const gap = 24;
+          const scrollAmount = direction === 'down' ? cardHeight + gap : -(cardHeight + gap);
+
+          container.scrollBy({
+            top: scrollAmount,
+            behavior: 'smooth'
+          });
         }
-    }
-    
-    // Event listeners for buttons
-    if (prevBtn) {
+      }
+
+      // Event listeners for buttons
+      if (prevBtn) {
         prevBtn.addEventListener('click', () => scrollByCard('prev'));
-    }
-    if (nextBtn) {
+      }
+      if (nextBtn) {
         nextBtn.addEventListener('click', () => scrollByCard('next'));
-    }
-    if (upBtn) {
+      }
+      if (upBtn) {
         upBtn.addEventListener('click', () => scrollByCard('up'));
-    }
-    if (downBtn) {
+      }
+      if (downBtn) {
         downBtn.addEventListener('click', () => scrollByCard('down'));
-    }
-    
-    // Drag to scroll (works for both orientations)
-    container.addEventListener('mousedown', (e) => {
+      }
+
+      // Drag to scroll (works for both orientations)
+      container.addEventListener('mousedown', (e) => {
         isDragging = true;
         container.classList.add('dragging');
-        
+
         if (currentOrientation === 'horizontal') {
-            startPos = e.pageX - container.offsetLeft;
-            scrollStart = container.scrollLeft;
+          startPos = e.pageX - container.offsetLeft;
+          scrollStart = container.scrollLeft;
         } else {
-            startPos = e.pageY - container.offsetTop;
-            scrollStart = container.scrollTop;
+          startPos = e.pageY - container.offsetTop;
+          scrollStart = container.scrollTop;
         }
-    });
-    
-    container.addEventListener('mouseleave', () => {
+      });
+
+      container.addEventListener('mouseleave', () => {
         isDragging = false;
         container.classList.remove('dragging');
-    });
-    
-    container.addEventListener('mouseup', () => {
+      });
+
+      container.addEventListener('mouseup', () => {
         isDragging = false;
         container.classList.remove('dragging');
-    });
-    
-    container.addEventListener('mousemove', (e) => {
+      });
+
+      container.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
-        
+
         if (currentOrientation === 'horizontal') {
-            const x = e.pageX - container.offsetLeft;
-            const walk = (x - startPos) * 2;
-            container.scrollLeft = scrollStart - walk;
+          const x = e.pageX - container.offsetLeft;
+          const walk = (x - startPos) * 2;
+          container.scrollLeft = scrollStart - walk;
         } else {
-            const y = e.pageY - container.offsetTop;
-            const walk = (y - startPos) * 2;
-            container.scrollTop = scrollStart - walk;
+          const y = e.pageY - container.offsetTop;
+          const walk = (y - startPos) * 2;
+          container.scrollTop = scrollStart - walk;
         }
-    });
-    
-    // Touch events for mobile
-    container.addEventListener('touchstart', (e) => {
+      });
+
+      // Touch events for mobile
+      container.addEventListener('touchstart', (e) => {
         isDragging = true;
-        
+
         if (currentOrientation === 'horizontal') {
-            startPos = e.touches[0].pageX - container.offsetLeft;
-            scrollStart = container.scrollLeft;
+          startPos = e.touches[0].pageX - container.offsetLeft;
+          scrollStart = container.scrollLeft;
         } else {
-            startPos = e.touches[0].pageY - container.offsetTop;
-            scrollStart = container.scrollTop;
+          startPos = e.touches[0].pageY - container.offsetTop;
+          scrollStart = container.scrollTop;
         }
-    });
-    
-    container.addEventListener('touchend', () => {
+      });
+
+      container.addEventListener('touchend', () => {
         isDragging = false;
-    });
-    
-    container.addEventListener('touchmove', (e) => {
+      });
+
+      container.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
-        
+
         if (currentOrientation === 'horizontal') {
-            const x = e.touches[0].pageX - container.offsetLeft;
-            const walk = (x - startPos) * 2;
-            container.scrollLeft = scrollStart - walk;
+          const x = e.touches[0].pageX - container.offsetLeft;
+          const walk = (x - startPos) * 2;
+          container.scrollLeft = scrollStart - walk;
         } else {
-            const y = e.touches[0].pageY - container.offsetTop;
-            const walk = (y - startPos) * 2;
-            container.scrollTop = scrollStart - walk;
+          const y = e.touches[0].pageY - container.offsetTop;
+          const walk = (y - startPos) * 2;
+          container.scrollTop = scrollStart - walk;
         }
-    });
-    
-    // Update progress on scroll
-    container.addEventListener('scroll', () => {
+      });
+
+      // Update progress on scroll
+      container.addEventListener('scroll', () => {
         updateProgress();
-    });
-    
-    // Handle orientation change on resize
-    window.addEventListener('resize', () => {
+      });
+
+      // Handle orientation change on resize
+      window.addEventListener('resize', () => {
         const newOrientation = window.innerWidth <= 768 ? 'vertical' : 'horizontal';
-        
+
         if (newOrientation !== currentOrientation) {
-            currentOrientation = newOrientation;
-            
-            // Reset scroll position
-            if (currentOrientation === 'horizontal') {
-                container.scrollTop = 0;
-            } else {
-                container.scrollLeft = 0;
-            }
-            
-            // Update progress indicators
-            setTimeout(updateProgress, 100);
+          currentOrientation = newOrientation;
+
+          // Reset scroll position
+          if (currentOrientation === 'horizontal') {
+            container.scrollTop = 0;
+          } else {
+            container.scrollLeft = 0;
+          }
+
+          // Update progress indicators
+          setTimeout(updateProgress, 100);
         }
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
         const publicationsSection = document.getElementById('publications');
         const rect = publicationsSection?.getBoundingClientRect();
-        
+
         if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
-            if (currentOrientation === 'horizontal') {
-                if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    scrollByCard('prev');
-                } else if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    scrollByCard('next');
-                }
-            } else {
-                if (e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    scrollByCard('up');
-                } else if (e.key === 'ArrowDown') {
-                    e.preventDefault();
-                    scrollByCard('down');
-                }
+          if (currentOrientation === 'horizontal') {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              scrollByCard('prev');
+            } else if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              scrollByCard('next');
             }
+          } else {
+            if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              scrollByCard('up');
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              scrollByCard('down');
+            }
+          }
         }
-    });
-    
-    // Wheel scroll with modifier
-    container.addEventListener('wheel', (e) => {
+      });
+
+      // Wheel scroll with modifier
+      container.addEventListener('wheel', (e) => {
         if (currentOrientation === 'horizontal') {
-            if (e.shiftKey) {
-                e.preventDefault();
-                container.scrollLeft += e.deltaY;
-            }
-        } else {
-            // For vertical, normal wheel works, but we can add acceleration
+          if (e.shiftKey) {
             e.preventDefault();
-            container.scrollTop += e.deltaY * 1.5;
+            container.scrollLeft += e.deltaY;
+          }
+        } else {
+          // For vertical, normal wheel works, but we can add acceleration
+          e.preventDefault();
+          container.scrollTop += e.deltaY * 1.5;
         }
-    }, { passive: false });
-    
-    // Initialize
-    setTimeout(updateProgress, 100);
-    window.addEventListener('resize', updateProgress);
-    
-    // Update scroll hint based on orientation
-    function updateScrollHint() {
+      }, { passive: false });
+
+      // Initialize
+      setTimeout(updateProgress, 100);
+      window.addEventListener('resize', updateProgress);
+
+      // Update scroll hint based on orientation
+      function updateScrollHint() {
         const hintElement = document.getElementById('scrollHint');
         if (!hintElement) return;
-        
+
         if (currentOrientation === 'horizontal') {
-            hintElement.querySelector('.hint-text').textContent = 'Swipe horizontally or use arrow keys';
+          hintElement.querySelector('.hint-text').textContent = 'Swipe horizontally or use arrow keys';
         } else {
-            hintElement.querySelector('.hint-text').textContent = 'Swipe vertically or use arrow keys';
+          hintElement.querySelector('.hint-text').textContent = 'Swipe vertically or use arrow keys';
         }
-    }
-    
-    updateScrollHint();
-    window.addEventListener('resize', updateScrollHint);
-})();
+      }
+
+      updateScrollHint();
+      window.addEventListener('resize', updateScrollHint);
+    })();
   </script>
 </body>
 

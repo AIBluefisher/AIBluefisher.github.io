@@ -2,7 +2,8 @@
 
 /* Blog main container adjustments */
 .blog-main {
-    max-width: 1000px; /* slightly narrower for readability */
+    max-width: 1000px;
+    /* slightly narrower for readability */
 }
 
 /* blog header */
@@ -11,6 +12,7 @@
     padding: 2rem 2rem 1.5rem;
     margin-bottom: 2rem;
 }
+
 .blog-header h1 {
     font-size: 2rem;
     font-weight: 600;
@@ -20,6 +22,7 @@
     background-clip: text;
     margin-bottom: 0.3rem;
 }
+
 .blog-header p {
     color: var(--text-secondary);
     font-size: 1rem;
@@ -38,11 +41,13 @@
     display: flex;
     flex-direction: column;
     transition: all 0.25s ease;
-    background: var(--card-bg); /* already glass but keep consistent */
+    background: var(--card-bg);
+    /* already glass but keep consistent */
     border-radius: 24px;
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 20px var(--shadow-color);
 }
+
 .blog-post-card:hover {
     transform: translateY(-4px);
     border-color: var(--primary);
@@ -55,6 +60,7 @@
     color: var(--text-secondary);
     margin-bottom: 0.75rem;
 }
+
 .post-meta i {
     margin-right: 0.2rem;
     color: var(--primary);
@@ -67,6 +73,7 @@
     line-height: 1.4;
     margin-bottom: 0.5rem;
 }
+
 .post-link {
     color: var(--text-primary);
     text-decoration: none;
@@ -74,6 +81,7 @@
     background-size: 0% 2px;
     transition: background-size 0.2s;
 }
+
 .post-link:hover {
     background-size: 100% 2px;
     color: var(--primary);
@@ -93,6 +101,7 @@
     gap: 0.4rem;
     margin-bottom: 1rem;
 }
+
 .post-tags .tag {
     font-size: 0.7rem;
     padding: 0.2rem 0.6rem;
@@ -109,12 +118,15 @@
     border-bottom: 1px dotted transparent;
     transition: border-color 0.2s;
 }
+
 .read-more i {
     transition: transform 0.2s;
 }
+
 .read-more:hover {
     border-bottom-color: var(--primary);
 }
+
 .read-more:hover i {
     transform: translateX(4px);
 }
@@ -123,13 +135,16 @@
 .blog-post-full {
     margin-bottom: 3rem;
     padding: 2rem;
-    scroll-margin-top: 80px; /* for anchor links */
+    scroll-margin-top: 80px;
+    /* for anchor links */
 }
+
 .post-header {
     margin-bottom: 2rem;
     border-bottom: 1px dashed var(--glass-border);
     padding-bottom: 1.2rem;
 }
+
 .post-full-title {
     font-size: 2.2rem;
     font-weight: 700;
@@ -137,6 +152,7 @@
     margin-bottom: 0.5rem;
     line-height: 1.3;
 }
+
 .post-meta-full {
     display: flex;
     flex-wrap: wrap;
@@ -145,15 +161,18 @@
     font-size: 0.85rem;
     margin-bottom: 0.8rem;
 }
+
 .post-meta-full i {
     color: var(--primary);
     margin-right: 0.3rem;
 }
+
 .post-tags-full {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
+
 .post-tags-full .tag {
     font-size: 0.8rem;
 }
@@ -164,24 +183,29 @@
     font-size: 1.05rem;
     line-height: 1.7;
 }
+
 .post-content h2 {
     font-size: 1.6rem;
     margin: 2rem 0 1rem;
     color: var(--text-primary);
 }
+
 .post-content h3 {
     font-size: 1.3rem;
     margin: 1.8rem 0 1rem;
     color: var(--text-primary);
 }
+
 .post-content p {
     margin-bottom: 1.2rem;
 }
+
 .post-content a {
     color: var(--primary);
     text-decoration: underline 1px dotted;
     text-underline-offset: 3px;
 }
+
 .post-content a:hover {
     color: var(--accent);
 }
@@ -191,19 +215,23 @@
     margin: 2rem 0;
     text-align: center;
 }
+
 .blog-image {
     max-width: 100%;
     border-radius: 20px;
     box-shadow: 0 12px 30px var(--shadow-color);
     border: 1px solid var(--glass-border);
 }
+
 .blog-video {
     max-width: 100%;
     border-radius: 20px;
     box-shadow: 0 12px 30px var(--shadow-color);
     border: 1px solid var(--glass-border);
-    background: #000; /* fallback */
+    background: #000;
+    /* fallback */
 }
+
 figcaption {
     margin-top: 0.6rem;
     font-size: 0.85rem;
@@ -221,6 +249,7 @@ figcaption {
     text-align: center;
     box-shadow: inset 0 2px 6px var(--shadow-color);
 }
+
 .blog-equation .MathJax {
     font-size: 1.1rem;
 }
@@ -243,7 +272,9 @@ figcaption {
     justify-content: space-between;
     margin: 1.5rem 0 2.5rem;
 }
-.back-to-blog-top, .back-to-blog-index {
+
+.back-to-blog-top,
+.back-to-blog-index {
     background: var(--card-bg);
     border: 1px solid var(--glass-border);
     border-radius: 40px;
@@ -257,7 +288,9 @@ figcaption {
     gap: 0.5rem;
     box-shadow: 0 4px 8px var(--shadow-color);
 }
-.back-to-blog-top:hover, .back-to-blog-index:hover {
+
+.back-to-blog-top:hover,
+.back-to-blog-index:hover {
     background: var(--primary);
     color: white;
     border-color: var(--primary);
@@ -269,21 +302,27 @@ figcaption {
     .blog-posts-grid {
         grid-template-columns: 1fr;
     }
+
     .post-full-title {
         font-size: 1.8rem;
     }
+
     .post-meta-full {
         gap: 1rem;
     }
+
     .blog-post-full {
         padding: 1.5rem;
     }
+
     .blog-navigation {
         flex-direction: column;
         gap: 0.8rem;
         align-items: center;
     }
-    .back-to-blog-top, .back-to-blog-index {
+
+    .back-to-blog-top,
+    .back-to-blog-index {
         width: 100%;
         justify-content: center;
     }
@@ -295,6 +334,7 @@ figcaption {
     color: var(--primary);
     font-weight: 600;
 }
+
 .navbar-link.active i {
     color: var(--primary);
     opacity: 1;
@@ -377,7 +417,8 @@ figcaption {
     gap: 1rem;
 }
 
-.prev-post, .next-post {
+.prev-post,
+.next-post {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -391,7 +432,8 @@ figcaption {
     transition: var(--transition);
 }
 
-.prev-post:hover, .next-post:hover {
+.prev-post:hover,
+.next-post:hover {
     background: var(--primary);
     color: white;
     border-color: var(--primary);
@@ -456,7 +498,8 @@ figcaption {
     margin-bottom: 1rem;
 }
 
-.blog-references ol, .blog-references ul {
+.blog-references ol,
+.blog-references ul {
     padding-left: 1.5rem;
     color: var(--text-secondary);
     font-size: 0.9rem;
@@ -472,18 +515,618 @@ figcaption {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .post-navigation {
         width: 100%;
         justify-content: space-between;
     }
-    
+
     .related-posts-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .blog-breadcrumb a {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* Enhanced blog_style.css – compact outline, aligned image+caption */
+
+/* Main blog post container */
+.blog-post-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Article width - balanced for readability */
+.blog-post-full {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem;
+}
+
+/* Post content */
+.post-content {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Allow media to be wider */
+.post-content .blog-figure,
+.post-content .blog-equation,
+.post-content .blog-quote,
+.post-content .blog-video,
+.post-content .full-width {
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* 1. Image and figure caption styling - aligned borders and matching widths */
+.blog-figure {
+    margin: 3rem 0;
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Base image styles */
+.blog-image,
+.blog-video {
+    width: 100%;
+    /* Take full width of parent */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px var(--shadow-color);
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.blog-image:hover,
+.blog-video:hover {
+    transform: scale(1.01);
+    box-shadow: 0 15px 40px var(--shadow-color);
+}
+
+/* Unified caption styling - same width as image, no border */
+.blog-figure figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+    padding: 0.5rem 0;
+    /* Remove horizontal padding */
+    width: 100%;
+    /* Match image width */
+    max-width: 100%;
+    line-height: 1.5;
+    background: transparent;
+    /* No background */
+    border: none;
+    /* No border */
+    box-shadow: none;
+    /* No shadow */
+}
+
+/* Image size classes - maintain aspect ratio */
+.blog-figure.small-image {
+    max-width: 350px;
+    float: left;
+    margin-right: 2.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    clear: left;
+    align-items: flex-start;
+    width: auto;
+    /* Don't force full width */
+}
+
+.blog-figure.medium-image {
+    max-width: 500px;
+    float: left;
+    margin-right: 2.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    clear: left;
+    align-items: flex-start;
+    width: auto;
+}
+
+.blog-figure.large-image {
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    width: 100%;
+}
+
+/* Right-aligned images */
+.blog-figure.small-image.right,
+.blog-figure.medium-image.right {
+    float: right;
+    margin-left: 2.5rem;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    clear: right;
+    align-items: flex-end;
+    width: auto;
+}
+
+/* For floated images, ensure caption matches image width */
+.blog-figure.small-image .blog-image,
+.blog-figure.medium-image .blog-image,
+.blog-figure.small-image .blog-video,
+.blog-figure.medium-image .blog-video {
+    width: 100%;
+}
+
+.blog-figure.small-image figcaption,
+.blog-figure.medium-image figcaption {
+    text-align: left;
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.blog-figure.small-image.right figcaption,
+.blog-figure.medium-image.right figcaption {
+    text-align: right;
+}
+
+/* Clear floats */
+.post-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Center-aligned images */
+.blog-figure.center-image {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* 2. List indentation */
+.post-content ul,
+.post-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2.5rem;
+    list-style-position: outside;
+}
+
+.post-content ul {
+    list-style-type: disc;
+}
+
+.post-content ol {
+    list-style-type: decimal;
+}
+
+.post-content li {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+    padding-left: 0.5rem;
+}
+
+/* Nested lists */
+.post-content ul ul,
+.post-content ol ul,
+.post-content ul ol,
+.post-content ol ol {
+    margin: 0.8rem 0;
+    padding-left: 2rem;
+}
+
+/* 3. Blog outline with compact spacing */
+.blog-outline {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-radius: 24px;
+    padding: 1.5rem 2rem;
+    /* Reduced padding */
+    margin: 0 0 2.5rem 0;
+    /* Reduced margin */
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 30px -15px var(--shadow-color);
+    max-width: 100%;
+    position: relative;
+}
+
+.blog-outline h2 {
+    font-size: 1.3rem;
+    /* Slightly smaller */
+    margin-bottom: 1rem;
+    /* Reduced margin */
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 0.8rem;
+    /* Reduced padding */
+}
+
+.blog-outline h2 i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.blog-outline .outline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog-outline .outline-item {
+    margin-bottom: 0.1rem;
+    /* Minimal spacing between items */
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+/* Level 2 items - main chapters */
+.blog-outline .level-2>.outline-link {
+    font-weight: 600;
+    padding: 0.3rem 1rem 0.3rem 2rem;
+    /* Reduced vertical padding */
+    position: relative;
+    display: block;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    line-height: 1.3;
+    /* Tighter line height */
+}
+
+/* Dot for level 2 */
+.blog-outline .level-2>.outline-link::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+    transition: all 0.2s ease;
+}
+
+.blog-outline .level-2:hover>.outline-link {
+    color: var(--primary);
+    transform: translateX(3px);
+    /* Subtle shift */
+}
+
+.blog-outline .level-2:hover>.outline-link::before {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3);
+}
+
+/* Level 3 items - subsections */
+.blog-outline .level-3>.outline-link {
+    padding: 0.2rem 1rem 0.2rem 2.8rem;
+    /* Reduced vertical padding */
+    font-size: 0.92rem;
+    position: relative;
+    display: block;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    line-height: 1.3;
+    /* Tighter line height */
+}
+
+/* Dot for level 3 */
+.blog-outline .level-3>.outline-link::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.blog-outline .level-3:hover>.outline-link {
+    color: var(--primary-light);
+    transform: translateX(3px);
+}
+
+.blog-outline .level-3:hover>.outline-link::before {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+}
+
+/* Level 4 items - sub-subsections */
+.blog-outline .level-4>.outline-link {
+    padding: 0.2rem 1rem 0.2rem 3.8rem;
+    /* Reduced vertical padding */
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    position: relative;
+    display: block;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    line-height: 1.3;
+    /* Tighter line height */
+}
+
+/* Dot for level 4 */
+.blog-outline .level-4>.outline-link::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--secondary);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.blog-outline .level-4:hover>.outline-link {
+    color: var(--secondary);
+    transform: translateX(3px);
+}
+
+.blog-outline .level-4:hover>.outline-link::before {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+}
+
+/* Nested lists in outline */
+.blog-outline .outline-sublist {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    /* Remove margin */
+}
+
+/* Active section highlight */
+.blog-outline .outline-link.active {
+    color: var(--primary);
+    background: var(--hover-bg);
+    border-radius: 20px;
+    /* Slightly smaller radius */
+    font-weight: 500;
+}
+
+.blog-outline .outline-link.active::before {
+    background: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(247, 37, 133, 0.3) !important;
+}
+
+/* Progress indicator */
+.blog-outline .outline-progress {
+    height: 3px;
+    /* Slightly thinner */
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 3px;
+    margin-top: 1rem;
+    /* Reduced margin */
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Collapsible outline for mobile */
+.blog-outline .outline-toggle {
+    display: none;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--primary);
+    font-size: 0.85rem;
+    /* Smaller */
+    cursor: pointer;
+    padding: 0.3rem 1rem;
+    /* Smaller */
+    margin-left: auto;
+    border-radius: 30px;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.blog-outline .outline-toggle:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Post footer */
+.post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/* Related posts */
+.related-posts {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+    .blog-post-full {
+        max-width: 95%;
+        padding: 2rem;
+    }
+
+    .post-content {
+        max-width: 100%;
+    }
+
+    .post-content .blog-figure,
+    .post-content .blog-equation,
+    .post-content .blog-quote,
+    .post-content .blog-video,
+    .post-content .full-width {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-post-container {
+        padding: 0 1rem;
+    }
+
+    .blog-post-full {
+        padding: 1.5rem;
+    }
+
+    /* Adjust floated images for mobile */
+    .blog-figure.small-image,
+    .blog-figure.medium-image,
+    .blog-figure.small-image.right,
+    .blog-figure.medium-image.right {
+        float: none;
+        max-width: 100%;
+        margin: 2rem auto;
+        align-items: center;
+    }
+
+    .blog-figure.small-image figcaption,
+    .blog-figure.medium-image figcaption,
+    .blog-figure.small-image.right figcaption,
+    .blog-figure.medium-image.right figcaption {
+        text-align: center;
+    }
+
+    /* Outline mobile styles */
+    .blog-outline {
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .blog-outline .outline-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .blog-outline.collapsible .outline-list {
+        display: none;
+    }
+
+    .blog-outline.collapsible.expanded .outline-list {
+        display: block;
+    }
+
+    /* Adjust dot positions for mobile */
+    .blog-outline .level-2>.outline-link {
+        padding-left: 2rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+
+    .blog-outline .level-2>.outline-link::before {
+        left: 6px;
+    }
+
+    .blog-outline .level-3>.outline-link {
+        padding-left: 2.8rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .blog-outline .level-3>.outline-link::before {
+        left: 14px;
+    }
+
+    .blog-outline .level-4>.outline-link {
+        padding-left: 3.8rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .blog-outline .level-4>.outline-link::before {
+        left: 24px;
+    }
+
+    /* Post footer mobile */
+    .post-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .post-navigation {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .related-posts {
+        padding: 1.5rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .blog-post-full {
+        padding: 1rem;
+    }
+
+    .blog-outline {
+        padding: 1rem;
+    }
+}
+
+/* Smooth scrolling offset */
+html {
+    scroll-padding-top: 100px;
+}
+
+/* Print styles */
+@media print {
+
+    .blog-outline,
+    .post-footer,
+    .related-posts,
+    .blog-breadcrumb {
+        display: none;
+    }
+
+    .blog-post-full {
+        max-width: 100%;
+        padding: 0;
+        box-shadow: none;
+        border: none;
     }
 }

@@ -11,7 +11,7 @@
             tags: ["3DGS", "distributed"],
             excerpt: "Thoughts on distributed 3DGS, scaling laws, and why Gaussian splatting might be the new NeRF.",
             image: "./resources/dogaussian.gif",
-            url: "./blog-posts/scaling-3d-gaussian.html",
+            // url: "./blog-posts/scaling-3d-gaussian.html",
             featured: true
         },
         {
@@ -23,41 +23,8 @@
             tags: ["NeRF", "math"],
             excerpt: "Deriving the rendering equations, comparison of volumetric vs. splatting, and where we can expect convergence.",
             image: "./resources/anti_aliasing_gaussian.gif",
-            url: "./blog-posts/nerf-vs-3dgs.html"
+            // url: "./blog-posts/nerf-vs-3dgs.html"
         },
-        {
-            id: 3,
-            title: "Distributed SfM with GraphSfM: A Tutorial",
-            date: "2025-10-18",
-            readTime: 8,
-            category: "SfM",
-            tags: ["SfM", "distributed", "tutorial"],
-            excerpt: "Step-by-step guide to running large-scale Structure-from-Motion using GraphSfM.",
-            image: "./resources/pr20_pku.png",
-            url: "./blog-posts/graphsfm-tutorial.html"
-        },
-        {
-            id: 4,
-            title: "The Math Behind Rotation Averaging",
-            date: "2025-07-20",
-            readTime: 12,
-            category: "Math",
-            tags: ["math", "optimization", "SfM"],
-            excerpt: "A comprehensive mathematical introduction to rotation averaging algorithms.",
-            image: "./resources/cvpr21_ra.gif",
-            url: "./blog-posts/rotation-averaging-math.html"
-        },
-        {
-            id: 5,
-            title: "3D Generation: Current State and Future Directions",
-            date: "2025-06-08",
-            readTime: 8,
-            category: "Generation",
-            tags: ["3D generation", "AI"],
-            excerpt: "Review of the latest advances in 3D content generation and what's coming next.",
-            image: "./resources/deepgfm.gif",
-            url: "./blog-posts/3d-generation-review.html"
-        }
     ];
 
     const POSTS_PER_PAGE = 3; // Show 3 posts per page
