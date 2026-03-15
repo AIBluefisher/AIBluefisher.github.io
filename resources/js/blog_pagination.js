@@ -4,14 +4,14 @@
     const blogPosts = [
         {
             id: 1,
-            title: "Scaling 3D data with Gaussian consensus",
-            date: "2026-02-28",
+            title: "和 3D Vision 相遇的八年",
+            date: "2026-03-15",
             readTime: 6,
-            category: "3DGS",
-            tags: ["3DGS", "distributed"],
-            excerpt: "Thoughts on distributed 3DGS, scaling laws, and why Gaussian splatting might be the new NeRF.",
-            image: "./resources/dogaussian.gif",
-            // url: "./blog-posts/scaling-3d-gaussian.html",
+            category: "PhD",
+            tags: ["PhD", "reconstruction", "3D"],
+            excerpt: "Thoughts on 3D computer vision, and the journey of my PhD career.",
+            image: "./resources/images/blog01_teaser.jpg",
+            url: "./blog-posts/my_phd_journey.html",
             featured: true
         },
         {
