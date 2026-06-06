@@ -16,20 +16,22 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <!-- Navigation Bar with Profile Image -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Primary">
     <div class="navbar-container">
-      <a href="#home" class="navbar-logo">
+      <a href="#home" class="navbar-logo" aria-label="Chen Yu home">
         <img class="navbar-logo-image" src="./resources/profile.jpg" alt="Chen Yu">
         <span>Chen Yu</span>
       </a>
 
-      <div class="navbar-toggle" id="navbarToggle">
+      <div class="navbar-toggle" id="navbarToggle" role="button" tabindex="0" aria-label="Open navigation menu"
+        aria-controls="navbarMenu" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </div>
 
       <div class="navbar-menu" id="navbarMenu">
-        <div class="navbar-close" id="navbarClose">
+        <div class="navbar-close" id="navbarClose" role="button" tabindex="0" aria-label="Close navigation menu">
           <i class="fas fa-times"></i>
         </div>
 
@@ -47,7 +49,7 @@
         <a href="#blog" class="navbar-link"><i class="fas fa-pen-fancy"></i> Blog</a>
         <div class="theme-switch-wrapper">
           <div class="theme-switch">
-            <input type="checkbox" id="theme-toggle">
+            <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
             <label for="theme-toggle" aria-label="Toggle dark mode">
               <i class="fas fa-sun"></i>
               <i class="fas fa-moon"></i>
@@ -63,12 +65,12 @@
 
   <!-- Back to Top Button (Fixed) -->
   <div class="back-to-top" id="backToTop">
-    <a href="#" class="back-to-top-btn" id="backToTopBtn">
+    <a href="#" class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
       <i class="fas fa-arrow-up"></i>
     </a>
   </div>
 
-  <div class="main-container">
+  <div class="main-container" id="main-content" role="main">
     <!-- Introduction Section -->
     <section class="glass-card" id="home">
       <div class="profile-container">
@@ -378,18 +380,22 @@
         <h3>Publications</h3>
         <div class="slider-controls">
           <!-- Desktop horizontal controls -->
-          <button class="slider-btn prev-btn desktop-only" id="pubSliderPrev" aria-label="Previous publications">
+          <button class="slider-btn prev-btn desktop-only" id="pubSliderPrev" aria-label="Previous publications"
+            aria-controls="pubSliderContainer">
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button class="slider-btn next-btn desktop-only" id="pubSliderNext" aria-label="Next publications">
+          <button class="slider-btn next-btn desktop-only" id="pubSliderNext" aria-label="Next publications"
+            aria-controls="pubSliderContainer">
             <i class="fas fa-chevron-right"></i>
           </button>
 
           <!-- Mobile vertical controls -->
-          <button class="slider-btn up-btn mobile-only" id="pubSliderUp" aria-label="Previous publications">
+          <button class="slider-btn up-btn mobile-only" id="pubSliderUp" aria-label="Previous publications"
+            aria-controls="pubSliderContainer">
             <i class="fas fa-chevron-up"></i>
           </button>
-          <button class="slider-btn down-btn mobile-only" id="pubSliderDown" aria-label="Next publications">
+          <button class="slider-btn down-btn mobile-only" id="pubSliderDown" aria-label="Next publications"
+            aria-controls="pubSliderContainer">
             <i class="fas fa-chevron-down"></i>
           </button>
         </div>
@@ -397,13 +403,50 @@
 
       <div class="pub-hint">
         <i class="fas fa-lightbulb"></i>
-        <span class="tooltip-text">Hover over the 💡 icon next to author names to see the main idea</span>
-        <span class="pub-count"><i class="fas fa-file-alt"></i> 9 publications</span>
+        <span class="tooltip-text">Hover or tap the lightbulb beside author names to see the main idea</span>
+        <span class="pub-count"><i class="fas fa-file-alt"></i> 10 publications</span>
       </div>
 
       <!-- Responsive Slider Container -->
       <div class="publications-slider-container" id="pubSliderContainer">
         <div class="publications-slider" id="publicationsSlider">
+          <!-- FreeScale -->
+          <div class="publication-slide">
+            <div class="publication-card">
+              <span class="pub-card-venue-badge">CVPR 2026</span>
+              <video class="pub-card-image pub-card-video" aria-label="FreeScale visual preview" autoplay muted loop
+                playsinline preload="metadata" poster="./resources/freescale.gif">
+                <source src="./resources/freescale-preview.webm" type="video/webm">
+                <source src="./resources/freescale-preview.mp4" type="video/mp4">
+                <img src="./resources/freescale.gif" alt="FreeScale visual preview">
+              </video>
+              <div class="pub-card-content">
+                <h4 class="pub-card-title">FreeScale: Scaling 3D Scenes via Certainty-Aware Free-View Generation</h4>
+                <div class="pub-card-authors">
+                  <span class="idea-tooltip">
+                    Chenhan Jiang<sup>*</sup>, <span class="highlight">Yu Chen</span><sup>*</sup>, Qingwen Zhang,
+                    Jifei Song, Songcen Xu, Dit-Yan Yeung, Jiankang Deng <span class="idea-icon">💡</span>
+                    <span class="equal-note">* Equal contribution</span>
+                    <span class="tooltip-text">FreeScale turns sparse real-world captures into a scalable 3D data engine
+                      by sampling certainty-aware free views from reconstructed scenes and using them to improve
+                      feed-forward NVS and per-scene 3DGS.</span>
+                  </span>
+                </div>
+                <div class="pub-card-links">
+                  <a href="https://arxiv.org/pdf/2604.10512" target="_blank" class="pub-card-link"><i
+                      class="fas fa-file-pdf"></i> Paper</a>
+                  <a href="https://mvp-ai-lab.github.io/FreeScale/" target="_blank" class="pub-card-link"><i
+                      class="fab fa-html5"></i> Web</a>
+                  <a href="https://github.com/mvp-ai-lab/FreeScale" target="_blank" class="pub-card-link"><i
+                      class="fab fa-github"></i> Code</a>
+                  <a href="#" class="pub-card-link"
+                    onclick="alert('@inproceedings{jiang2026freescale,\n  title={FreeScale: Scaling 3D Scenes via Certainty-Aware Free-View Generation},\n  author={Jiang, Chenhan and Chen, Yu and Zhang, Qingwen and Song, Jifei and Xu, Songcen and Yeung, Dit-Yan and Deng, Jiankang},\n  booktitle={CVPR},\n  year={2026}\n}'); return false;"><i
+                      class="fas fa-code"></i> Cite</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- PhD Thesis -->
           <div class="publication-slide">
             <div class="publication-card">
@@ -665,6 +708,8 @@
         <div class="progress-bar vertical" id="pubProgressBarVertical"></div>
       </div>
 
+      <div class="slider-dots" id="pubSliderDots" aria-label="Publication slide shortcuts"></div>
+
       <!-- Scroll Hint (changes based on device) -->
       <div class="scroll-hint" id="scrollHint">
         <i class="fas fa-arrows-left-right desktop-hint"></i>
@@ -684,6 +729,18 @@
       </div>
 
       <div class="award-list">
+        <div class="award-item">
+          <span class="award-icon">🎁</span>
+          <span class="award-date">Jan 2025</span>
+          <span class="award-text"><a
+              href="https://credentials.nus.edu.sg/821da2fe-74c0-4e1d-be91-2ac36e435989#acc.urNqZ4UD">Research
+              Achievement Award</a>, SoC, NUS</span>
+        </div>
+        <div class="award-item">
+          <span class="award-icon">🏆</span>
+          <span class="award-date">Sep 2024</span>
+          <span class="award-text">Chinese Government Award for Outstanding Self-Financed Students Abroad</span>
+        </div>
         <div class="award-item">
           <span class="award-icon">🎁</span>
           <span class="award-date">Jan 2024</span>
@@ -741,7 +798,7 @@
 
       <div class="experience-grid">
         <div class="experience-card">
-          <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-logo.png">
+          <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-mark.png">
           <div class="experience-card-content">
             <div class="experience-card-title">SLAM Algorithm Engineer</div>
             <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Segway Robotics</a> • Jul 2020 -
@@ -752,7 +809,7 @@
         </div>
 
         <div class="experience-card">
-          <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-logo.png">
+          <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-mark.png">
           <div class="experience-card-content">
             <div class="experience-card-title">Algorithm Intern</div>
             <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Segway Robotics</a> • Apr 2020 -
@@ -763,7 +820,7 @@
         </div>
 
         <div class="experience-card">
-          <img class="experience-card-logo" alt="TuSimple" src="./resources/tusimple-logo.svg">
+          <img class="experience-card-logo" alt="TuSimple" src="./resources/tusimple-mark.png">
           <div class="experience-card-content">
             <div class="experience-card-title">Research Intern</div>
             <div class="experience-card-meta"><a href="https://www.tusimple.com/">TuSimple</a> • Apr 2019 - Jul 2019
@@ -773,7 +830,7 @@
         </div>
 
         <div class="experience-card">
-          <img class="experience-card-logo" alt="Megvii" src="./resources/megvii-logo.png">
+          <img class="experience-card-logo" alt="Megvii" src="./resources/megvii-mark.png">
           <div class="experience-card-content">
             <div class="experience-card-title">Algorithm Intern</div>
             <div class="experience-card-meta"><a href="https://www.megvii.com/">Megvii Research</a> • Sep 2018 - Dec
@@ -821,6 +878,28 @@
   <script src="./resources/js/bootstrap.min.js"></script>
   <script src="./resources/js/blog_pagination.js"></script>
   <script>
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const getScrollBehavior = () => reducedMotionQuery.matches ? 'auto' : 'smooth';
+
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+      link.rel = link.rel ? `${link.rel} noopener noreferrer` : 'noopener noreferrer';
+    });
+
+    function syncMotionPreference() {
+      document.querySelectorAll('.pub-card-video').forEach(video => {
+        if (reducedMotionQuery.matches) {
+          video.pause();
+          video.removeAttribute('autoplay');
+        } else {
+          video.setAttribute('autoplay', '');
+          video.play().catch(() => {});
+        }
+      });
+    }
+
+    syncMotionPreference();
+    reducedMotionQuery.addEventListener('change', syncMotionPreference);
+
     // 深色模式切换功能
     (function () {
       const themeToggle = document.getElementById('theme-toggle');
@@ -863,11 +942,14 @@
     // 平滑滚动
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({
-            behavior: 'smooth',
+            behavior: getScrollBehavior(),
             block: 'start'
           });
         }
@@ -905,7 +987,7 @@
         e.preventDefault();
         window.scrollTo({
           top: 0,
-          behavior: 'smooth'
+          behavior: getScrollBehavior()
         });
       });
     }
@@ -916,6 +998,55 @@
         this.style.transition = 'transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s ease';
       });
     });
+
+    // Tooltip support for mouse, keyboard, and touch users.
+    (function () {
+      const tooltipItems = document.querySelectorAll('.idea-tooltip');
+
+      function closeTooltips(except = null) {
+        tooltipItems.forEach(item => {
+          if (item !== except) {
+            item.classList.remove('tooltip-open');
+            item.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      tooltipItems.forEach((item, index) => {
+        const text = item.querySelector('.tooltip-text');
+        if (!text) return;
+
+        if (!text.id) text.id = `idea-tooltip-${index + 1}`;
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-describedby', text.id);
+        item.setAttribute('aria-expanded', 'false');
+
+        item.addEventListener('click', event => {
+          event.stopPropagation();
+          const willOpen = !item.classList.contains('tooltip-open');
+          closeTooltips(item);
+          item.classList.toggle('tooltip-open', willOpen);
+          item.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        });
+
+        item.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            item.click();
+          } else if (event.key === 'Escape') {
+            closeTooltips();
+            item.blur();
+          }
+        });
+      });
+
+      document.addEventListener('click', event => {
+        if (!event.target.closest('.idea-tooltip')) {
+          closeTooltips();
+        }
+      });
+    })();
 
     // 移动端导航栏功能
     (function () {
@@ -930,6 +1061,7 @@
         navbarMenu.classList.add('show');
         navbarToggle.classList.add('active');
         navbarOverlay.classList.add('show');
+        navbarToggle?.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden'; // 禁止背景滚动
       }
 
@@ -938,6 +1070,7 @@
         navbarMenu.classList.remove('show');
         navbarToggle.classList.remove('active');
         navbarOverlay.classList.remove('show');
+        navbarToggle?.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = ''; // 恢复背景滚动
 
         // 重置图标
@@ -962,11 +1095,24 @@
             icon.classList.add('fa-times');
           }
         });
+
+        navbarToggle.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
       }
 
       // 点击关闭按钮
       if (navbarClose) {
         navbarClose.addEventListener('click', closeMenu);
+        navbarClose.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            closeMenu();
+          }
+        });
       }
 
       // 点击遮罩层关闭菜单
@@ -1042,6 +1188,8 @@
       const container = document.getElementById('pubSliderContainer');
       const horizontalProgress = document.getElementById('pubProgressBarHorizontal');
       const verticalProgress = document.getElementById('pubProgressBarVertical');
+      const dotsContainer = document.getElementById('pubSliderDots');
+      const slides = Array.from(slider?.querySelectorAll('.publication-slide') || []);
 
       // Buttons
       const prevBtn = document.getElementById('pubSliderPrev');
@@ -1055,17 +1203,88 @@
       let startPos;
       let scrollStart;
       let currentOrientation = window.innerWidth <= 768 ? 'vertical' : 'horizontal';
+      let dotButtons = [];
+
+      container.setAttribute('role', 'region');
+      container.setAttribute('aria-label', 'Scrollable publications carousel');
+      container.setAttribute('tabindex', '0');
+
+      function getActiveIndex() {
+        if (!slides.length) return 0;
+
+        if (currentOrientation === 'horizontal') {
+          const center = container.scrollLeft + container.clientWidth / 2;
+          return slides.reduce((closestIndex, slide, index) => {
+            const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+            const closestCenter = slides[closestIndex].offsetLeft + slides[closestIndex].offsetWidth / 2;
+            return Math.abs(slideCenter - center) < Math.abs(closestCenter - center) ? index : closestIndex;
+          }, 0);
+        }
+
+        const center = container.scrollTop + container.clientHeight / 2;
+        return slides.reduce((closestIndex, slide, index) => {
+          const slideCenter = slide.offsetTop + slide.offsetHeight / 2;
+          const closestCenter = slides[closestIndex].offsetTop + slides[closestIndex].offsetHeight / 2;
+          return Math.abs(slideCenter - center) < Math.abs(closestCenter - center) ? index : closestIndex;
+        }, 0);
+      }
+
+      function updateDots(activeIndex) {
+        dotButtons.forEach((button, index) => {
+          const isActive = index === activeIndex;
+          button.classList.toggle('active', isActive);
+          button.setAttribute('aria-current', isActive ? 'true' : 'false');
+        });
+      }
+
+      function scrollToSlide(index) {
+        const slide = slides[index];
+        if (!slide) return;
+
+        if (currentOrientation === 'horizontal') {
+          container.scrollTo({
+            left: slide.offsetLeft - slider.offsetLeft,
+            behavior: getScrollBehavior()
+          });
+        } else {
+          container.scrollTo({
+            top: slide.offsetTop - slider.offsetTop,
+            behavior: getScrollBehavior()
+          });
+        }
+      }
+
+      function buildDots() {
+        if (!dotsContainer || !slides.length) return;
+
+        dotsContainer.innerHTML = '';
+        dotButtons = slides.map((slide, index) => {
+          const title = slide.querySelector('.pub-card-title')?.textContent.trim() || `publication ${index + 1}`;
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'slider-dot';
+          button.setAttribute('aria-label', `Go to ${title}`);
+          button.addEventListener('click', () => scrollToSlide(index));
+          dotsContainer.appendChild(button);
+          return button;
+        });
+      }
 
       // Update progress based on orientation
       function updateProgress() {
+        const activeIndex = getActiveIndex();
+        updateDots(activeIndex);
+
         if (currentOrientation === 'horizontal') {
           // Horizontal scroll progress
           const scrollWidth = slider.scrollWidth - container.clientWidth;
           const scrolled = container.scrollLeft;
-          const progress = (scrolled / scrollWidth) * 100;
+          const progress = scrollWidth > 0 ? (scrolled / scrollWidth) * 100 : 100;
           if (horizontalProgress) {
             horizontalProgress.style.width = `${progress}%`;
           }
+          container.classList.toggle('at-start', scrolled <= 10);
+          container.classList.toggle('at-end', scrolled >= scrollWidth - 10);
 
           // Update button states
           if (prevBtn) {
@@ -1078,10 +1297,12 @@
           // Vertical scroll progress
           const scrollHeight = slider.scrollHeight - container.clientHeight;
           const scrolled = container.scrollTop;
-          const progress = (scrolled / scrollHeight) * 100;
+          const progress = scrollHeight > 0 ? (scrolled / scrollHeight) * 100 : 100;
           if (verticalProgress) {
             verticalProgress.style.height = `${progress}%`;
           }
+          container.classList.toggle('at-start', scrolled <= 10);
+          container.classList.toggle('at-end', scrolled >= scrollHeight - 10);
 
           // Update button states
           if (upBtn) {
@@ -1102,7 +1323,7 @@
 
           container.scrollBy({
             left: scrollAmount,
-            behavior: 'smooth'
+            behavior: getScrollBehavior()
           });
         } else {
           const cardHeight = slider.querySelector('.publication-slide')?.offsetHeight || 400;
@@ -1111,7 +1332,7 @@
 
           container.scrollBy({
             top: scrollAmount,
-            behavior: 'smooth'
+            behavior: getScrollBehavior()
           });
         }
       }
@@ -1266,6 +1487,7 @@
       }, { passive: false });
 
       // Initialize
+      buildDots();
       setTimeout(updateProgress, 100);
       window.addEventListener('resize', updateProgress);
 
