@@ -413,12 +413,22 @@ body::before {
 .profile-container {
     display: flex;
     gap: 2rem;
+    align-items: flex-start;
+}
+
+.profile-media {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .profile-image-wrapper {
     position: relative;
     flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .profile-image {
@@ -590,7 +600,8 @@ body::before {
 .social-links {
     display: flex;
     gap: 0.5rem;
-    margin: 0.6rem 0 0;
+    justify-content: center;
+    margin: 0.85rem 0 0;
     flex-wrap: wrap;
 }
 
@@ -638,10 +649,6 @@ body::before {
 
 .social-link[title="Google Scholar"] {
     --hover-color: #4285F4;
-}
-
-.social-link[title="CV"] {
-    --hover-color: #6c5ce7;
 }
 
 /* News and Awards */
@@ -2019,6 +2026,35 @@ a:hover {
 
 /* Responsive breakpoints */
 @media (max-width: 992px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.3rem;
+    }
+
+    .profile-media {
+        width: 100%;
+        flex: 0 0 auto;
+        order: 1;
+    }
+
+    .profile-content {
+        width: 100%;
+        order: 2;
+    }
+
+    .profile-content > div:first-child {
+        text-align: center;
+    }
+
+    .profile-tags {
+        justify-content: center;
+    }
+
+    .profile-description {
+        text-align: left;
+    }
+
     .publications-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2224,9 +2260,7 @@ a:hover {
     }
 
     .profile-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
+        gap: 1.15rem;
     }
 
     .profile-image-wrapper {
