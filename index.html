@@ -108,7 +108,7 @@
             
             <br>
             <span class="highlight">
-              I am looking for prospective interns to work on 3D/4D/VLM stuff. 
+              I am looking for prospective interns to work on 3D/4D/VLM stuff (Generating 3D/4D scenes with VLM). 
               Feel free to drop an email if you are interested in working with me.
             </span>
           </p>
@@ -245,7 +245,7 @@
           <!-- Always visible items (first 5) -->
           <div class="news-item">
             <span class="news-icon">😎</span>
-            <span class="news-date">Feb 2026</span>
+            <span class="news-date">Apr 2026</span>
             <span class="news-text">I rejected <span class="highlight">the request for serving as a reviewer</span> of 
               <span class="venue-highlight">NeurIPS 2026</span>!</span>
           </div>
@@ -463,7 +463,7 @@
                 <h4 class="pub-card-title">Large-Scale Neural 3D Scene Reconstruction, Rendering, and Beyond</h4>
                 <div class="pub-card-authors"><span class="highlight">Yu Chen</span></div>
                 <div class="pub-card-links">
-                  <a href="https://arxiv.org/pdf/2411.15779" target="_blank" class="pub-card-link"><i
+                  <a href="https://scholarbank.nus.edu.sg/entities/publication/05459f4a-88c2-434e-ab8e-3a5dcd29e320" target="_blank" class="pub-card-link"><i
                       class="fas fa-file-pdf"></i> Paper</a>
                   <a href="./resources/files/chenyu_phd_thesis.pdf" target="_blank" class="pub-card-link"><i
                       class="fa-regular fa-file-powerpoint"></i> Slides</a>
@@ -486,7 +486,7 @@
                 <div class="pub-card-authors"><span class="highlight">Yu Chen</span>, Rolandos Alexandros Potamias,
                   Evangelos Ververas, Jifei Song, Jiankang Deng, Gim Hee Lee</div>
                 <div class="pub-card-links">
-                  <a href="https://arxiv.org/pdf/2411.15779" target="_blank" class="pub-card-link"><i
+                  <a href="https://openreview.net/pdf?id=sl4KqWBkDq" target="_blank" class="pub-card-link"><i
                       class="fas fa-file-pdf"></i> Paper</a>
                   <a href="https://aibluefisher.github.io/DeepGfM" target="_blank" class="pub-card-link"><i
                       class="fab fa-html5"></i> Web</a>
@@ -751,7 +751,7 @@
         <div class="award-item">
           <span class="award-icon">🎁</span>
           <span class="award-date">Jan 2024</span>
-          <span class="award-text">Dean's Graduate Research Achievement Award, SoC, NUS</span>
+          <span class="award-text">Dean's Graduate Research Achievement Award, SoC, NUS (Awarded only once for a senior PhD student who obtains prestigious research achievement at NUS)</span>
         </div>
         <div class="award-item">
           <span class="award-icon">🎁</span>
@@ -804,6 +804,33 @@
       </div>
 
       <div class="experience-grid">
+        <div class="experience-card">
+          <img class="experience-card-logo" alt="Huawei UK" src="./resources/Huawei.png">
+          <div class="experience-card-content">
+            <div class="experience-card-title">Research Scientist</div>
+            <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Huawei UK, Darwin Research Center</a> • Oct 2025 -
+              Current</div>
+            <div class="experience-card-desc">3D Reconstruction, VLM</div>
+          </div>
+        </div>
+        <div class="experience-card">
+          <img class="experience-card-logo" alt="Huawei UK" src="./resources/Huawei.png">
+          <div class="experience-card-content">
+            <div class="experience-card-title">Research Scientist Intern</div>
+            <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Huawei UK</a> • May 2024 -
+              Jun 2025</div>
+            <div class="experience-card-desc">Gaussian Splatting, 3D Reconstruction</div>
+          </div>
+        </div>
+        <div class="experience-card">
+          <img class="experience-card-logo" alt="Google Research" src="./resources/Google.png">
+          <div class="experience-card-content">
+            <div class="experience-card-title">Student Researcher (Remote)</div>
+            <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Google Research</a> • Jan 2024 -
+              Jun 2025</div>
+            <div class="experience-card-desc">NeRF, Gaussian Splatting, 3D Reconstruction</div>
+          </div>
+        </div>
         <div class="experience-card">
           <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-mark.png">
           <div class="experience-card-content">
@@ -1206,6 +1233,8 @@
 
       if (!slider || !container) return;
 
+      const dragThreshold = 6;
+      let isPointerDown = false;
       let isDragging = false;
       let startPos;
       let scrollStart;
@@ -1358,76 +1387,94 @@
         downBtn.addEventListener('click', () => scrollByCard('down'));
       }
 
-      // Drag to scroll (works for both orientations)
-      container.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        container.classList.add('dragging');
+      // Drag to scroll without interfering with links or text selection.
+      function isInteractiveTarget(target) {
+        return target.closest(
+          '.pub-card-content, a, button, input, textarea, select, option, label, summary, video, [contenteditable="true"]'
+        );
+      }
 
-        if (currentOrientation === 'horizontal') {
-          startPos = e.pageX - container.offsetLeft;
-          scrollStart = container.scrollLeft;
-        } else {
-          startPos = e.pageY - container.offsetTop;
-          scrollStart = container.scrollTop;
-        }
+      function getPointerPosition(event) {
+        return currentOrientation === 'horizontal' ? event.pageX : event.pageY;
+      }
+
+      function finishDrag() {
+        isPointerDown = false;
+        isDragging = false;
+        container.classList.remove('dragging');
+      }
+
+      container.addEventListener('mousedown', (e) => {
+        if (e.button !== 0 || isInteractiveTarget(e.target)) return;
+
+        isPointerDown = true;
+        isDragging = false;
+        startPos = getPointerPosition(e) -
+          (currentOrientation === 'horizontal' ? container.offsetLeft : container.offsetTop);
+        scrollStart = currentOrientation === 'horizontal' ? container.scrollLeft : container.scrollTop;
       });
+
+      window.addEventListener('mouseup', finishDrag);
 
       container.addEventListener('mouseleave', () => {
-        isDragging = false;
-        container.classList.remove('dragging');
-      });
-
-      container.addEventListener('mouseup', () => {
-        isDragging = false;
-        container.classList.remove('dragging');
+        if (!isDragging) finishDrag();
       });
 
       container.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
+        if (!isPointerDown) return;
 
+        const pointerPosition = getPointerPosition(e) -
+          (currentOrientation === 'horizontal' ? container.offsetLeft : container.offsetTop);
+        const walk = (pointerPosition - startPos) * 2;
+
+        if (!isDragging) {
+          if (Math.abs(walk) < dragThreshold) return;
+          isDragging = true;
+          container.classList.add('dragging');
+        }
+
+        e.preventDefault();
         if (currentOrientation === 'horizontal') {
-          const x = e.pageX - container.offsetLeft;
-          const walk = (x - startPos) * 2;
           container.scrollLeft = scrollStart - walk;
         } else {
-          const y = e.pageY - container.offsetTop;
-          const walk = (y - startPos) * 2;
           container.scrollTop = scrollStart - walk;
         }
       });
 
       // Touch events for mobile
       container.addEventListener('touchstart', (e) => {
-        isDragging = true;
+        if (e.touches.length !== 1 || isInteractiveTarget(e.target)) return;
 
-        if (currentOrientation === 'horizontal') {
-          startPos = e.touches[0].pageX - container.offsetLeft;
-          scrollStart = container.scrollLeft;
-        } else {
-          startPos = e.touches[0].pageY - container.offsetTop;
-          scrollStart = container.scrollTop;
-        }
-      });
-
-      container.addEventListener('touchend', () => {
+        isPointerDown = true;
         isDragging = false;
-      });
+        startPos = getPointerPosition(e.touches[0]) -
+          (currentOrientation === 'horizontal' ? container.offsetLeft : container.offsetTop);
+        scrollStart = currentOrientation === 'horizontal' ? container.scrollLeft : container.scrollTop;
+      }, { passive: true });
+
+      container.addEventListener('touchend', finishDrag, { passive: true });
+      container.addEventListener('touchcancel', finishDrag, { passive: true });
 
       container.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
+        if (!isPointerDown || e.touches.length !== 1) return;
 
+        const pointerPosition = getPointerPosition(e.touches[0]) -
+          (currentOrientation === 'horizontal' ? container.offsetLeft : container.offsetTop);
+        const walk = (pointerPosition - startPos) * 2;
+
+        if (!isDragging) {
+          if (Math.abs(walk) < dragThreshold) return;
+          isDragging = true;
+          container.classList.add('dragging');
+        }
+
+        e.preventDefault();
         if (currentOrientation === 'horizontal') {
-          const x = e.touches[0].pageX - container.offsetLeft;
-          const walk = (x - startPos) * 2;
           container.scrollLeft = scrollStart - walk;
         } else {
-          const y = e.touches[0].pageY - container.offsetTop;
-          const walk = (y - startPos) * 2;
           container.scrollTop = scrollStart - walk;
         }
-      });
+      }, { passive: false });
 
       // Update progress on scroll
       container.addEventListener('scroll', () => {
