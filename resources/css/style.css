@@ -539,6 +539,53 @@ body::before {
     border-bottom-color: var(--primary);
 }
 
+.profile-callout {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 0.85rem 0 0.65rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 0.94rem;
+    line-height: 1.5;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+}
+
+.profile-callout i {
+    flex-shrink: 0;
+    margin-top: 0.18rem;
+    color: #2f9e64;
+    font-size: 0.95rem;
+}
+
+.profile-callout strong {
+    color: #20754b;
+    font-weight: 700;
+}
+
+.profile-callout-recruiting {
+    background: rgba(238, 248, 240, 0.9);
+    border: 1px solid rgba(123, 184, 135, 0.28);
+    border-left: 4px solid #7bb887;
+}
+
+[data-theme="dark"] .profile-callout {
+    background: rgba(31, 82, 58, 0.32);
+    border-color: rgba(143, 227, 172, 0.22);
+    border-left-color: #8fe3ac;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="dark"] .profile-callout i {
+    color: #8fe3ac;
+}
+
+[data-theme="dark"] .profile-callout strong {
+    color: #b4f0c1;
+}
+
 /* Social links */
 .social-links {
     display: flex;
@@ -1386,6 +1433,44 @@ body::before {
 }
 
 /* Experience Timeline */
+.experience-slider {
+    height: 31rem;
+    max-height: 31rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0.25rem 0.7rem 0.25rem 0.15rem;
+    border-radius: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--glass-border);
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
+.experience-slider:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.experience-slider::-webkit-scrollbar {
+    width: 8px;
+}
+
+.experience-slider::-webkit-scrollbar-track {
+    background: var(--glass-border);
+    border-radius: 999px;
+}
+
+.experience-slider::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border: 2px solid var(--glass-bg);
+    border-radius: 999px;
+}
+
+.experience-slider::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
 .experience-timeline {
     position: relative;
     margin-top: 0.35rem;
@@ -1938,6 +2023,11 @@ a:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .experience-slider {
+        height: 34rem;
+        max-height: 34rem;
+    }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2163,6 +2253,12 @@ a:hover {
         gap: 1rem;
     }
 
+    .experience-slider {
+        height: 34rem;
+        max-height: 34rem;
+        padding-right: 0.55rem;
+    }
+
     .experience-card {
         padding: 1rem;
     }
@@ -2251,6 +2347,12 @@ a:hover {
 
     .experience-timeline {
         padding-left: 0;
+    }
+
+    .experience-slider {
+        height: 34rem;
+        max-height: 34rem;
+        padding-right: 0.45rem;
     }
 
     .experience-timeline::before {
@@ -2472,9 +2574,17 @@ a:hover {
     }
 
     .publications-grid,
+    .experience-slider,
     .experience-timeline,
     .publications-slider {
         display: block;
+    }
+
+    .experience-slider {
+        height: auto;
+        max-height: none;
+        overflow: visible;
+        padding: 0;
     }
 
     .experience-timeline::before,
