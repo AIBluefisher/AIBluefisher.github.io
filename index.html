@@ -793,7 +793,7 @@
       </div>
     </section>
 
-    <!-- Experiences Section - Card Design -->
+    <!-- Experiences Section - Timeline -->
     <section class="glass-card" id="experience">
       <div class="section-header">
         <div class="icon-wrapper">
@@ -803,75 +803,141 @@
         <h3>Experience</h3>
       </div>
 
-      <div class="experience-grid">
-        <div class="experience-card">
-          <img class="experience-card-logo" alt="Huawei UK" src="./resources/Huawei.png">
-          <div class="experience-card-content">
-            <div class="experience-card-title">Research Scientist</div>
-            <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Huawei UK, Darwin Research Center</a> • Oct 2025 -
-              Current</div>
-            <div class="experience-card-desc">3D Reconstruction, VLM</div>
-          </div>
-        </div>
-        <div class="experience-card">
-          <img class="experience-card-logo" alt="Huawei UK" src="./resources/Huawei.png">
-          <div class="experience-card-content">
-            <div class="experience-card-title">Research Scientist Intern</div>
-            <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Huawei UK</a> • May 2024 -
-              Jun 2025</div>
-            <div class="experience-card-desc">Gaussian Splatting, 3D Reconstruction</div>
-          </div>
-        </div>
-        <div class="experience-card">
-          <img class="experience-card-logo" alt="Google Research" src="./resources/Google.png">
-          <div class="experience-card-content">
-            <div class="experience-card-title">Student Researcher (Remote)</div>
-            <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Google Research</a> • Jan 2024 -
-              Jun 2025</div>
-            <div class="experience-card-desc">NeRF, Gaussian Splatting, 3D Reconstruction</div>
-          </div>
-        </div>
-        <div class="experience-card">
-          <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-mark.png">
-          <div class="experience-card-content">
-            <div class="experience-card-title">SLAM Algorithm Engineer</div>
-            <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Segway Robotics</a> • Jul 2020 -
-              Dec 2021</div>
-            <div class="experience-card-desc">Visual-Inertial-Odometry SLAM, Marker SLAM, Outdoor Multi-sensor Fusion
-              SfM</div>
-          </div>
-        </div>
-
-        <div class="experience-card">
-          <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-mark.png">
-          <div class="experience-card-content">
-            <div class="experience-card-title">Algorithm Intern</div>
-            <div class="experience-card-meta"><a href="https://www.segwayrobotics.com/">Segway Robotics</a> • Apr 2020 -
-              Jun 2020</div>
-            <div class="experience-card-desc">Visual-Inertial SLAM, Self-Calibration on scooters (with Jianming Li)
+      <div class="experience-timeline" aria-label="Professional experience">
+        <article class="experience-item is-current">
+          <div class="experience-marker" aria-hidden="true"><span></span></div>
+          <div class="experience-card">
+            <div class="experience-card-header">
+              <a class="experience-card-logo-link" href="https://www.huawei.com/uk/" target="_blank"
+                rel="noopener noreferrer">
+                <img class="experience-card-logo" alt="Huawei" src="./resources/Huawei.png">
+              </a>
+              <div class="experience-card-heading">
+                <div class="experience-card-period">Oct 2025 - Present <span class="experience-current">Current</span>
+                </div>
+                <h4 class="experience-card-title">Research Scientist</h4>
+                <a class="experience-card-company" href="https://www.huawei.com/uk/" target="_blank"
+                  rel="noopener noreferrer">Huawei UK, Darwin Research Center</a>
+              </div>
             </div>
+            <p class="experience-card-desc">3D Reconstruction, VLM</p>
           </div>
-        </div>
+        </article>
 
-        <div class="experience-card">
-          <img class="experience-card-logo" alt="TuSimple" src="./resources/tusimple-mark.png">
-          <div class="experience-card-content">
-            <div class="experience-card-title">Research Intern</div>
-            <div class="experience-card-meta"><a href="https://www.tusimple.com/">TuSimple</a> • Apr 2019 - Jul 2019
+        <article class="experience-item">
+          <div class="experience-marker" aria-hidden="true"><span></span></div>
+          <div class="experience-card">
+            <div class="experience-card-header">
+              <a class="experience-card-logo-link" href="https://www.huawei.com/uk/" target="_blank"
+                rel="noopener noreferrer">
+                <img class="experience-card-logo" alt="Huawei" src="./resources/Huawei.png">
+              </a>
+              <div class="experience-card-heading">
+                <div class="experience-card-period">May 2024 - Jun 2025</div>
+                <h4 class="experience-card-title">Research Scientist Intern</h4>
+                <a class="experience-card-company" href="https://www.huawei.com/uk/" target="_blank"
+                  rel="noopener noreferrer">Huawei UK</a>
+              </div>
             </div>
-            <div class="experience-card-desc">High-Definition mapping, Rotation Averaging (with Dr. Ji Zhao)</div>
+            <p class="experience-card-desc">Gaussian Splatting, 3D Reconstruction</p>
           </div>
-        </div>
+        </article>
 
-        <div class="experience-card">
-          <img class="experience-card-logo" alt="Megvii" src="./resources/megvii-mark.png">
-          <div class="experience-card-content">
-            <div class="experience-card-title">Algorithm Intern</div>
-            <div class="experience-card-meta"><a href="https://www.megvii.com/">Megvii Research</a> • Sep 2018 - Dec
-              2018</div>
-            <div class="experience-card-desc">Real-time 3D reconstruction, texture mapping</div>
+        <article class="experience-item">
+          <div class="experience-marker" aria-hidden="true"><span></span></div>
+          <div class="experience-card">
+            <div class="experience-card-header">
+              <a class="experience-card-logo-link" href="https://research.google/" target="_blank"
+                rel="noopener noreferrer">
+                <img class="experience-card-logo" alt="Google Research" src="./resources/Google.png">
+              </a>
+              <div class="experience-card-heading">
+                <div class="experience-card-period">Jan 2024 - Jun 2025</div>
+                <h4 class="experience-card-title">Student Researcher (Remote)</h4>
+                <a class="experience-card-company" href="https://research.google/" target="_blank"
+                  rel="noopener noreferrer">Google Research</a>
+              </div>
+            </div>
+            <p class="experience-card-desc">NeRF, Gaussian Splatting, 3D Reconstruction</p>
           </div>
-        </div>
+        </article>
+
+        <article class="experience-item">
+          <div class="experience-marker" aria-hidden="true"><span></span></div>
+          <div class="experience-card">
+            <div class="experience-card-header">
+              <a class="experience-card-logo-link" href="https://www.segwayrobotics.com/" target="_blank"
+                rel="noopener noreferrer">
+                <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-mark.png">
+              </a>
+              <div class="experience-card-heading">
+                <div class="experience-card-period">Jul 2020 - Dec 2021</div>
+                <h4 class="experience-card-title">SLAM Algorithm Engineer</h4>
+                <a class="experience-card-company" href="https://www.segwayrobotics.com/" target="_blank"
+                  rel="noopener noreferrer">Segway Robotics</a>
+              </div>
+            </div>
+            <p class="experience-card-desc">Visual-Inertial-Odometry SLAM, Marker SLAM, Outdoor Multi-sensor Fusion SfM
+            </p>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <div class="experience-marker" aria-hidden="true"><span></span></div>
+          <div class="experience-card">
+            <div class="experience-card-header">
+              <a class="experience-card-logo-link" href="https://www.segwayrobotics.com/" target="_blank"
+                rel="noopener noreferrer">
+                <img class="experience-card-logo" alt="Segway Robotics" src="./resources/segway-mark.png">
+              </a>
+              <div class="experience-card-heading">
+                <div class="experience-card-period">Apr 2020 - Jun 2020</div>
+                <h4 class="experience-card-title">Algorithm Intern</h4>
+                <a class="experience-card-company" href="https://www.segwayrobotics.com/" target="_blank"
+                  rel="noopener noreferrer">Segway Robotics</a>
+              </div>
+            </div>
+            <p class="experience-card-desc">Visual-Inertial SLAM, Self-Calibration on scooters (with Jianming Li)</p>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <div class="experience-marker" aria-hidden="true"><span></span></div>
+          <div class="experience-card">
+            <div class="experience-card-header">
+              <a class="experience-card-logo-link" href="https://www.tusimple.com/" target="_blank"
+                rel="noopener noreferrer">
+                <img class="experience-card-logo" alt="TuSimple" src="./resources/tusimple-mark.png">
+              </a>
+              <div class="experience-card-heading">
+                <div class="experience-card-period">Apr 2019 - Jul 2019</div>
+                <h4 class="experience-card-title">Research Intern</h4>
+                <a class="experience-card-company" href="https://www.tusimple.com/" target="_blank"
+                  rel="noopener noreferrer">TuSimple</a>
+              </div>
+            </div>
+            <p class="experience-card-desc">High-Definition mapping, Rotation Averaging (with Dr. Ji Zhao)</p>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <div class="experience-marker" aria-hidden="true"><span></span></div>
+          <div class="experience-card">
+            <div class="experience-card-header">
+              <a class="experience-card-logo-link" href="https://www.megvii.com/" target="_blank"
+                rel="noopener noreferrer">
+                <img class="experience-card-logo" alt="Megvii" src="./resources/megvii-mark.png">
+              </a>
+              <div class="experience-card-heading">
+                <div class="experience-card-period">Sep 2018 - Dec 2018</div>
+                <h4 class="experience-card-title">Algorithm Intern</h4>
+                <a class="experience-card-company" href="https://www.megvii.com/" target="_blank"
+                  rel="noopener noreferrer">Megvii Research</a>
+              </div>
+            </div>
+            <p class="experience-card-desc">Real-time 3D reconstruction, texture mapping</p>
+          </div>
+        </article>
       </div>
     </section>
 
